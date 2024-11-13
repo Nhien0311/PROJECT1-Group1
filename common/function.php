@@ -1,3 +1,4 @@
+
 <?php
 // Hàm kết nối CSDL
 function connectDB() {
