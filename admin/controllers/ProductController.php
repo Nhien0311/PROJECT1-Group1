@@ -77,6 +77,11 @@ class ProductController
             require_once 'views/products/edit.php';
         }
     }
+    public function delete($id)
+    {
+        $this->productModel->delete($id);
+        header('Location: ?act=products');
+    }
 
 }
 ?>

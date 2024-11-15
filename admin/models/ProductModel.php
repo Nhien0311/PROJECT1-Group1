@@ -57,5 +57,11 @@ class Product{
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
     }
+    public function delete($id)
+    {
+        $sql = "DELETE FROM products WHERE product_id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+    }
 }
 ?>
