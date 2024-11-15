@@ -54,10 +54,10 @@ class ProductController
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $thumbnail = $_POST['thumbnail'] ?? '';
             if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-                $thumbnail = 'uploads/' . basename($_FILES['image']['name']);
+                $thumbnail = '../uploads/' . basename($_FILES['image']['name']);
                 move_uploaded_file($_FILES['image']['tmp_name'], $thumbnail);
             }
-            
+
             $data = [
                 'name' => $_POST['nameModel'] ?? '',
                 'category_id' => $_POST['categoryModel'] ?? '',
@@ -76,6 +76,12 @@ class ProductController
             $product = $this->productModel->getById($id);
             require_once 'views/products/edit.php';
         }
+    }
+
+    public function delete($id)
+    {
+        $this->productModel->delete($id);
+        header('Location: ?act=products');
     }
 
 }
