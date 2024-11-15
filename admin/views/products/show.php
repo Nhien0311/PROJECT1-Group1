@@ -62,7 +62,7 @@
                                                         <div class="mb-3">
                                                             <label for="product_id" class="form-label">Mã danh mục</label>
                                                             <input type="text" class="form-control" id="product_id" name="productModel"
-                                                                value="<?php echo $product['product_id']; ?>" disabled>
+                                                                value="<?php echo $product['category_id']; ?>" disabled>
                                                         </div>
                                                     </div>
                                                 </div>

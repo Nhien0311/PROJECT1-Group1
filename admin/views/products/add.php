@@ -16,7 +16,7 @@
 
 <body>
     <div id="layout-wrapper">
-        
+
         <?php
         require_once "views/layout/header.php";
         require_once "views/layout/sidebar.php";
@@ -24,7 +24,7 @@
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
-                    
+
                     <div class="row">
                         <div class="col-12">
                             <div
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="row">
                         <div class="col">
                             <div class="h-100">
@@ -61,6 +61,18 @@
                                                         <div class="mb-3">
                                                             <label for="categoryModel" class="form-label">Danh mục</label>
                                                             <input type="text" class="form-control" id="categoryModel" name="categoryModel" required>
+                                                            <!-- <select class="form-select" id="categoryModel" name="categoryModel" required>
+                                                                <?php foreach($category as $product){ ?>
+                                                                <option value="1" <?php echo ($product['category_id'] == '1') ? 'selected' : ''; ?>>
+                                                                    Transformers
+                                                                </option>
+                                                                <option value="2" <?php echo ($product['category_id'] == '2') ? 'selected' : ''; ?>>
+                                                                    Gundam
+                                                                </option>
+                                                                <?php
+                                                                }
+                                                                ?>
+                                                            </select> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -130,18 +142,18 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> 
-                    </div> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
+
         <footer class="footer">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
                         <script>
-                        document.write(new Date().getFullYear())
+                            document.write(new Date().getFullYear())
                         </script> © Modelkit Store VN.
                     </div>
                     <div class="col-sm-6">
@@ -153,7 +165,7 @@
             </div>
         </footer>
     </div>
-   
+
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>
     </button>
