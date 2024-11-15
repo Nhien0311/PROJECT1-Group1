@@ -14,5 +14,7 @@ match ($act) {
     'products/show' => (new ProductController()) ->show($_GET['id'] ?? 0),
     'products/create' => (new ProductController())->add(),
     'products/edit' => (new ProductController())->edit($_GET['id'] ?? 0),
+    'products/delete'      => (new ProductController())->delete($_GET['id'] ?? 0),
+
 }
 ?>
