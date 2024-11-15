@@ -60,8 +60,17 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="categoryModel" class="form-label">Danh mục</label>
-                                                            <input type="text" class="form-control" id="categoryModel" name="categoryModel"
-                                                                value="<?php echo $product['category_id']; ?>" required>
+                                                            <!-- <input type="text" class="form-control" id="categoryModel" name="categoryModel"
+                                                                value="<?php echo $product['category_id']; ?>" required> -->
+
+                                                            <select class="form-select" id="categoryModel" name="categoryModel" required>
+                                                                <option value="1" <?php echo ($product['category_id'] == '1') ? 'selected' : ''; ?>>
+                                                                    Transformers
+                                                                </option>
+                                                                <option value="2" <?php echo ($product['category_id'] == '2') ? 'selected' : ''; ?>>
+                                                                    Gundam
+                                                                </option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
