@@ -57,7 +57,7 @@ class ProductController
                 $thumbnail = 'uploads/' . basename($_FILES['image']['name']);
                 move_uploaded_file($_FILES['image']['tmp_name'], $thumbnail);
             }
-
+            
             $data = [
                 'name' => $_POST['nameModel'] ?? '',
                 'category_id' => $_POST['categoryModel'] ?? '',
