@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách sản phẩm | Modelkit Store VN</title>
+    <title>Danh sách tài khoản | Modelkit Store VN</title>
     <?php require_once "views/layout/libs_css.php"; ?>
 </head>
 
@@ -76,7 +76,7 @@
                                                                 <td><?= $account['password'] ?></td>
                                                                 <td><?= $account['phone'] ?></td>
                                                                 <td><?= $account['address'] ?></td>
-                                                                <td><?= $account['role_id'] ?></td>
+                                                                <td><?= $account['role_id'] == 0 ? 'admin' : 'user'; ?></td>
                                                                 <td>
                                                                 <div
                                                                     class="d-flex justify-content-center hstack gap-3 flex-wrap">

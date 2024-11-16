@@ -44,7 +44,7 @@
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
                                 <h4 class="card-title mb-0 flex-grow-1">Chi tiết tài khoản</h4>
-                                <a href="?act=accounts/show" class="btn btn-soft-success material-shadow-none">
+                                <a href="?act=accounts/create" class="btn btn-soft-success material-shadow-none">
                                     <i class="ri-add-circle-line align-middle me-1"></i> Thêm tài khoản
                                 </a>
                             </div>
