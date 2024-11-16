@@ -49,12 +49,5 @@ class ProductController
         }
     }
 
-
-    public function delete($id)
-    {
-        $this->productModel->delete($id);
-        header('Location: ?act=products');
-    }
-
 }
 ?>
