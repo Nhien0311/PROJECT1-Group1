@@ -133,6 +133,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="text-end">
+                                                            <button type="reset" class="btn btn-warning">Nhập lại</button>
                                                             <button type="submit" class="btn btn-danger">Thêm sản phẩm</button>
                                                         </div>
                                                     </div>

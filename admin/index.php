@@ -20,6 +20,8 @@ match ($act) {
 
     'categories' => (new CategoryController()) ->index(),
     'categories/show' => (new CategoryController()) ->show($_GET['id'] ?? 0),
-
+    'categories/create' => (new CategoryController())->add(),
+    'categories/edit' => (new CategoryController())->edit($_GET['id'] ?? 0),
+    'categories/delete'      => (new CategoryController())->delete($_GET['id'] ?? 0),
 }
 ?>
