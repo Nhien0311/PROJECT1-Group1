@@ -28,8 +28,6 @@ class AccountModel
                 VALUES (:user_name, :email, :password, :phone, :address, :role_id)";
 
         $stmt = $this->conn->prepare($sql);
-
-        // Execute với mảng liên kết
         $stmt->execute($data);
     }
     public function edit($id, $data) {
@@ -43,7 +41,5 @@ class AccountModel
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
     }
-
-
 }
 ?>

@@ -66,7 +66,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="contentModel" class="form-label">password</label>
-                                                            <input type="text" class="form-control" id="password" name="password" required>
+                                                            <input type="password" class="form-control" id="password" name="password" required>
                                                         </div>
                                                     </div>
                                                    

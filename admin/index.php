@@ -17,6 +17,12 @@ match ($act) {
     'products/create'     => (new ProductController())->add(),
     'products/edit'       => (new ProductController())->edit($_GET['id'] ?? 0),
     'products/delete'     => (new ProductController())->delete($_GET['id'] ?? 0),
+
+    'categories' => (new CategoryController())->index(),
+    'categories/show' => (new CategoryController())->show($_GET['id'] ?? 0),
+    'categories/create' => (new CategoryController())->add(),
+    'categories/edit' => (new CategoryController())->edit($_GET['id'] ?? 0),
+    'categories/delete'      => (new CategoryController())->delete($_GET['id'] ?? 0),
     
     // CRUD accounts
     'accounts'            => (new AccountController())->index(),

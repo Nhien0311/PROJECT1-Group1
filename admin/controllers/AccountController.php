@@ -18,7 +18,7 @@ class AccountController {
             $data = [
                 'user_name' => $_POST['user_name'],
                 'email' => $_POST['email'],
-                'password' => password_hash($_POST['password'],PASSWORD_DEFAULT),
+                'password' => $_POST['password'],
                 'phone' => $_POST['phone'] ,
                 'address' => $_POST['address'],
                 'role_id' => $_POST['role_id']
@@ -34,7 +34,7 @@ class AccountController {
             $data = [
                 'user_name' => $_POST['user_name'],
                 'email' => $_POST['email'],
-                'password' => password_hash($_POST['password'],PASSWORD_DEFAULT),
+                'password' => $_POST['password'],
                 'phone' => $_POST['phone'] ,
                 'address' => $_POST['address'] ,
                 'role_id' => $_POST['role_id'] 
