@@ -55,14 +55,14 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarNguoiDung" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarNguoiDung">
-                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí người dùng</span>
+                    <a class="nav-link menu-link" href="#sidebarTaikhoan" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarTaikhoan">
+                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí tài khoản</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarNguoiDung">
+                    <div class="collapse menu-dropdown" id="sidebarTaikhoan">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="?act=users" class="nav-link" data-key="t-sweet-alerts">
+                                <a href="?act=accounts" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách
                                 </a>
                             </li>
