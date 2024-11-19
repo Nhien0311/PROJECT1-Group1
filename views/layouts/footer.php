@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
                 <ul class="menu-footer">
-                    <img src="asset/images/LogoVn1.png" alt="" width="150px" height="150px">
+                    <img src="./asset/images/LogoVn1.png" alt="" width="150px" height="150px">
                 </ul>
                 <h5>Địa chỉ: Dịch Vọng - Cầu Giấy - Hà Nội</h5>
                 <h6>Email:<a href="">mungnvph52815@gmail.com</a></h6>

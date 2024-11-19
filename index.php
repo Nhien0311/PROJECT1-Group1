@@ -1,6 +1,12 @@
-<?php include "views/header.php"; ?>
-<?php include "views/slide.php"; ?>
-<?php include "views/home-product.php"; ?>
-<?php include "views/footer.php"; ?>
+<?php
+require_once './commons/env.php';
+require_once './commons/function.php';
 
-    
+require_once './controllers/HomeController.php';
+
+$act = $_GET['act'] ?? '/';
+
+match ($act) {
+    '/' => (new HomeController())->index(),
+};
+?>
