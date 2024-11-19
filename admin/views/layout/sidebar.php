@@ -94,7 +94,7 @@
                     <div class="collapse menu-dropdown" id="sidebarBienThe">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="?act=bienthes" class="nav-link" data-key="t-sweet-alerts">
+                                <a href="?act=variants" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách
                                 </a>
                             </li>
