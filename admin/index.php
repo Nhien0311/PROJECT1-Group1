@@ -6,11 +6,13 @@ require_once 'controllers/ProductController.php';
 require_once 'controllers/CategoryController.php';
 require_once 'controllers/AccountController.php';
 require_once 'controllers/DashboardController.php';
+require_once "controllers/ordersController.php";
 
 
 require_once 'models/ProductModel.php';
 require_once 'models/AccountModel.php';
 require_once 'models/CategoryModel.php';
+require_once "models/ordersModel.php";
 $act = $_GET['act'] ?? '/';
 match ($act) {
     '/' => (new DashboardController()) ->index(),
@@ -34,5 +36,10 @@ match ($act) {
     'accounts/create'     => (new AccountController())->create(),
     'accounts/edit'       => (new AccountController())->edit($_GET['id']?? 0),
     'accounts/delete'       => (new AccountController())->delete($_GET['id'] ?? 0),
+
+    //CRUD orders
+    'orders'   => (new ordersController)->index(),
+    'orders/delete' =>(new ordersController())->delete($_GET['id'] ?? 0),
+    'orders/edit'   =>(new ordersController())->edit($_GET['id'] ?? 0)
 }
 ?>

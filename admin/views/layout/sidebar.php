@@ -73,7 +73,7 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarBinhLuan" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarBinhLuan">
-                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí bình luận</span>
+                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí đánh giá</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarBinhLuan">
                         <ul class="nav nav-sm flex-column">
@@ -109,15 +109,11 @@
                     <div class="collapse menu-dropdown" id="sidebarQuanLi">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="?act=quanlis" class="nav-link" data-key="t-sweet-alerts">
+                                <a href="?act=orders" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="?act=quanlis/create" class="nav-link" data-key="t-nestable-list">
-                                    Thêm mới
-                                </a>
-                            </li>
+                          
                         </ul>
                     </div>
                 </li>
