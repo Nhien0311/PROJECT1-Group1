@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách tài khoản | Modelkit Store VN</title>
+    <title>Danh sách chi tiết đơn hàng | Modelkit Store VN</title>
     <?php require_once "views/layout/libs_css.php"; ?>
 </head>
 
@@ -25,12 +25,12 @@
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Danh sách tài khoản</h4>
+                                <h4 class="mb-sm-0">Danh sách chi tiết đơn hàng</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Danh sách tài khoản</li>
+                                        <li class="breadcrumb-item active">Danh sách chi tiết đơn hàng</li>
                                     </ol>
                                 </div>
                             </div>
@@ -43,11 +43,7 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách tài khoản</h4>
-                                        <a href="?act=accounts/create"
-                                            class="btn btn-soft-success material-shadow-none">
-                                            <i class="ri-add-circle-line align-middle me-1"></i> Thêm tài khoản
-                                        </a>
+                                        <h4 class="card-title mb-0 flex-grow-1">Danh sách chi tiết đơn hàng</h4>
                                     </div>
 
                                     <div class="card-body">
@@ -58,37 +54,36 @@
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">Id</th>
-                                                            <th scope="col">Tên tài khoản</th>
-                                                            <th scope="col">Email</th>
-                                                            <th scope="col">Password</th>
-                                                            <th scope="col">Phone</th>
-                                                            <th scope="col">Address</th>
-                                                            <th scope="col">Vai trò</th>
-                                                            <th scope="col">Hành động</th>
+                                                            <th scope="col">Số lượng</th>
+                                                            <th scope="col">Giá</th>
+                                                            <th scope="col">ID biến thể</th>
+                                                            <th scope="col">ID tài khoản</th>
+                                                            <th scope="col">Thời gian</th>
+                                                            <th scope="col">Thao tác</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($accounts as $account): ?>
+                                                        <?php foreach ($ordet_details as $order_detail): ?>
                                                             <tr>
-                                                                <td><?= $account['account_id'] ?></td>
-                                                                <td><?= $account['user_name'] ?></td>
-                                                                <td><?= $account['email'] ?></td>
-                                                                <td><?= $account['password'] ?></td>
-                                                                <td><?= $account['phone'] ?></td>
-                                                                <td><?= $account['address'] ?></td>
-                                                                <td><?= $account['role_id'] == 0 ? 'admin' : 'user'; ?></td>
+                                                                <td><?= $order_detail['order_detail_id'] ?></td>
+                                                                <td><?= $order_detail['quantity'] ?></td>
+                                                                <td><?= $order_detail['price'] ?></td>
+                                                                <td><?= $order_detail['variant_id'] ?></td>
+                                                                <td><?= $order_detail['account_id'] ?></td>
+                                                                <td><?= $order_detail['created_at'] ?></td>
+                                                               
                                                                 <td>
                                                                 <div
                                                                     class="d-flex justify-content-center hstack gap-3 flex-wrap">
 
-                                                                    <a href="?act=accounts/show&id=<?php echo $account['account_id']; ?>"
+                                                                    <a href="?act=order_details/show&id=<?php echo $order_detail['order_detail_id']; ?>"
                                                                         class="link-success">
                                                                         <i class="ri-eye-line"></i>
                                                                     </a>
-                                                                    <a href="?act=accounts/edit&id=<?php echo $account['account_id']; ?>" class="link-success">
+                                                                    <a href="?act=order_details/edit&id=<?php echo $order_detail['order_detail_id']; ?>" class="link-success">
                                                                         <i class="ri-edit-2-line"></i>
                                                                     </a>
-                                                                    <a href="?act=accounts/delete&id=<?php echo $account['account_id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa chứ?')" class="link-danger">
+                                                                    <a href="?act=order_details/delete&id=<?php echo $order_detail['order_detail_id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa chứ?')" class="link-danger">
                                                                         <i class="ri-delete-bin-line"></i>
                                                                     </a>
                                                                 </div>
