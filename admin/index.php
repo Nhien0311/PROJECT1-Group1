@@ -6,13 +6,21 @@ require_once 'controllers/ProductController.php';
 require_once 'controllers/CategoryController.php';
 require_once 'controllers/AccountController.php';
 require_once 'controllers/DashboardController.php';
+<<<<<<< HEAD
 require_once 'controllers/Order_detailController.php';
+=======
+require_once 'controllers/VariantController.php';
+>>>>>>> 5a9d2274adcf4d2a66246a12cf05f7de261ba1a1
 
 
 require_once 'models/ProductModel.php';
 require_once 'models/AccountModel.php';
 require_once 'models/CategoryModel.php';
+<<<<<<< HEAD
 require_once 'models/Order_detailModel.php';
+=======
+require_once 'models/VariantModel.php';
+>>>>>>> 5a9d2274adcf4d2a66246a12cf05f7de261ba1a1
 $act = $_GET['act'] ?? '/';
 match ($act) {
     '/' => (new DashboardController()) ->index(),
@@ -36,9 +44,15 @@ match ($act) {
     'accounts/create'     => (new AccountController())->create(),
     'accounts/edit'       => (new AccountController())->edit($_GET['id']?? 0),
     'accounts/delete'       => (new AccountController())->delete($_GET['id'] ?? 0),
+<<<<<<< HEAD
     
     // CRUD order_details
 
     'order_details' => (new Order_detailController())->index(),
+=======
+
+    'variants'            => (new VariantController())->index(),
+    'variants/show' => (new VariantController())->show($_GET['id'] ?? 0),
+>>>>>>> 5a9d2274adcf4d2a66246a12cf05f7de261ba1a1
 }
 ?>
