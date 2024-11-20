@@ -60,13 +60,8 @@
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-<<<<<<< HEAD
                                                             <label for="email" class="form-label">Email</label>
                                                             <input type="text" class="form-control" id="email" name="email"
-=======
-                                                            <label for="nameModel" class="form-label">Email</label>
-                                                            <input type="email" class="form-control" id="email" name="email"
->>>>>>> 5a9d2274adcf4d2a66246a12cf05f7de261ba1a1
                                                                 value="<?php echo $accounts['email']; ?>" required>
                                                         </div>
                                                     </div>

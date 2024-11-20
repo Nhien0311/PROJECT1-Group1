@@ -30,7 +30,7 @@ class AccountController {
         }
     }
     public function edit($id)  {
-        if($_SERVER['REQUEST_METHOD' === 'POST']) {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = [
                 'user_name' => $_POST['user_name'],
                 'email' => $_POST['email'],

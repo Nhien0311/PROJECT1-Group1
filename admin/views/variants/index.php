@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách biến thể| Modelkit Store VN</title>
+    <title>Danh sách biến thể | Modelkit Store VN</title>
     <?php require_once "views/layout/libs_css.php"; ?>
 </head>
 
@@ -63,6 +63,8 @@
                                                             <th scope="col">Số lượng</th>
                                                             <th scope="col">Hình ảnh</th>
                                                             <th scope="col">Trạng thái</th>
+                                                            <th scope="col">Mô tả</th>
+                                                            <th scope="col">Tên sản phẩm</th>
                                                             <th scope="col">Hành động</th>
                                                         </tr>
                                                     </thead>
@@ -73,7 +75,6 @@
                                                             <tr>
                                                                 <td><?php echo $stt++; ?></td>
                                                                 <td><?php echo $variant['product_id']; ?></td>
-                                                                <td><?php echo $variant['category_id']; ?></td>
                                                                 <td><?php echo $variant['price']; ?> VNĐ</td>
                                                                 <td><?php echo $variant['quantity']; ?></td>
                                                                 <td>
@@ -91,6 +92,8 @@
                                                                     }
                                                                     ?>
                                                                 </td>
+                                                                <td><?php echo $variant['description']; ?></td>
+                                                                <td><?php echo $variant['name']; ?></td>
                                                                 <td>
                                                                     <div
                                                                         class="d-flex justify-content-center hstack gap-3 flex-wrap">

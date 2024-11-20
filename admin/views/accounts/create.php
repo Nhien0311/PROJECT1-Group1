@@ -103,54 +103,10 @@
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="contentModel" class="form-label">password</label>
-                                                    <input type="password" class="form-control" id="password" name="password" required>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="viewsModel" class="form-label">Số điện thoại</label>
-                                                    <input type="number" class="form-control" id="phone" name="phone" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="sale_priceModel" class="form-label">Địa chỉ</label>
-                                                    <input type="text" class="form-control" id="address" name="address" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="priceModel" class="form-label">Vai trò</label>
-                                                    <input type="number" class="form-control" id="role_id" name="role_id" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="text-end">
-                                                    <button type="submit" class="btn btn-danger">Thêm tài khoản</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
 
                 </div>
             </div>

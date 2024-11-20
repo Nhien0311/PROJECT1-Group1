@@ -80,7 +80,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="imageModel" class="form-label">Hình ảnh</label>
-                                                            <input type="file" class="form-control" id="imageModel" name="imageModel" accept="image/*" required>
+                                                            <input type="file" class="form-control" id="imageModel" name="thumbnail" accept="image/*" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">

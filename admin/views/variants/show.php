@@ -60,8 +60,8 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="price" class="form-label">Giá</label>
-                                                            <input type="number" class="form-control" id="price" name="price"
+                                                            <label for="priceVariant" class="form-label">Giá</label>
+                                                            <input type="text" class="form-control" id="priceVariant" name="priceVariant"
                                                                 value="<?php echo number_format($variant['price'], 0, ',', '.'); ?>" disabled>
                                                         </div>
                                                     </div>
@@ -90,6 +90,22 @@
                                                             $statusText = $variant['status'] == 1 ? 'Còn hàng' : 'Hết hàng';
                                                             ?>
                                                             <span class="badge <?php echo $statusClass; ?>"><?php echo $statusText; ?></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="descriptionVariant" class="form-label">Mô tả</label>
+                                                            <input type="text" class="form-control" id="descriptionVariant" name="descriptionVariant"
+                                                                value="<?php echo $variant['description']; ?>" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Tên sản phẩm</label>
+                                                            <input type="text" class="form-control" id="nameModel" name="nameModel"
+                                                                value="<?php echo $variant['name']; ?>" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
