@@ -63,7 +63,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($ordet_details as $order_detail): ?>
+                                                        <?php foreach ($order_details as $order_detail): ?>
                                                             <tr>
                                                                 <td><?= $order_detail['order_detail_id'] ?></td>
                                                                 <td><?= $order_detail['quantity'] ?></td>
