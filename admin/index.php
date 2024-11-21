@@ -6,6 +6,7 @@ require_once 'controllers/ProductController.php';
 require_once 'controllers/CategoryController.php';
 require_once 'controllers/AccountController.php';
 require_once 'controllers/DashboardController.php';
+require_once "controllers/ordersController.php";
 require_once 'controllers/Order_detailController.php';
 require_once 'controllers/VariantController.php';
 
@@ -14,6 +15,7 @@ require_once 'controllers/VariantController.php';
 require_once 'models/ProductModel.php';
 require_once 'models/AccountModel.php';
 require_once 'models/CategoryModel.php';
+require_once "models/ordersModel.php";
 require_once 'models/Order_detailModel.php';
 require_once 'models/VariantModel.php';
 $act = $_GET['act'] ?? '/';
@@ -38,7 +40,19 @@ match ($act) {
     'accounts/show'       => (new AccountController())->show($_GET['id'] ?? 0),
     'accounts/create'     => (new AccountController())->create(),
     'accounts/edit'       => (new AccountController())->edit($_GET['id']?? 0),
-    'accounts/delete'     => (new AccountController())->delete($_GET['id'] ?? 0),
+    'accounts/delete'       => (new AccountController())->delete($_GET['id'] ?? 0),
+
+    //CRUD orders
+    'orders'   => (new ordersController)->index(),
+    'orders/delete' =>(new ordersController())->delete($_GET['id'] ?? 0),
+    'orders/edit'   =>(new ordersController())->edit($_GET['id'] ?? 0),
+    'orders/show'   =>(new ordersController())->show($_GET['id'] ?? 0),
+
+    //CRUD ratings
+    'ratings'   => (new ratingController)->index(),
+    'ratings/delete' =>(new ratingController())->delete($_GET['id'] ?? 0),
+    'ratings/edit'   =>(new ratingController())->edit($_GET['id'] ?? 0)
+    'ratings/delete'     => (new ratingController())->delete($_GET['id'] ?? 0),
     
     // CRUD order_details
 
@@ -53,6 +67,5 @@ match ($act) {
     'variants/create'       => (new VariantController())->add(),
     'variants/edit'         => (new VariantController())->edit($_GET['id'] ?? 0),
     'variants/delete'       => (new VariantController())->delete($_GET['id'] ?? 0),
-
 }
 ?>
