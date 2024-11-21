@@ -31,7 +31,6 @@ class ratingModel {
         $data['id'] = $id;
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
-        return $stmt->rowCount();
     }
    
 }

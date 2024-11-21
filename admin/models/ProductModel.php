@@ -25,8 +25,9 @@ class Product{
 
     public function add($data)
     {
-        $sql = "INSERT INTO products (name, category_id, thumbnail, short_description, content, status, views, sale_price, price) VALUES
-        (:name, :category_id, :thumbnail, :short_description, :content, :status, :views, :sale_price, :price)";
+        unset($data['views']);
+        $sql = "INSERT INTO products (name, category_id, thumbnail, short_description, content, status, sale_price, price) VALUES
+        (:name, :category_id, :thumbnail, :short_description, :content, :status, :sale_price, :price)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
     }
@@ -41,7 +42,7 @@ class Product{
         if(empty($data['thumbnail'])){
             $data['thumbnail'] = $product['thumbnail'];
         }
-
+        unset($data['views']);
         $sql = "UPDATE products SET
                 name = :name,
                 category_id = :category_id,
@@ -49,7 +50,7 @@ class Product{
                 short_description = :short_description,
                 content = :content,
                 status = :status,
-                views = :views,
+                -- views = :views,
                 sale_price = :sale_price,
                 price = :price
                 WHERE product_id = :id";

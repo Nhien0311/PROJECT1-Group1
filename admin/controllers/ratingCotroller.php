@@ -9,14 +9,14 @@ class ratingController {
 
     // Hàm hiển thị danh sách đơn hàng
     function index() {
-        $allrating = $this->ratingModel->getAll();
+        $ratings = $this->ratingModel->getAll();
         require_once 'views/ratings/index.php';
     }
 
     // Hàm xóa đơn hàng
-    function deleterating($id) {
+    function delete($id) {
         // Sử dụng đúng đối tượng để xóa
-        if ($this->ratingModel->deleterating($id)) {
+        if ($this->ratingModel->delete($id)) {
             header("Location:?act=ratings");
         } else {
             echo "Lỗi: Không thể xóa đơn hàng.";
@@ -35,8 +35,8 @@ class ratingController {
              ];
 
              // Update the order
-             $hihi = $this->ratingModel->edit($id, $data);
-             header('Location:?act=ratings/index.php');
+             $ratings = $this->ratingModel->edit($id, $data);
+             header('Location:?act=ratings');
            
          } else {
              // Fetch the order data from the model
@@ -44,6 +44,9 @@ class ratingController {
              require_once 'views/ratings/edit.php';
          }
      }
-     
+     public function show($id) {
+        $ratings = $this->ratingModel->getById($id);
+        require_once 'views/ratings/show.php';
+    }
  }
 ?>

@@ -103,9 +103,19 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="created_at" class="form-label">Thời gian đặt hàng</label>
+                                                            <label for="created_at" class="form-label">Thời gian tạo đơn</label>
                                                             <input type="text" class="form-control" id="created_at"
                                                                 name="created_at" value="<?= $order_details['created_at'] ?>"
+                                                                disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="method_id" class="form-label">Phương thức thanh toán</label>
+                                                            <input type="text" class="form-control" id="method_id"
+                                                                name="method_id" value="<?= $order_details['method_id'] ?>"
                                                                 disabled>
                                                         </div>
                                                     </div>

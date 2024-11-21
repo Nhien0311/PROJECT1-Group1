@@ -20,6 +20,7 @@ class Order_detailController {
                 'variant_id' => $_POST['variant_id'],
                 'account_id' => $_POST['account_id'],
                 'created_at' => $_POST['created_at'],
+                'method_id' => $_POST['method_id'],
             ];
             $this->order_detail->edit($id, $data);
             header('Location:?act=order_details');
