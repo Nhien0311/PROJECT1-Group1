@@ -76,7 +76,7 @@
                                                     <div class="mb-3">
                                                         <label for="imageModel" class="form-label">Hình ảnh sản phẩm</label>
                                                         <input type="file" class="form-control" id="imageModel"
-                                                            name="imageModel" accept="image/*">
+                                                            name="thumbnail" accept="image/*">
                                                         <?php if ($product['thumbnail']): ?>
                                                             <div>
                                                                 <p>Ảnh hiện tại:</p>

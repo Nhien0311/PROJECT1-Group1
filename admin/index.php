@@ -46,9 +46,13 @@ match ($act) {
     'order_details/show'     => (new Order_detailController())->show($_GET['id'] ?? 0),
     'order_details/edit'     => (new Order_detailController())->edit($_GET['id'] ?? 0),
     'order_details/delete'   => (new Order_detailController())->delete($_GET['id' ?? '']),
+
     // CRUD variants
     'variants'              => (new VariantController())->index(),
     'variants/show'         => (new VariantController())->show($_GET['id'] ?? 0),
+    'variants/create'       => (new VariantController())->add(),
+    'variants/edit'         => (new VariantController())->edit($_GET['id'] ?? 0),
+    'variants/delete'       => (new VariantController())->delete($_GET['id'] ?? 0),
 
 }
 ?>
