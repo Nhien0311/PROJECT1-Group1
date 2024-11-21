@@ -49,6 +49,10 @@ class ordersController {
              require_once 'views/orders/edit.php';
          }
      }
+    public function show($id) {
+        $orders = $this->ordersModel->getById($id);
+        require_once 'views/orders/show.php';
+    }
      
  }
 ?>

@@ -40,6 +40,12 @@ match ($act) {
     //CRUD orders
     'orders'   => (new ordersController)->index(),
     'orders/delete' =>(new ordersController())->delete($_GET['id'] ?? 0),
-    'orders/edit'   =>(new ordersController())->edit($_GET['id'] ?? 0)
+    'orders/edit'   =>(new ordersController())->edit($_GET['id'] ?? 0),
+    'orders/show'   =>(new ordersController())->show($_GET['id'] ?? 0),
+
+    //CRUD ratings
+    'ratings'   => (new ratingController)->index(),
+    'ratings/delete' =>(new ratingController())->delete($_GET['id'] ?? 0),
+    'ratings/edit'   =>(new ratingController())->edit($_GET['id'] ?? 0)
 }
 ?>
