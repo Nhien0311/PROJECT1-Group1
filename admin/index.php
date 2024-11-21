@@ -7,15 +7,16 @@ require_once 'controllers/CategoryController.php';
 require_once 'controllers/AccountController.php';
 require_once 'controllers/DashboardController.php';
 require_once "controllers/ordersController.php";
+require_once "controllers/ratingCotroller.php";
 require_once 'controllers/Order_detailController.php';
 require_once 'controllers/VariantController.php';
-
 
 
 require_once 'models/ProductModel.php';
 require_once 'models/AccountModel.php';
 require_once 'models/CategoryModel.php';
 require_once "models/ordersModel.php";
+require_once "models/ratingModel.php";
 require_once 'models/Order_detailModel.php';
 require_once 'models/VariantModel.php';
 $act = $_GET['act'] ?? '/';
@@ -51,8 +52,9 @@ match ($act) {
     //CRUD ratings
     'ratings'   => (new ratingController)->index(),
     'ratings/delete' =>(new ratingController())->delete($_GET['id'] ?? 0),
-    'ratings/edit'   =>(new ratingController())->edit($_GET['id'] ?? 0)
-    'ratings/delete'     => (new ratingController())->delete($_GET['id'] ?? 0),
+    'ratings/edit'   =>(new ratingController())->edit($_GET['id'] ?? 0),
+    'ratings/show'   =>(new ratingController())->show($_GET['id'] ?? 0),
+    
     
     // CRUD order_details
 

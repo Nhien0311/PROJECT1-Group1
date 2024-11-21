@@ -126,6 +126,9 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
 
+                                <a href="?act=ratings" class="nav-link" data-key="t-sweet-alerts">
+
+
                                 <a href="?act=orders" class="nav-link" data-key="t-sweet-alerts">
 
                                 <a href="?act=order_details" class="nav-link" data-key="t-sweet-alerts">
