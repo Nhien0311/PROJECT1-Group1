@@ -8,6 +8,8 @@ require_once 'controllers/AccountController.php';
 require_once 'controllers/DashboardController.php';
 require_once "controllers/ordersController.php";
 require_once "controllers/ratingCotroller.php";
+require_once 'controllers/Order_detailController.php';
+require_once 'controllers/VariantController.php';
 
 
 require_once 'models/ProductModel.php';
@@ -15,6 +17,8 @@ require_once 'models/AccountModel.php';
 require_once 'models/CategoryModel.php';
 require_once "models/ordersModel.php";
 require_once "models/ratingModel.php";
+require_once 'models/Order_detailModel.php';
+require_once 'models/VariantModel.php';
 $act = $_GET['act'] ?? '/';
 match ($act) {
     '/' => (new DashboardController()) ->index(),
@@ -26,11 +30,11 @@ match ($act) {
     'products/edit'       => (new ProductController())->edit($_GET['id'] ?? 0),
     'products/delete'     => (new ProductController())->delete($_GET['id'] ?? 0),
 
-    'categories' => (new CategoryController())->index(),
-    'categories/show' => (new CategoryController())->show($_GET['id'] ?? 0),
-    'categories/create' => (new CategoryController())->add(),
-    'categories/edit' => (new CategoryController())->edit($_GET['id'] ?? 0),
-    'categories/delete'      => (new CategoryController())->delete($_GET['id'] ?? 0),
+    'categories'              => (new CategoryController())->index(),
+    'categories/show'         => (new CategoryController())->show($_GET['id'] ?? 0),
+    'categories/create'       => (new CategoryController())->add(),
+    'categories/edit'         => (new CategoryController())->edit($_GET['id'] ?? 0),
+    'categories/delete'       => (new CategoryController())->delete($_GET['id'] ?? 0),
     
     // CRUD accounts
     'accounts'            => (new AccountController())->index(),
@@ -51,6 +55,19 @@ match ($act) {
     'ratings/edit'   =>(new ratingController())->edit($_GET['id'] ?? 0),
     'ratings/show'   =>(new ratingController())->show($_GET['id'] ?? 0),
     
+    
+    // CRUD order_details
 
+    'order_details'          => (new Order_detailController())->index(),
+    'order_details/show'     => (new Order_detailController())->show($_GET['id'] ?? 0),
+    'order_details/edit'     => (new Order_detailController())->edit($_GET['id'] ?? 0),
+    'order_details/delete'   => (new Order_detailController())->delete($_GET['id' ?? '']),
+
+    // CRUD variants
+    'variants'              => (new VariantController())->index(),
+    'variants/show'         => (new VariantController())->show($_GET['id'] ?? 0),
+    'variants/create'       => (new VariantController())->add(),
+    'variants/edit'         => (new VariantController())->edit($_GET['id'] ?? 0),
+    'variants/delete'       => (new VariantController())->delete($_GET['id'] ?? 0),
 }
 ?>

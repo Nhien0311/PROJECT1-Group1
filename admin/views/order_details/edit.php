@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Cập nhật tài khoản | Modelkit Store Vn</title>
+    <title>Cập nhật chi tiết đơn hàng | Modelkit Store Vn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -27,11 +27,11 @@
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lí tài khoản</h4>
+                                <h4 class="mb-sm-0">Cập nhật chi tiết đơn hàng</h4>
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Cập nhật tài khoản</li>
+                                        <li class="breadcrumb-item active">Cập nhật chi tiết đơn hàng</li>
                                     </ol>
                                 </div>
                             </div>
@@ -43,70 +43,64 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Cập nhật tài khoản</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Cập nhật chi tiết đơn hàng</h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=accounts/edit&id=<?php echo $accounts['account_id']; ?>" method="POST">
+                                            <form action="?act=order_details/edit&id=<?php echo $order_details['order_detail_id']; ?>" method="POST">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="user_name" class="form-label">Tên tài khoản</label>
-                                                            <input type="text" class="form-control" id="user_name" name="user_name"
-                                                                value="<?php echo $accounts['user_name']; ?>" required>
+                                                            <label for="quantity" class="form-label">Số lượng</label>
+                                                            <input type="text" class="form-control" id="quantity" name="quantity"
+                                                                value="<?php echo $order_details['quantity']; ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                              
+                                                    <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="price" class="form-label">Giá</label>
+                                                            <input type="text" class="form-control" id="price" name="price"
+                                                                value="<?php echo $order_details['price']; ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="variant_id" class="form-label">ID biến thể</label>
+                                                            <input type="text" class="form-control" id="variant_id" name="variant_id"
+                                                                value="<?php echo $order_details['variant_id']; ?>" required>
                                                         </div>
                                                     </div>
                                                     </div>
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="email" class="form-label">Email</label>
-                                                            <input type="text" class="form-control" id="email" name="email"
-                                                                value="<?php echo $accounts['email']; ?>" required>
+                                                            <label for="account_id" class="form-label">ID tài khoản</label>
+                                                            <input type="text" class="form-control" id="account_id" name="account_id"
+                                                                value="<?php echo $order_details['account_id']; ?>" required>
                                                         </div>
                                                     </div>
                                                     </div>
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="password" class="form-label">Mật khẩu</label>
-                                                            <input type="password" class="form-control" id="password" name="password"
-                                                                value="<?php echo $accounts['password']; ?>" required>
+                                                            <label for="created_at" class="form-label">Ngày bán</label>
+                                                            <input type="text" class="form-control" id="created_at" name="created_at"
+                                                                value="<?php echo $order_details['created_at']; ?>" required>
                                                         </div>
                                                     </div>
                                                     </div>
-                                                    <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="phone" class="form-label">Số điện thoại</label>
-                                                            <input type="number" class="form-control" id="phone" name="phone" value="<?= $accounts['phone']?>" required>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                                    <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="address" class="form-label">Địa chỉ</label>
-                                                            <input type="text" class="form-control" id="address" name="address"
-                                                                value="<?php echo $accounts['address']; ?>" required>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                                    <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="role_id" class="form-label">Vai trò</label>
-                                                            <input type="text" class="form-control" id="role_id" name="role_id"
-                                                                value="<?php echo $accounts['role_id']; ?>" required>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                        
+                                                    
 
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="text-end">
-                                                                <button type="submit" class="btn btn-danger">Cập nhật tài khoản</button>
+                                                                <button type="submit" class="btn btn-danger">Cập nhật đơn hàng chi tiết</button>
                                                                 
                                                             </div>
                                                         </div>
@@ -115,7 +109,7 @@
                                                     <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="text-end">
-                                                            <a href="?act=accounts" class="btn btn-primary">Quay lại</a>
+                                                            <a href="?act=order_details" class="btn btn-primary">Quay lại</a>
                                                         </div>
                                                     </div>
                                                 </div>
