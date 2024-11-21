@@ -89,9 +89,18 @@
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="created_at" class="form-label">Ngày bán</label>
+                                                            <label for="created_at" class="form-label">Ngày tạo đơn</label>
                                                             <input type="text" class="form-control" id="created_at" name="created_at"
                                                                 value="<?php echo $order_details['created_at']; ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="method_id" class="form-label">Phương thức thanh toán</label>
+                                                            <input type="text" class="form-control" id="method_id" name="method_id"
+                                                                value="<?php echo $order_details['method_id']; ?>" required>
                                                         </div>
                                                     </div>
                                                     </div>

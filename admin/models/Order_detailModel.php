@@ -17,7 +17,7 @@ class Order_detailModel {
         return $stmt->fetch();
     }
     public function edit($id,$data) {
-        $sql = "UPDATE `order_details` SET `quantity`=:quantity,`price`=:price,`variant_id`=:variant_id,`account_id`=:account_id,`created_at`=:created_at WHERE order_detail_id = :id";
+        $sql = "UPDATE `order_details` SET `quantity`=:quantity,`price`=:price,`variant_id`=:variant_id,`account_id`=:account_id,`created_at`=:created_at, `method_id`=:method_id WHERE order_detail_id = :id";
         $data['id'] = $id;
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);

@@ -71,20 +71,21 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarBinhLuan" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarBinhLuan">
+                    <a class="nav-link menu-link" href="#sidebarQuanLi" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarQuanLi">
                         <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí đánh giá</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarBinhLuan">
+                    <div class="collapse menu-dropdown" id="sidebarQuanLi">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="?act=binhluans" class="nav-link" data-key="t-sweet-alerts">
+                                <a href="?act=ratings" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarBienThe" data-bs-toggle="collapse" role="button"
@@ -119,15 +120,11 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarQuanLi" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarQuanLi">
-                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí đánh giá</span>
                         <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí đơn hàng chi tiết</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarQuanLi">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-
-                                <a href="?act=orders" class="nav-link" data-key="t-sweet-alerts">
-
                                 <a href="?act=order_details" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách
                                 </a>
@@ -136,7 +133,6 @@
                         </ul>
                     </div>
                 </li>
-
 
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
 

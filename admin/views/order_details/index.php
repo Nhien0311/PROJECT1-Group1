@@ -59,6 +59,7 @@
                                                             <th scope="col">ID biến thể</th>
                                                             <th scope="col">ID tài khoản</th>
                                                             <th scope="col">Thời gian</th>
+                                                            <th scope="col">Phương thức thanh toán</th>
                                                             <th scope="col">Thao tác</th>
                                                         </tr>
                                                     </thead>
@@ -71,6 +72,7 @@
                                                                 <td><?= $order_detail['variant_id'] ?></td>
                                                                 <td><?= $order_detail['account_id'] ?></td>
                                                                 <td><?= $order_detail['created_at'] ?></td>
+                                                                <td><?= $order_detail['method_id'] ?></td>
                                                                
                                                                 <td>
                                                                 <div
