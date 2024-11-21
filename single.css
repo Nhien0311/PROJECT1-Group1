@@ -1,0 +1,22 @@
+.section-product{
+    .slick-slide{
+        margin: 0 10px;
+    }
+    .slick-list{
+        margin: 0 -10px;
+    }
+}
+.product-price{
+    background: #fafafa;
+}
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+.rounded {
+    border-radius: 0.5rem !important;
+}
+.special-price{
+    color: rgb(68, 68, 204);
+    font-size: 27px;
+}
+

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Thêm sản phẩm | Modelkit Store VN</title>
+    <title>Chi tiết biến thể | Modelkit Store VN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -16,24 +16,23 @@
 
 <body>
     <div id="layout-wrapper">
-
         <?php
         require_once "views/layout/header.php";
         require_once "views/layout/sidebar.php";
         ?>
+
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
-
                     <div class="row">
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                                <h4 class="mb-sm-0">Quản lý sản phẩm</h4>
+                                <h4 class="mb-sm-0">Chi tiết biến thể</h4>
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                        <li class="breadcrumb-item active">Thêm sản phẩm</li>
+                                        <li class="breadcrumb-item active">Chi tiết biến thể</li>
                                     </ol>
                                 </div>
                             </div>
@@ -45,102 +44,82 @@
                             <div class="h-100">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
-                                        <h4 class="card-title mb-0 flex-grow-1">Thêm sản phẩm</h4>
+                                        <h4 class="card-title mb-0 flex-grow-1">Chi tiết biến thể</h4>
                                     </div>
+
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=products/create" method="POST" enctype="multipart/form-data">
+                                            <form>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Tên sản phẩm</label>
-                                                            <input type="text" class="form-control" id="nameModel" name="nameModel" required>
+                                                            <label for="product_id" class="form-label">Mã sản phẩm</label>
+                                                            <input type="text" class="form-control" id="product_id" name="product_id"
+                                                                value="<?php echo $variant['product_id']; ?>" disabled>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="categoryModel" class="form-label">Danh mục</label>
-                                                            <input type="text" class="form-control" id="categoryModel" name="categoryModel" required>
-                                                            <!-- <select class="form-select" id="categoryModel" name="categoryModel" required>
-                                                                <?php foreach($category as $product){ ?>
-                                                                <option value="1" <?php echo ($product['category_id'] == '1') ? 'selected' : ''; ?>>
-                                                                    Transformers
-                                                                </option>
-                                                                <option value="2" <?php echo ($product['category_id'] == '2') ? 'selected' : ''; ?>>
-                                                                    Gundam
-                                                                </option>
-                                                                <?php
-                                                                }
-                                                                ?>
-                                                            </select> -->
+                                                            <label for="priceVariant" class="form-label">Giá</label>
+                                                            <input type="text" class="form-control" id="priceVariant" name="priceVariant"
+                                                                value="<?php echo number_format($variant['price'], 0, ',', '.'); ?>" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="imageModel" class="form-label">Hình ảnh</label>
-                                                            <input type="file" class="form-control" id="imageModel" name="thumbnail" accept="image/*" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="descriptionModel" class="form-label">Mô tả</label>
-                                                            <input type="text" class="form-control" id="descriptionModel" name="descriptionModel" required>
+                                                            <label for="quantity" class="form-label">Số lượng</label>
+                                                            <input type="number" class="form-control" id="quantity" name="quantity"
+                                                                value="<?php echo $variant['quantity'] ?>" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="contentModel" class="form-label">Nội dung</label>
-                                                            <input type="text" class="form-control" id="contentModel" name="contentModel" required>
+                                                            <label for="thumbnail" class="form-label">Hình ảnh biến thể</label>
+                                                            <img src="<?php echo $variant['thumbnail']; ?>" class="img-fluid" />
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="statusModel" class="form-label">Trạng thái</label>
-                                                            <select class="form-select" id="statusModel" name="statusModel" required>
-                                                                <option selected disabled>Chọn trạng thái</option>
-                                                                <option value="1">Còn hàng</option>
-                                                                <option value="2">Hết hàng</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="viewsModel" class="form-label">Lượt xem</label>
-                                                            <input type="number" class="form-control" id="viewsModel" name="viewsModel" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="sale_priceModel" class="form-label">Giá khuyến mãi</label>
-                                                            <input type="number" class="form-control" id="sale_priceModel" name="sale_priceModel" required>
+                                                            <label for="status" class="form-label">Trạng thái</label>
+                                                            <?php
+                                                            $statusClass = $variant['status'] == 1 ? 'bg-success' : 'bg-danger';
+                                                            $statusText = $variant['status'] == 1 ? 'Còn hàng' : 'Hết hàng';
+                                                            ?>
+                                                            <span class="badge <?php echo $statusClass; ?>"><?php echo $statusText; ?></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="priceModel" class="form-label">Giá</label>
-                                                            <input type="number" class="form-control" id="priceModel" name="priceModel" required>
+                                                            <label for="descriptionVariant" class="form-label">Mô tả</label>
+                                                            <input type="text" class="form-control" id="descriptionVariant" name="descriptionVariant"
+                                                                value="<?php echo $variant['description']; ?>" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="name" class="form-label">Tên sản phẩm</label>
+                                                            <input type="text" class="form-control" id="nameModel" name="nameModel"
+                                                                value="<?php echo $variant['name']; ?>" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="text-end">
-                                                            <button type="reset" class="btn btn-warning">Nhập lại</button>
-                                                            <button type="submit" class="btn btn-danger">Thêm sản phẩm</button>
+                                                            <a href="?act=variants" class="btn btn-primary">Quay lại</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

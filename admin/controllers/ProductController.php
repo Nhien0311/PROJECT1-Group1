@@ -24,10 +24,10 @@ class ProductController
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $thumbnail = '';
             $fileImg = "./uploads/";
-            if(isset($_FILES['image']) && $_FILES['image']['error'] == 0)
+            if(isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == 0)
             {
-                $thumbnail = $fileImg . basename($_FILES['image']['name']);
-                move_uploaded_file($_FILES['image']['tmp_name'], $thumbnail);
+                $thumbnail = $fileImg . basename($_FILES['thumbnail']['name']);
+                move_uploaded_file($_FILES['thumbnail']['tmp_name'], $thumbnail);
             }
 
             $data = [
@@ -53,9 +53,9 @@ class ProductController
     {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $thumbnail = $_POST['thumbnail'] ?? '';
-            if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-                $thumbnail = '../uploads/' . basename($_FILES['image']['name']);
-                move_uploaded_file($_FILES['image']['tmp_name'], $thumbnail);
+            if(isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == 0) {
+                $thumbnail = './uploads/' . basename($_FILES['thumbnail']['name']);
+                move_uploaded_file($_FILES['thumbnail']['tmp_name'], $thumbnail);
             }
 
             $data = [
