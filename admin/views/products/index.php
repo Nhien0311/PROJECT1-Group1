@@ -63,7 +63,6 @@
                                                             <th scope="col">Mô tả ngắn</th>
                                                             <th scope="col">Nội dung</th>
                                                             <th scope="col">Trạng thái</th>
-                                                            <th scope="col">Lượt xem</th>
                                                             <th scope="col">Giá khuyến mãi</th>
                                                             <th scope="col">Giá</th>
                                                             <th scope="col">Hành động</th>
@@ -94,7 +93,6 @@
                                                                     }
                                                                     ?>
                                                                 </td>
-                                                                <td><?php echo $product['views'] ?></td>
                                                                 <td><?php echo $product['sale_price']; ?> VNĐ</td>
                                                                 <td><?php echo $product['price']; ?> VNĐ</td>
                                                                 <td>

@@ -108,13 +108,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
+                                                <!-- <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="viewsModel" class="form-label">Lượt xem</label>
                                                             <input type="number" class="form-control" id="viewsModel" name="viewsModel" required>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
+                                                    <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="sale_priceModel" class="form-label">Giá khuyến mãi</label>

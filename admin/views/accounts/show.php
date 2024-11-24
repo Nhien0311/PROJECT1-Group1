@@ -109,7 +109,7 @@
                                                             <label for="role_id" class="form-label">Vai trò</label>
                                                             <input type="text" class="form-control" id="role_id"
                                                                 name="role_id"
-                                                                value="<?= $accounts['role_id'] == 0 ? 'admin' : 'user'; ?>"
+                                                                value="<?= $accounts['role_id'] == 0 ? 'user' : 'admin' ?>"
                                                                 disabled>
                                                         </div>
                                                     </div>

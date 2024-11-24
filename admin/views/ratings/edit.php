@@ -91,8 +91,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="text-end">
-                                                            <button type="submit" class="btn btn-danger">Cập nhập đơn
-                                                                hàng</button>
+                                                            <button type="submit" class="btn btn-danger">Cập nhập đánh giá</button>
 
                                                         </div>
                                                     </div>
@@ -101,7 +100,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="text-end">
-                                                            <a href="?act=accounts" class="btn btn-primary">Quay lại</a>
+                                                            <a href="?act=ratings" class="btn btn-primary">Quay lại</a>
                                                         </div>
                                                     </div>
                                                 </div>

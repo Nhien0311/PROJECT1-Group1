@@ -88,14 +88,7 @@
                                                         </div>
                                                     </div>
                                                     </div>
-                                                    <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Id biến thể</label>
-                                                            <input type="text" class="form-control" id="variant_id" name="variant_id" value="<?= $orders['variant_id']?>" disabled>
-                                                        </div>
-                                                    </div>
-                                                    </div>
+                                       
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
