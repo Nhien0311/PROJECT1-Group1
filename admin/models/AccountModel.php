@@ -31,7 +31,8 @@ class AccountModel
         $stmt->execute($data);
     }
     public function edit($id, $data) {
-        $sql = "UPDATE `accounts` SET `user_name`= :user_name,`email`= :email,`password`= :password,`phone`= :phone,`address`= :address,`role_id`= :role_id WHERE account_id = :id";
+        unset($data['password']);
+        $sql = "UPDATE `accounts` SET `user_name`= :user_name,`email`= :email, `phone`= :phone,`address`= :address,`role_id`= :role_id WHERE account_id = :id";
         $data['id'] = $id;
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);

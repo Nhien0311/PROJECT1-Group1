@@ -37,7 +37,23 @@
                             </div>
                         </div>
                     </div>
-
+                    <?php
+                    if (isset($_SESSION['success'])) {
+                        $class = $_SESSION['success'] ? 'alert-success' : 'alert-danger';
+                        echo "<div class='alert $class'> {$_SESSION['msg']}</div>";
+                        unset($_SESSION['success']);
+                        unset($_SESSION['msg']);
+                    }
+                    ?>
+                    <?php if (!empty($_SESSION['errors'])):?>
+                        <div class="alert alert-danger">
+                            <ul>
+                                <?php foreach($_SESSION['errors'] as $value) : ?>
+                                    <li><?= $value ?></li>
+                                    <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <?php endif; ?>
                     <div class="row">
                         <div class="col">
 
@@ -57,11 +73,12 @@
                                                             <th>ID Đơn hàng</t>
                                                             <th>Ngày tạo dơn</th>
                                                             <th>Số điện thoại</th>
-                                                            <th>Tên Đơn Hàng</th>
+                                                            <th>Tên sản phẩm</th>
                                                             <th>Địa chỉ</th>
                                                             <th>Trạng Thái</th>
-                                                            <th>ID biến thể</th>
+                                                            <!-- <th>ID biến thể</th> -->
                                                             <th>ID Tài Khoản</th>
+                                                            <th>Giá tiền</th>
                                                             <th>Thao tác</th>
 
                                                         </tr>
@@ -74,9 +91,9 @@
                                                                 <td><?= $order['phone']; ?></td>
                                                                 <td><?= $order['name']; ?></td>
                                                                 <td><?= $order['address']; ?></td>
-                                                                <td><?= $order['status']; ?></td>
-                                                                <td><?= $order['variant_id']; ?></td>
+                                                                <td><?= $order['status'] ?></td> 
                                                                 <td><?= $order['account_id']; ?></td>
+                                                                <td><?= $order['price']; ?>VNĐ</td> 
                                                                 <td>
                                                                     <div
                                                                         class="d-flex justify-content-center hstack gap-3 flex-wrap">

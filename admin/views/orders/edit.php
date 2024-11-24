@@ -37,7 +37,25 @@
                             </div>
                         </div>
                     </div>
-
+                    <?php
+                    if (isset($_SESSION['success'])) {
+                        $class = $_SESSION['success'] ? 'alert-success' : 'alert-danger';
+                        echo "<div class='alert $class'> {$_SESSION['msg']}</div>";
+                        unset($_SESSION['success']);
+                        unset($_SESSION['msg']);
+                    }
+                    ?>
+                      <?php
+                    if (!empty($_SESSION['errors'])): ?>
+                        <div class="alert alert-danger">
+                            <ul>
+                                <?php foreach ($_SESSION['errors'] as $value): ?>
+                                    <li><?= $value ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <?php unset($_SESSION['errors']); ?>
+                    <?php endif; ?>
                     <div class="row">
                         <div class="col">
                             <div class="h-100">
@@ -49,40 +67,6 @@
                                         <div class="live-preview">
                                             <form action="?act=orders/edit&id=<?php echo $orders['order_id']; ?>"
                                                 method="POST">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="created_at" class="form-label">Ngày tạo
-                                                                đơn</label>
-                                                            <input type="text" class="form-control" id="created_at"
-                                                                name="created_at"
-                                                                value="<?php echo $orders['created_at']; ?>" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="created_at" class="form-label">Ngày tạo
-                                                                đơn</label>
-                                                            <input type="text" class="form-control" id="created_at"
-                                                                name="created_at"
-                                                                value="<?php echo $orders['created_at']; ?>" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="created_at" class="form-label">Ngày tạo
-                                                                đơn</label>
-                                                            <input type="text" class="form-control" id="created_at"
-                                                                name="created_at"
-                                                                value="<?php echo $orders['created_at']; ?>" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
 
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -131,9 +115,20 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="status" class="form-label">Trạng Thái</label>
-                                                            <input type="text" class="form-control" id="status"
-                                                                name="status" value="<?php echo $orders['status']; ?>"
-                                                                required>
+                                                            <select class="form-select" id="status" name="status" required>
+                                                                <option value="0" <?php echo ($orders['status'] == '0') ? 'selected' : ''; ?>>
+                                                                    Đơn hàng mới
+                                                                </option>
+                                                                <option value="1" <?php echo ($orders['status'] == '1') ? 'selected' : ''; ?>>
+                                                                    Đã xác nhận
+                                                                </option>
+                                                                <option value="2" <?php echo ($orders['status'] == '2') ? 'selected' : ''; ?>>
+                                                                    Đang giao hàng
+                                                                </option>
+                                                                <option value="3" <?php echo ($orders['status'] == '3') ? 'selected' : ''; ?>>
+                                                                    Đã nhận đơn
+                                                                </option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -151,7 +146,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="account_id" class="form-label">Id tài
+                                                            <label for="price" class="form-label">Id tài
                                                                 khoản</label>
                                                             <input type="text" class="form-control" id="account_id"
                                                                 name="account_id"
@@ -159,7 +154,16 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="price" class="form-label">Giá tiền</label>
+                                                            <input type="text" class="form-control" id="price"
+                                                                name="price"
+                                                                value="<?php echo $orders['price']; ?>" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
 
 
