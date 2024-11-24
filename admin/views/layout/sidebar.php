@@ -111,8 +111,9 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="?act=orders" class="nav-link" data-key="t-sweet-alerts">
-                                    Danh sách
+                                    Danh sách đơn hàng
                                 </a>
+<<<<<<< HEAD
                             </li>
                         </ul>
                     </div>
@@ -125,15 +126,19 @@
                     <div class="collapse menu-dropdown" id="sidebarQuanLi">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
+=======
+>>>>>>> accounts
                                 <a href="?act=order_details" class="nav-link" data-key="t-sweet-alerts">
-                                    Danh sách
+                                    Danh sách đơn hàng chi tiết
                                 </a>
                             </li>
-                          
                         </ul>
                     </div>
                 </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> accounts
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
 
             </ul>

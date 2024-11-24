@@ -38,6 +38,27 @@
                         </div>
                     </div>
 
+                    <?php
+                    if (isset($_SESSION['success'])) {
+                        $class = $_SESSION['success'] ? 'alert-success' : 'alert-danger';
+                        echo "<div class='alert $class'> {$_SESSION['msg']}</div>";
+                        unset($_SESSION['success']);
+                        unset($_SESSION['msg']);
+                    }
+                    ?>
+
+                    <?php
+                    if (!empty($_SESSION['errors'])): ?>
+                        <div class="alert alert-danger">
+                            <ul>
+                                <?php foreach ($_SESSION['errors'] as $value): ?>
+                                    <li><?= $value ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <?php unset($_SESSION['errors']); ?>
+                    <?php endif; ?>
+
                     <div class="row">
                         <div class="col">
                             <div class="h-100">
@@ -47,72 +68,71 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=accounts/edit&id=<?php echo $accounts['account_id']; ?>" method="POST">
+                                            <form action="?act=accounts/edit&id=<?php echo $accounts['account_id']; ?>"
+                                                method="POST">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="user_name" class="form-label">Tên tài khoản</label>
-                                                            <input type="text" class="form-control" id="user_name" name="user_name"
+                                                            <label for="user_name" class="form-label">Tên tài
+                                                                khoản</label>
+                                                            <input type="text" class="form-control" id="user_name"
+                                                                name="user_name"
                                                                 value="<?php echo $accounts['user_name']; ?>" required>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    <div class="row">
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="email" class="form-label">Email</label>
-                                                            <input type="text" class="form-control" id="email" name="email"
-                                                                value="<?php echo $accounts['email']; ?>" required>
+                                                            <input type="text" class="form-control" id="email"
+                                                                name="email" value="<?php echo $accounts['email']; ?>"
+                                                                required>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="password" class="form-label">Mật khẩu</label>
-                                                            <input type="password" class="form-control" id="password" name="password"
-                                                                value="<?php echo $accounts['password']; ?>" required>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                                    <div class="row">
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="phone" class="form-label">Số điện thoại</label>
-                                                            <input type="number" class="form-control" id="phone" name="phone" value="<?= $accounts['phone']?>" required>
+                                                            <input type="number" class="form-control" id="phone"
+                                                                name="phone" value="<?= $accounts['phone'] ?>" required>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    <div class="row">
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="address" class="form-label">Địa chỉ</label>
-                                                            <input type="text" class="form-control" id="address" name="address"
+                                                            <input type="text" class="form-control" id="address"
+                                                                name="address"
                                                                 value="<?php echo $accounts['address']; ?>" required>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    <div class="row">
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="role_id" class="form-label">Vai trò</label>
-                                                            <input type="text" class="form-control" id="role_id" name="role_id"
+                                                            <input type="text" class="form-control" id="role_id"
+                                                                name="role_id"
                                                                 value="<?php echo $accounts['role_id']; ?>" required>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                        
+                                                </div>
 
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="text-end">
-                                                                <button type="submit" class="btn btn-danger">Cập nhật tài khoản</button>
-                                                                
-                                                            </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="text-end">
+                                                            <button type="submit" class="btn btn-danger">Cập nhật tài
+                                                                khoản</button>
+
                                                         </div>
                                                     </div>
-                                                    <br>
-                                                    <div class="row">
+                                                </div>
+                                                <br>
+                                                <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="text-end">
                                                             <a href="?act=accounts" class="btn btn-primary">Quay lại</a>

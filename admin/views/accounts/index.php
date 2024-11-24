@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,7 @@
             <div class="page-content">
                 <div class="container-fluid">
 
-                <div class="row">
+                    <div class="row">
                         <div class="col-12">
                             <div
                                 class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
@@ -36,6 +37,15 @@
                             </div>
                         </div>
                     </div>
+                    <?php
+                    if (isset($_SESSION['success'])) {
+                        $class = $_SESSION['success'] ? 'alert-success' : 'alert-danger';
+                        echo "<div class='alert $class'> {$_SESSION['msg']}</div>";
+                        unset($_SESSION['success']);
+                        unset($_SESSION['msg']);
+                    }
+                    ?>
+
 
                     <div class="row">
                         <div class="col">
@@ -60,7 +70,6 @@
                                                             <th scope="col">Id</th>
                                                             <th scope="col">Tên tài khoản</th>
                                                             <th scope="col">Email</th>
-                                                            <th scope="col">Password</th>
                                                             <th scope="col">Phone</th>
                                                             <th scope="col">Address</th>
                                                             <th scope="col">Vai trò</th>
@@ -73,25 +82,28 @@
                                                                 <td><?= $account['account_id'] ?></td>
                                                                 <td><?= $account['user_name'] ?></td>
                                                                 <td><?= $account['email'] ?></td>
-                                                                <td><?= $account['password'] ?></td>
                                                                 <td><?= $account['phone'] ?></td>
                                                                 <td><?= $account['address'] ?></td>
-                                                                <td><?= $account['role_id'] == 0 ? 'admin' : 'user'; ?></td>
+                                                                <td><?= $account['role_id'] == 0 ? 'user' : ($account['role_id'] == 2 ? 'nhanvien' : 'admin'); ?>
+                                                                </td>
                                                                 <td>
-                                                                <div
-                                                                    class="d-flex justify-content-center hstack gap-3 flex-wrap">
+                                                                    <div
+                                                                        class="d-flex justify-content-center hstack gap-3 flex-wrap">
 
-                                                                    <a href="?act=accounts/show&id=<?php echo $account['account_id']; ?>"
-                                                                        class="link-success">
-                                                                        <i class="ri-eye-line"></i>
-                                                                    </a>
-                                                                    <a href="?act=accounts/edit&id=<?php echo $account['account_id']; ?>" class="link-success">
-                                                                        <i class="ri-edit-2-line"></i>
-                                                                    </a>
-                                                                    <a href="?act=accounts/delete&id=<?php echo $account['account_id']; ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa chứ?')" class="link-danger">
-                                                                        <i class="ri-delete-bin-line"></i>
-                                                                    </a>
-                                                                </div>
+                                                                        <a href="?act=accounts/show&id=<?php echo $account['account_id']; ?>"
+                                                                            class="link-success">
+                                                                            <i class="ri-eye-line"></i>
+                                                                        </a>
+                                                                        <a href="?act=accounts/edit&id=<?php echo $account['account_id']; ?>"
+                                                                            class="link-success">
+                                                                            <i class="ri-edit-2-line"></i>
+                                                                        </a>
+                                                                        <a href="?act=accounts/delete&id=<?php echo $account['account_id']; ?>"
+                                                                            onclick="return confirm('Bạn có chắc chắn muốn xóa chứ?')"
+                                                                            class="link-danger">
+                                                                            <i class="ri-delete-bin-line"></i>
+                                                                        </a>
+                                                                    </div>
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach; ?>

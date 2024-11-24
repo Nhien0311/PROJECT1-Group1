@@ -35,6 +35,26 @@
                             </div>
                         </div>
                     </div>
+                    <?php
+                    if (isset($_SESSION['success'])) {
+                        $class = $_SESSION['success'] ? 'alert-success' : 'alert-danger';
+                        echo "<div class='alert $class'> {$_SESSION['msg']}</div>";
+                        unset($_SESSION['success']);
+                        unset($_SESSION['msg']);
+                    }
+                    ?>
+
+                    <?php
+                    if (!empty($_SESSION['errors'])): ?>
+                       <div class="alert alert-danger">
+                        <ul>
+                            <?php foreach($_SESSION['errors'] as $value): ?>
+                                <li><?= $value ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                       </div>
+                       <?php unset($_SESSION['errors']); ?>
+                    <?php endif; ?>
 
                     <div class="row">
                         <div class="col">
@@ -90,6 +110,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="role_id" class="form-label">Vai trò</label>
+                                            
                                                             <input type="number" class="form-control" id="role_id" name="role_id" required>
                                                         </div>
                                                     </div>

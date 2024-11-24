@@ -125,7 +125,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
+                                                <!-- <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="viewsModel" class="form-label">Lượt xem</label>
@@ -140,7 +140,7 @@
                                                                 value="<?php echo $product['sale_price']; ?>" required>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
