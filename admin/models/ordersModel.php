@@ -26,6 +26,7 @@ class ordersModel {
     public function edit($id, $data)
     {    
         $sql = "UPDATE orders SET created_at=:created_at,phone=:phone,name=:name,address=:address,status=:status,variant_id=:variant_id,account_id=:account_id,total_amount = :total_amount
+
         WHERE order_id = :id";
         $data['id'] = $id;
         $stmt = $this->conn->prepare($sql);

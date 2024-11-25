@@ -58,7 +58,7 @@ class AccountController
 
                 if (empty($data['email']) || strlen($data['email']) > 100 || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
                     $_SESSION['errors']['email'] = "Email là băt buộc, độ dài không quá 100 ký tự và phải đúng định dạng.";
-                } elseif (!empty($this->account->getById('email = :email', ['email' => $data['email']]))) {
+                } else if (!empty($this->account->getById('email = :email', ['email' => $data['email']]))) {
                     $_SESSION['errors']['email'] = "Email đã tồn tại trong hệ thống.";
                 }
                 ;

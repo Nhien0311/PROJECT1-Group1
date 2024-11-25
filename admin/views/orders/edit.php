@@ -161,6 +161,7 @@
                                                             <input type="text" class="form-control" id="total_amount"
                                                                 name="total_amount"
                                                                 value="<?php echo $orders['total_amount']; ?>" required>
+
                                                         </div>
                                                     </div>
                                                 </div>
