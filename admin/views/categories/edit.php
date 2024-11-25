@@ -68,6 +68,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="text-end">
+                                                            <a href="?act=categories" class="btn btn-primary">Quay lại</a>
                                                             <button type="reset" class="btn btn-warning">Nhập lại</button>
                                                             <button type="submit" class="btn btn-danger">Sửa danh mục</button>
                                                         </div>
