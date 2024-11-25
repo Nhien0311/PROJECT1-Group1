@@ -21,6 +21,10 @@ class ProductController
 
     public function add()
     {
+        try {
+        // Khởi tạo mảng lỗi
+        $_SESSION['errors'] = [];
+
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $thumbnail = '';
             $fileImg = "./uploads/";
@@ -41,12 +45,32 @@ class ProductController
                 'sale_price' => $_POST['sale_priceModel'] ?? 0,
                 'price' => $_POST['priceModel'] ?? 0
             ];
+            // Validate dữ liệu
+            if(empty($data['name']) || strlen($data['name'] > 50)) {
+                $_SESSION['errors']['name'] = "Tên sản phẩm không được để trống và dưới 50 ký tự";
+            };
+
+            if(empty($data['category_id'])) {
+                $_SESSION['errors']['category_id'] = "Id danh mục không được để trống";
+            };
+            // Nếu có lỗi, quay lại trang tạo sản phẩm -> hiển thị lỗi
+            if(!empty($_SESSION['errors'])) {
+                require_once "views/products/add.php";
+                return;
+            }
 
             $this->productModel->add($data);
+            $_SESSION['success'] = true;
+            $_SESSION['msg'] = "Tạo sản phẩm thành công!";
             header('Location: ?act=products');
         }else{
             require_once 'views/products/add.php';
         }
+    } catch (Exception $e) {
+        $_SESSION['success'] = false;
+        $_SESSION['msg'] = $e->getMessage();
+        header("Location:?act=products");
+    };
     }
 
     public function edit($id)

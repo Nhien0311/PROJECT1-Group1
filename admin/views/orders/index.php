@@ -76,9 +76,8 @@
                                                             <th>Tên sản phẩm</th>
                                                             <th>Địa chỉ</th>
                                                             <th>Trạng Thái</th>
-                                                            <!-- <th>ID biến thể</th> -->
                                                             <th>ID Tài Khoản</th>
-                                                            <th>Giá tiền</th>
+                                                            <th>Tổng tiền</th>
                                                             <th>Thao tác</th>
 
                                                         </tr>
@@ -93,7 +92,7 @@
                                                                 <td><?= $order['address']; ?></td>
                                                                 <td><?= $order['status'] ?></td> 
                                                                 <td><?= $order['account_id']; ?></td>
-                                                                <td><?= $order['price']; ?>VNĐ</td> 
+                                                                <td><?= $order['total_amount']; ?>VNĐ</td> 
                                                                 <td>
                                                                     <div
                                                                         class="d-flex justify-content-center hstack gap-3 flex-wrap">

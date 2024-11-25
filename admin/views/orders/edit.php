@@ -157,10 +157,10 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="price" class="form-label">Giá tiền</label>
-                                                            <input type="text" class="form-control" id="price"
-                                                                name="price"
-                                                                value="<?php echo $orders['price']; ?>" required>
+                                                            <label for="total_amount" class="form-label">Tổng tiền</label>
+                                                            <input type="text" class="form-control" id="total_amount"
+                                                                name="total_amount"
+                                                                value="<?php echo $orders['total_amount']; ?>" required>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -35,12 +35,12 @@ class ratingController {
              ];
 
              // Update the order
-             $ratings = $this->ratingModel->edit($id, $data);
-             header('Location:?act=ratings');
+            $ratings = $this->ratingModel->edit($id, $data);
+            header('Location:?act=ratings');
            
          } else {
              // Fetch the order data from the model
-             $rating = $this->ratingModel->getById($id);
+             $ratings = $this->ratingModel->getById($id);
              require_once 'views/ratings/edit.php';
          }
      }

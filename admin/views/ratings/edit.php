@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=ratings/edit&id=<?php echo $rating['rating_id']; ?>"
+                                            <form action="?act=ratings/edit&id=<?php echo $ratings['rating_id']; ?>"
                                                 method="POST">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -55,7 +55,7 @@
                                                             <label for="product_id" class="form-label">Mã sản phẩm</label>
                                                             <input type="text" class="form-control" id="product_id"
                                                                 name="product_id"
-                                                                value="<?php echo $rating['product_id']; ?>" required>
+                                                                value="<?php echo $ratings['product_id']; ?>" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -65,7 +65,7 @@
                                                             <label for="content" class="form-label">Nội dung</label>
                                                             <input type="text" class="form-control" id="content"
                                                                 name="content"
-                                                                value="<?php echo $rating['content']; ?>" required>
+                                                                value="<?php echo $ratings['content']; ?>" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -78,7 +78,7 @@
                                                             </label>
                                                             <input type="text" class="form-control" id="order_id"
                                                                 name="order_id"
-                                                                value="<?php echo $rating['order_id']; ?>" required>
+                                                                value="<?php echo $ratings['order_id']; ?>" required>
                                                         </div>
                                                     </div>
                                                 </div>
