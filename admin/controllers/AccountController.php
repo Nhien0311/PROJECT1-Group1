@@ -20,8 +20,8 @@ class AccountController
                 throw new Exception('Thiếu tham số "id"');
             }
 
-            $account = $this->account->getById($id);
-            if (!$account) {
+            $accounts = $this->account->getById($id);
+            if (!$accounts) {
                 throw new Exception("Tài khoản có ID = $id không tồn tại");
             }
             $accounts = $this->account->getById($id);
@@ -38,7 +38,7 @@ class AccountController
         try {
             // Khởi tạo mảng lỗi
             $_SESSION['errors'] = [];
-            // Kiểm tra nếu form POST
+
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Kiểm tra sự tồn tại của các key trong $_POST
                 $data = [
@@ -169,8 +169,8 @@ class AccountController
                 throw new Exception('Thiếu tham số "id"');
             }
 
-            $account = $this->account->getById($id);
-            if (!$account) {
+            $accounts = $this->account->getById($id);
+            if (!$accounts) {
                 throw new Exception("Tài khoản có ID = $id không tồn tại");
             }
             // Nếu all đk hợp lệ -> xóa tài khoản

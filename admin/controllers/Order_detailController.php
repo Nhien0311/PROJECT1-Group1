@@ -21,6 +21,7 @@ class Order_detailController {
                 'account_id' => $_POST['account_id'],
                 'created_at' => $_POST['created_at'],
                 'method_id' => $_POST['method_id'],
+                'total_amount' => $_POST['total_amount']
             ];
             $this->order_detail->edit($id, $data);
             header('Location:?act=order_details');

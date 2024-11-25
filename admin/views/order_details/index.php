@@ -60,6 +60,7 @@
                                                             <th scope="col">ID tài khoản</th>
                                                             <th scope="col">Thời gian</th>
                                                             <th scope="col">Phương thức thanh toán</th>
+                                                            <th scope="col">Tổng tiền</th>
                                                             <th scope="col">Thao tác</th>
                                                         </tr>
                                                     </thead>
@@ -73,7 +74,7 @@
                                                                 <td><?= $order_detail['account_id'] ?></td>
                                                                 <td><?= $order_detail['created_at'] ?></td>
                                                                 <td><?= $order_detail['method_id'] ?></td>
-                                                               
+                                                                <td><?= $order_detail['total_amount'] ?></td>
                                                                 <td>
                                                                 <div
                                                                     class="d-flex justify-content-center hstack gap-3 flex-wrap">
