@@ -99,6 +99,8 @@
                                                             <input type="number" class="form-control" id="phone" name="phone" required>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="address" class="form-label">Địa chỉ</label>
@@ -122,6 +124,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="text-end">
+                                                            <a href="?act=accounts" class="btn btn-primary">Quay lại</a>
                                                             <button type="submit" class="btn btn-danger">Thêm tài khoản</button>
                                                         </div>
                                                     </div>

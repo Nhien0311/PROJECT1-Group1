@@ -123,24 +123,14 @@
                                                     </div>
                                                 </div>
 
-
                                                 <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="text-end">
-                                                            <button type="submit" class="btn btn-danger">Cập nhật tài
-                                                                khoản</button>
-
+                                                        <div class="col-lg-12">
+                                                            <div class="text-end">
+                                                                <a href="?act=accounts" class="btn btn-primary">Quay lại</a>
+                                                                <button type="submit" class="btn btn-danger">Cập nhật tài khoản</button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="text-end">
-                                                            <a href="?act=accounts" class="btn btn-primary">Quay lại</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </form>
                                         </div>
                                     </div>

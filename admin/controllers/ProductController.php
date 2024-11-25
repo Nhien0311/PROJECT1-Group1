@@ -2,9 +2,12 @@
 class ProductController
 {
     private $productModel;
+    private $categoryModel;
+
     public function __construct()
     {
         $this->productModel = new Product();
+        $this->categoryModel = new Category();
     }
 
     public function index()
@@ -64,6 +67,7 @@ class ProductController
             $_SESSION['msg'] = "Tạo sản phẩm thành công!";
             header('Location: ?act=products');
         }else{
+            $categories = $this->categoryModel->getAll();
             require_once 'views/products/add.php';
         }
     } catch (Exception $e) {
@@ -98,6 +102,7 @@ class ProductController
             header('Location: ?act=products');
         }else{
             $product = $this->productModel->getById($id);
+            $categories = $this->categoryModel->getAll();
             require_once 'views/products/edit.php';
         }
     }

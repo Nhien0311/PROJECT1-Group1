@@ -79,19 +79,15 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="categoryModel" class="form-label">Danh mục</label>
-                                                            <input type="text" class="form-control" id="categoryModel" name="categoryModel" required>
-                                                            <!-- <select class="form-select" id="categoryModel" name="categoryModel" required>
-                                                                <?php foreach($category as $product){ ?>
-                                                                <option value="1" <?php echo ($product['category_id'] == '1') ? 'selected' : ''; ?>>
-                                                                    Transformers
-                                                                </option>
-                                                                <option value="2" <?php echo ($product['category_id'] == '2') ? 'selected' : ''; ?>>
-                                                                    Gundam
-                                                                </option>
+                                                            <select class="form-select" id="categoryModel" name="categoryModel" required>
+                                                                <?php foreach($categories as $category) : ?>
+                                                                <option value="<?php echo $category['category_id']; ?>">
+                                                                <?php echo $category['name']; ?></option>
+                                                                
                                                                 <?php
-                                                                }
+                                                                endforeach;
                                                                 ?>
-                                                            </select> -->
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -154,6 +150,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="text-end">
+                                                            <a href="?act=products" class="btn btn-primary">Quay lại</a>
                                                             <button type="reset" class="btn btn-warning">Nhập lại</button>
                                                             <button type="submit" class="btn btn-danger">Thêm sản phẩm</button>
                                                         </div>
