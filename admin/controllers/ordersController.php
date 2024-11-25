@@ -47,7 +47,7 @@ class ordersController {
                  'status' => $_POST['status'],
                  'variant_id' => $_POST['variant_id'],
                  'account_id' => $_POST['account_id'],
-                 'price' => $_POST['price'],
+                 'total_amount' => $_POST['total_amount'],
              ];
 
              // Validate dữ liệu
