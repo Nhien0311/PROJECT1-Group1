@@ -114,9 +114,11 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="role_id" class="form-label">Vai trò</label>
-                                                            <input type="text" class="form-control" id="role_id"
-                                                                name="role_id"
-                                                                value="<?php echo $accounts['role_id']; ?>" required>
+                                                            <select class="form-select" name="role_id" id="role_id" required>
+                                                                <option value="0" <?=($accounts['role_id'] == '0' ? 'user' : '') ?>>user</option>
+                                                                <option value="1" <?=($accounts['role_id'] == '1' ? 'admin' : '') ?>>admin</option>
+                                                                <option value="2" <?=($accounts['role_id'] == '2' ? 'nhanvien' : '') ?>>nhanvien</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -51,7 +51,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Ngày tạo đơn</label>
+                                                            <label for="created_at" class="form-label">Ngày tạo đơn</label>
                                                             <input type="text" class="form-control" id="created_at" name="created_at" value="<?= $orders['created_at']?>" disabled>
                                                         </div>
                                                     </div>
@@ -59,7 +59,7 @@
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Số điện thoại</label>
+                                                            <label for="phone" class="form-label">Số điện thoại</label>
                                                             <input type="text" class="form-control" id="phone" name="phone" value="<?= $orders['phone']?>" disabled>
                                                         </div>
                                                     </div>
@@ -67,7 +67,7 @@
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Tên sản phẩm</label>
+                                                            <label for="name" class="form-label">Tên sản phẩm</label>
                                                             <input type="text" class="form-control" id="name" name="name" value="<?= $orders['name']?>" disabled>
                                                         </div>
                                                     </div>
@@ -75,7 +75,7 @@
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Địa chỉ</label>
+                                                            <label for="address" class="form-label">Địa chỉ</label>
                                                             <input type="text" class="form-control" id="address" name="address" value="<?= $orders['address']?>" disabled>
                                                         </div>
                                                     </div>
@@ -83,24 +83,26 @@
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Trạng Thái</label>
+                                                            <label for="status" class="form-label">Trạng thái</label>
                                                             <input type="text" class="form-control" id="status" name="status" value="<?= $orders['status']?>" disabled>
                                                         </div>
                                                     </div>
                                                     </div>
+                                       
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Id biến thể</label>
-                                                            <input type="text" class="form-control" id="variant_id" name="variant_id" value="<?= $orders['variant_id']?>" disabled>
+                                                            <label for="account_id" class="form-label">Mã tài khoản</label>
+                                                            <input type="text" class="form-control" id="account_id" name="account_id" value="<?= $orders['account_id']?>" disabled>
                                                         </div>
                                                     </div>
                                                     </div>
+
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Mã tài khoản</label>
-                                                            <input type="text" class="form-control" id="account_id" name="account_id" value="<?= $orders['account_id']?>" disabled>
+                                                            <label for="total_amount" class="form-label">Tổng tiền</label>
+                                                            <input type="text" class="form-control" id="total_amount" name="total_amount" value="<?= $orders['total_amount']?>" disabled>
                                                         </div>
                                                     </div>
                                                     </div>

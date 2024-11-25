@@ -70,16 +70,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="price" class="form-label">Giá</label>
-                                                            <input type="text" class="form-control" id="price"
-                                                                name="price" value="<?= $order_details['price'] ?>"
-                                                                disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
@@ -120,7 +111,16 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="total_amount" class="form-label">Tổng tiền</label>
+                                                            <input type="text" class="form-control" id="total_amount"
+                                                                name="total_amount" value="<?= $order_details['total_amount'] ?>"
+                                                                disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>

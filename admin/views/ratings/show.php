@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,67 +22,75 @@
             <div class="page-content">
                 <div class="container-fluid">
 
-                <div class="row">
-                <div class="col-12">
-                    <div
-                        class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
-                        <h4 class="mb-sm-0">Chi tiết đánh giá</h4>
+                    <div class="row">
+                        <div class="col-12">
+                            <div
+                                class="page-title-box d-sm-flex align-items-center justify-content-between bg-galaxy-transparent">
+                                <h4 class="mb-sm-0">Chi tiết đánh giá</h4>
 
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                <li class="breadcrumb-item active">Chi tiết đánh giá</li>
-                            </ol>
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
+                                        <li class="breadcrumb-item active">Chi tiết đánh giá</li>
+                                    </ol>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
+                    <div class="row">
+                        <div class="col">
 
-                    <div class="h-100">
-                        <div class="card">
-                            <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1">Chi tiết đánh giá</h4>
-                            </div>
-                            <div class="card-body">
+                            <div class="h-100">
+                                <div class="card">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Chi tiết đánh giá</h4>
+                                    </div>
+                                    <div class="card-body">
                                         <div class="live-preview">
                                             <form>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Mã sản phẩm</label>
-                                                            <input type="text" class="form-control" id="product_id" name="product_id" value="<?= $ratings['product_id']?>" disabled>
+                                                            <label for="nameModel" class="form-label">Mã sản
+                                                                phẩm</label>
+                                                            <input type="text" class="form-control" id="product_id"
+                                                                name="product_id" value="<?= $ratings['product_id'] ?>"
+                                                                disabled>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    <div class="row">
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="nameModel" class="form-label">Nội dung</label>
-                                                            <input type="text" class="form-control" id="content" name="content" value="<?= $ratings['content']?>" disabled>
+                                                            <input type="text" class="form-control" id="content"
+                                                                name="content" value="<?= $ratings['content'] ?>"
+                                                                disabled>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    <div class="row">
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Mã đơn hàng</label>
-                                                            <input type="text" class="form-control" id="order_id" name="order_id" value="<?= $ratings['order_id']?>" disabled>
+                                                            <label for="nameModel" class="form-label">Mã đơn
+                                                                hàng</label>
+                                                            <input type="text" class="form-control" id="order_id"
+                                                                name="order_id" value="<?= $ratings['order_id'] ?>"
+                                                                disabled>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                  
-                                                 
-                                               
+                                                </div>
+
+
+
                                             </form>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
 
 

@@ -110,8 +110,12 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="role_id" class="form-label">Vai trò</label>
-                                            
-                                                            <input type="number" class="form-control" id="role_id" name="role_id" required>
+                                                            <select class="form-select" name="role_id" id="role_id" required>
+                                                                <option selected disabled>Chọn vai trò</option>
+                                                                <option value="0">user</option>
+                                                                <option value="1">admin</option>
+                                                                <option value="2">nhanvien</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
