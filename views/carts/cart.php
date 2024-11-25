@@ -1,5 +1,5 @@
-<?php include "views/header.php"; ?>
-<link rel="stylesheet" href="cart.css">
+<?php include "views/layouts/header.php"; ?>
+<link rel="stylesheet" href="./css/cart.css">
 <section class="cart py-3">
     <div class="container">
         <h2 class="tittle">
@@ -89,4 +89,4 @@
     </div>
 </section>
 
-<?php include "views/footer.php"; ?>
+<?php include "./views/layouts/footer.php"; ?>
