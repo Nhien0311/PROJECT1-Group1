@@ -83,7 +83,7 @@
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="status" class="form-label">Trạng Thái</label>
+                                                            <label for="status" class="form-label">Trạng thái</label>
                                                             <input type="text" class="form-control" id="status" name="status" value="<?= $orders['status']?>" disabled>
                                                         </div>
                                                     </div>

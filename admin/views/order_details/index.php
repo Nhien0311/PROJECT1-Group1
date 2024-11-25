@@ -55,7 +55,6 @@
                                                         <tr>
                                                             <th scope="col">Id</th>
                                                             <th scope="col">Số lượng</th>
-                                                            <th scope="col">Giá</th>
                                                             <th scope="col">ID biến thể</th>
                                                             <th scope="col">ID tài khoản</th>
                                                             <th scope="col">Thời gian</th>
@@ -69,7 +68,6 @@
                                                             <tr>
                                                                 <td><?= $order_detail['order_detail_id'] ?></td>
                                                                 <td><?= $order_detail['quantity'] ?></td>
-                                                                <td><?= $order_detail['price'] ?></td>
                                                                 <td><?= $order_detail['variant_id'] ?></td>
                                                                 <td><?= $order_detail['account_id'] ?></td>
                                                                 <td><?= $order_detail['created_at'] ?></td>
