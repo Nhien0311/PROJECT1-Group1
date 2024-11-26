@@ -8,7 +8,7 @@ class Product{
     }
     public function getAll()
     {
-        $sql = "SELECT p.*, c.name FROM products p LEFT JOIN categories c ON p.category_id = c.category_id";
+        $sql = "SELECT p.*, p.name FROM products p LEFT JOIN categories c ON p.category_id = c.category_id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -16,7 +16,7 @@ class Product{
 
     public function getById($id)
     {
-        $sql = "SELECT p.*, c.name FROM products p LEFT JOIN categories c ON p.category_id = c.category_id WHERE p.product_id = :id";
+        $sql = "SELECT p.*, p.name FROM products p LEFT JOIN categories c ON p.category_id = c.category_id WHERE p.product_id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         return $stmt->fetch();

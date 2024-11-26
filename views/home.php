@@ -7,13 +7,11 @@
         <?php foreach($products as $product): ?>
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <div class="card mb-4">
-                    <img src="<?php echo $product['thumbnail'] ? $product['thumbnail'] : 'default-image.png'; ?>"
-                    class="card-img-top" width="250" height="250" >
+                   <a href=""><img src="<?php echo $product['thumbnail'] ? $product['thumbnail'] : 'default-image.png'; ?>" class="card-img-top" width="250" height="250" ></a>
                         <div class="card-body">
-                            <h5 class="card-title"><?= $product['name'] ?></h5>
-                            <p class="card-text"><?= $product['short_description'] ?></p>
+                            <h5 class="card-title"><?= $product['name']; ?></h5>
                             <p class="card-text"><strong><?= $product['price'] ?>VNĐ</strong></p>
-                            <a href="?act=carts" class="btn btn-primary">Mua hộ cái</a>
+                            <a href="?act=carts" class="btn btn-primary">Thêm vào giỏ hàng</a>
                         </div>
                     </div>
                 </div>
