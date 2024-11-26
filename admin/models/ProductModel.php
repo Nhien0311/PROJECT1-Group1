@@ -6,7 +6,6 @@ class Product{
     {
         $this->conn = connectDB();
     }
-
     public function getAll()
     {
         $sql = "SELECT p.*, c.name FROM products p LEFT JOIN categories c ON p.category_id = c.category_id";
@@ -26,8 +25,8 @@ class Product{
     public function add($data)
     {
         unset($data['views']);
-        $sql = "INSERT INTO products (name, category_id, thumbnail, short_description, content, status, sale_price, price) VALUES
-        (:name, :category_id, :thumbnail, :short_description, :content, :status, :sale_price, :price)";
+        $sql = "INSERT INTO products (name, category_id, thumbnail, short_description, content, status, sale_price, price, quantity) VALUES
+        (:name, :category_id, :thumbnail, :short_description, :content, :status, :sale_price, :price, :quantity)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
     }
@@ -52,7 +51,8 @@ class Product{
                 status = :status,
                 -- views = :views,
                 sale_price = :sale_price,
-                price = :price
+                price = :price,
+                quantity = :quantity
                 WHERE product_id = :id";
         $data['id'] = $id;
         $stmt = $this->conn->prepare($sql);

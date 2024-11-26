@@ -1,8 +1,13 @@
 <?php
 class HomeController
 {
+    private $product;
+    public function __construct() {
+        $this->product = new Product();
+    }
     public function index(){
-        require_once './views/home.php';
+        $products = $this->product->getAll();
+        require_once 'views/home.php';
     }
 };
 ?>

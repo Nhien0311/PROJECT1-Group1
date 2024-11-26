@@ -125,12 +125,6 @@
                         </ul>
                     </div>
                 </li>
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> accounts
-=======
 
                 
                 <li class="nav-item">
@@ -148,7 +142,7 @@
                         </ul>
                     </div>
                 </li>
->>>>>>> a261502f16fe349f5de224b599ab0a1da86b1451
+
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
 
             </ul>
