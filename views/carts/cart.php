@@ -24,14 +24,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($products as $product) : ?>
+                                <?php  ?>
                                     <tr>
                                         <th scope="col" style="text-align: center;"><input type="checkbox" name="" id=""></th>
                                         <td>
                                             <img src="asset/images/robo1 1.png" height="45px" alt="">
                                         </td>
-                                        <td><?= $product['name'] ?></td>
-                                        <td><?= $product['sale_price'] ?><del><?= $product['price'] ?></del></td>
+                                        <td>Tên sản phẩm</td>
+                          
                                         <td>
                                             <div class="input-group input-cart mb-3">
                                                 <button class="btn btn-outline-secondary" type="button">-</button>
@@ -39,10 +39,10 @@
                                                 <button class="btn btn-outline-secondary" type="button">+</button>
                                             </div>
                                         </td>
-                                        <td><?= $product['price'] ?></td>
+                                        <td>Giá</td>
                                         <th scope="row"><button class="btn rounded-circle btn-danger"><i class="bi bi-trash3"></i></button></th>
                                     </tr>
-                                <?php endforeach; ?>
+                            
                             </tbody>
                         </table>
                     </div>

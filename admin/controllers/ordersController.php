@@ -48,8 +48,9 @@ class ordersController {
                  'variant_id' => $_POST['variant_id'],
                  'account_id' => $_POST['account_id'],
                  'total_amount' => $_POST['total_amount'],
+                 'product_id' => $_POST['product_id']
              ];
-
+        
              // Validate dữ liệu
              if (empty($data['phone']) || strlen($data['phone']) !== 10 || $data['phone'][0] !== '0' || !is_numeric($data['phone'])) {
                 $_SESSION['errors']['phone'] = "Số điện thoại phải có 10 chữ số và bắt đầu bằng số 0";
