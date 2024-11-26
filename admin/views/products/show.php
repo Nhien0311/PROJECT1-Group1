@@ -77,7 +77,7 @@
                                                         <div class="mb-3">
                                                             <label for="short_description" class="form-label">Mô tả</label>
                                                             <textarea class="form-control" id="short_description" name="short_description"
-                                                                rows="4" disabled><?php echo $product['short_description']; ?></textarea>
+                                                                rows="4" cols="5" disabled><?php echo $product['short_description']; ?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -86,7 +86,7 @@
                                                         <div class="mb-3">
                                                             <label for="content" class="form-label">Nội dung sản phẩm</label>
                                                             <textarea class="form-control" id="content" name="content"
-                                                                rows="4" disabled><?php echo $product['content']; ?></textarea>
+                                                                rows="5" cols="5" disabled><?php echo $product['content']; ?></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">

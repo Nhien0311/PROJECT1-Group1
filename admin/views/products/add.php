@@ -101,7 +101,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="descriptionModel" class="form-label">Mô tả</label>
-                                                            <input type="text" class="form-control" id="descriptionModel" name="descriptionModel" required>
+                                                            <textarea rows="5" cols="5" class="form-control" id="descriptionModel" name="descriptionModel" ></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -109,7 +109,7 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="contentModel" class="form-label">Nội dung</label>
-                                                            <input type="text" class="form-control" id="contentModel" name="contentModel" required>
+                                                            <textarea rows="5" cols="5" class="form-control" id="contentModel" name="contentModel"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -144,6 +144,14 @@
                                                         <div class="mb-3">
                                                             <label for="priceModel" class="form-label">Giá</label>
                                                             <input type="number" class="form-control" id="priceModel" name="priceModel" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="priceModel" class="form-label">Số lượng</label>
+                                                            <input type="number" class="form-control" id="quantity" name="quantity" required>
                                                         </div>
                                                     </div>
                                                 </div>
