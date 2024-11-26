@@ -30,7 +30,7 @@ class ProductController
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $thumbnail = '';
-            $fileImg = "./uploads/";
+            $fileImg = "uploads/";
             if(isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == 0)
             {
                 $thumbnail = $fileImg . basename($_FILES['thumbnail']['name']);
@@ -46,7 +46,8 @@ class ProductController
                 'status' => $_POST['statusModel'] ?? '',
                 'views' => $_POST['viewsModel'] ?? '',
                 'sale_price' => $_POST['sale_priceModel'] ?? 0,
-                'price' => $_POST['priceModel'] ?? 0
+                'price' => $_POST['priceModel'] ?? 0,
+                'quantity' => $_POST['quantity'] ?? 0
             ];
             // Validate dữ liệu
             // if(empty($data['name']) || strlen($data['name'] > 50)) {
@@ -95,7 +96,8 @@ class ProductController
                 'status' => $_POST['statusModel'] ?? '',
                 'views' => $_POST['viewsModel'] ?? '',
                 'sale_price' => $_POST['sale_priceModel'] ?? 0,
-                'price' => $_POST['priceModel'] ?? 0
+                'price' => $_POST['priceModel'] ?? 0,
+                'quantity' => $_POST['quantity'] ?? 0
             ];
 
             $this->productModel->edit($id, $data);

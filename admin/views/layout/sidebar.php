@@ -100,6 +100,20 @@
                                 <a href="?act=orders" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách đơn hàng
                                 </a>
+
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarQuanLi" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarQuanLi">
+                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí đơn hàng chi tiết</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarQuanLi">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+
                                 <a href="?act=order_details" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách đơn hàng chi tiết
                                 </a>
@@ -124,6 +138,7 @@
                         </ul>
                     </div>
                 </li>
+
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Bán hàng</span></li>
 
             </ul>

@@ -66,12 +66,11 @@
                                                             <th scope="col">STT</th>
                                                             <th scope="col">Tên sản phẩm</th>
                                                             <th scope="col">Danh mục</th>
-                                                            <th scope="col">Hình ảnh</th>
-                                                            <th scope="col">Mô tả ngắn</th>
-                                                            <th scope="col">Nội dung</th>
+                                                            <th scope="col">Hình ảnh</th>  
                                                             <th scope="col">Trạng thái</th>
                                                             <th scope="col">Giá khuyến mãi</th>
                                                             <th scope="col">Giá</th>
+                                                            <th scope="col">Số lượng</th>
                                                             <th scope="col">Hành động</th>
                                                         </tr>
                                                     </thead>
@@ -87,8 +86,7 @@
                                                                     <img src="<?php echo $product['thumbnail'] ? $product['thumbnail'] : 'default-image.png'; ?>"
                                                                         class="rounded" width="50" height="50">
                                                                 </td>
-                                                                <td><?php echo $product['short_description']; ?></td>
-                                                                <td><?php echo $product['content']; ?></td>
+                                                        
                                                                 <td>
                                                                     <?php
                                                                     if ($product['status'] == '1') { ?>
@@ -102,6 +100,7 @@
                                                                 </td>
                                                                 <td><?php echo $product['sale_price']; ?> VNĐ</td>
                                                                 <td><?php echo $product['price']; ?> VNĐ</td>
+                                                                <td><?php echo $product['quantity']; ?></td>
                                                                 <td>
                                                                     <div
                                                                         class="d-flex justify-content-center hstack gap-3 flex-wrap">

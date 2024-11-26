@@ -45,16 +45,16 @@
                         unset($_SESSION['msg']);
                     }
                     ?>
-                      <?php
+                    <?php
                     if (!empty($_SESSION['errors'])): ?>
-                       <div class="alert alert-danger">
-                        <ul>
-                            <?php foreach($_SESSION['errors'] as $value): ?>
-                                <li><?= $value ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                       </div>
-                       <?php unset($_SESSION['errors']); ?>
+                        <div class="alert alert-danger">
+                            <ul>
+                                <?php foreach ($_SESSION['errors'] as $value): ?>
+                                    <li><?= $value ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <?php unset($_SESSION['errors']); ?>
                     <?php endif; ?>
 
                     <div class="row">
@@ -66,22 +66,26 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="?act=products/edit&id=<?php echo $product['product_id']; ?>" method="POST"
-                                                enctype="multipart/form-data">
+                                            <form action="?act=products/edit&id=<?php echo $product['product_id']; ?>"
+                                                method="POST" enctype="multipart/form-data">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="nameModel" class="form-label">Tên sản phẩm</label>
-                                                            <input type="text" class="form-control" id="nameModel" name="nameModel"
-                                                                value="<?php echo $product['name']; ?>" required>
+                                                            <label for="nameModel" class="form-label">Tên sản
+                                                                phẩm</label>
+                                                            <input type="text" class="form-control" id="nameModel"
+                                                                name="nameModel" value="<?php echo $product['name']; ?>"
+                                                                required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="categoryModel" class="form-label">Danh mục</label>
+                                                            <label for="categoryModel" class="form-label">Danh
+                                                                mục</label>
 
-                                                            <select class="form-select" id="categoryModel" name="categoryModel" required>
-                                                            <?php foreach ($categories as $category): ?>
+                                                            <select class="form-select" id="categoryModel"
+                                                                name="categoryModel" required>
+                                                                <?php foreach ($categories as $category): ?>
                                                                     <option value="<?php echo $category['category_id']; ?>"
                                                                         <?php echo ($product['category_id'] == $category['category_id']) ? 'selected' : ''; ?>>
                                                                         <?php echo $category['name']; ?>
@@ -93,10 +97,11 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="mb-3">
-                                                        <label for="imageModel" class="form-label">Hình ảnh sản phẩm</label>
+                                                        <label for="imageModel" class="form-label">Hình ảnh sản
+                                                            phẩm</label>
                                                         <input type="file" class="form-control" id="imageModel"
                                                             name="thumbnail" accept="image/*">
-                                                            <br>
+                                                        <br>
                                                         <?php if ($product['thumbnail']): ?>
                                                             <div>
                                                                 <p>Ảnh hiện tại:</p>
@@ -108,26 +113,32 @@
                                                                 value="<?php echo $product['thumbnail']; ?>">
                                                         <?php endif; ?>
                                                     </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="descriptionModel" class="form-label">Mô tả</label>
-                                                        <input type="text" class="form-control" id="descriptionModel" name="descriptionModel"
-                                                            value="<?php echo $product['short_description']; ?>" required>
-                                                    </div>
-
                                                 </div>
+                                                <div class="row">
+                                                    <div class="mb-3">
+                                                        <label for="short_description" class="form-label">Mô tả</label>
+                                                        <textarea class="form-control" id="short_description"
+                                                            name="short_description" rows="5"
+                                                            cols="5"><?php echo $product['short_description']; ?></textarea>
+                                                    </div>
+                                                </div>
+
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="contentModel" class="form-label">Nội dung</label>
-                                                            <input type="text" class="form-control" id="contentModel" name="contentModel"
-                                                                value="<?php echo $product['content']; ?>" required>
+                                                            <label for="content" class="form-label">Nội dung sản
+                                                                phẩm</label>
+                                                            <textarea class="form-control" id="content" name="content"
+                                                                rows="5" cols="5"
+                                                                disabled><?php echo $product['content']; ?></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="statusModel" class="form-label">Trạng thái</label>
-                                                            <select class="form-select" id="statusModel" name="statusModel" required>
+                                                            <label for="statusModel" class="form-label">Trạng
+                                                                thái</label>
+                                                            <select class="form-select" id="statusModel"
+                                                                name="statusModel" required>
                                                                 <option value="1" <?php echo ($product['status'] == '1') ? 'selected' : ''; ?>>
                                                                     Còn hàng
                                                                 </option>
@@ -140,45 +151,52 @@
                                                                 $statusClass = ($product['status'] == '1') ? 'bg-success' : 'bg-danger';
                                                                 $statusText = ($product['status'] == '1') ? 'Còn hàng' : 'Hết hàng';
                                                                 ?>
-                                                                <span class="badge <?php echo $statusClass; ?> p-2"><?php echo $statusText; ?></span>
+                                                                <span
+                                                                    class="badge <?php echo $statusClass; ?> p-2"><?php echo $statusText; ?></span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="viewsModel" class="form-label">Lượt xem</label>
-                                                            <input type="number" class="form-control" id="viewsModel" name="viewsModel"
-                                                                value="<?php echo $product['views']; ?>" required>
-                                                        </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="sale_priceModel" class="form-label">Giá khuyến
+                                                            mãi</label>
+                                                        <input type="number" class="form-control" id="sale_priceModel"
+                                                            name="sale_priceModel"
+                                                            value="<?php echo $product['sale_price']; ?>" required>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="sale_priceModel" class="form-label">Giá khuyến mãi</label>
-                                                            <input type="number" class="form-control" id="sale_priceModel" name="sale_priceModel"
-                                                                value="<?php echo $product['sale_price']; ?>" required>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="priceModel" class="form-label">Giá</label>
-                                                            <input type="number" class="form-control" id="priceModel" name="priceModel"
-                                                                value="<?php echo $product['price']; ?>" required>
-                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="priceModel" class="form-label">Giá</label>
+                                                    <input type="number" class="form-control" id="priceModel"
+                                                        name="priceModel" value="<?php echo $product['price']; ?>"
+                                                        required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="quantity" class="form-label">Số lượng</label>
+                                                        <input type="number" class="form-control" id="quantity"
+                                                            name="quantity" value="<?php echo $product['quantity']; ?>"
+                                                            required>
                                                     </div>
 
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="text-end">
-                                                                <a href="?act=products" class="btn btn-primary">Quay lại</a>
-                                                                <button type="submit" class="btn btn-danger">Cập nhật sản phẩm</button>
-                                                            </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="text-end">
+                                                            <a href="?act=products" class="btn btn-primary">Quay lại</a>
+                                                            <button type="submit" class="btn btn-danger">Cập nhật sản
+                                                                phẩm</button>
                                                         </div>
                                                     </div>
-                                            </form>
+                                                </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -187,34 +205,33 @@
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> © Modelkit Store VN.
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="text-sm-end d-none d-sm-block">
-                            Modelkit Store VN
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> © Modelkit Store VN.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Modelkit Store VN
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-    </div>
+            </footer>
+        </div>
 
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
+        <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+            <i class="ri-arrow-up-line"></i>
+        </button>
 
-    <?php
-    require_once "views/layout/libs_js.php";
-    ?>
+        <?php
+        require_once "views/layout/libs_js.php";
+        ?>
 </body>
 
 </html>
