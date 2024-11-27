@@ -39,17 +39,11 @@
                             <a class="nav-link" href="#">Giới thiệu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Khuyến mãi hot</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tin tức</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sản phẩm <i class="bi bi-caret-down-fill"></i></a>
+                            <a class="nav-link" href="#">Danh mục <i class="bi bi-caret-down-fill"></i></a>
                             <ul class="sub-menu">
                                 <?php foreach($categories as $category) : ?>
                                 <li><a href=""><?= $category['name']; ?></a></li>
@@ -60,8 +54,17 @@
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Tìm kiếm...">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                     </form>
+                    
+                    <div class="b_use d-none d-lg-flex align-items-stretch">
+                        <div id="js-login-toggle" class="p-2 btn-account d-none d-lg-flex align-items-center justify-content-center head_svg custom-cursor-on-hover">
+                            <i class="bi bi-person-circle fs-3" style="color: #007bff;"></i>
+                        </div>
+                        <a class="p-2 btn-cart position-relative d-inline-flex head_svg" title="Giỏ hàng" href="/cart">
+                            <i class="bi bi-cart fs-3"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>

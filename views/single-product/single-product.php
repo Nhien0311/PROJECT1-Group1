@@ -21,7 +21,7 @@
                     <?php echo $product['name'] ?>
                 </h4>
                 <div class="product-price font-weight-bold pt-2 pb-2 pl-3 pr-3 rounded">
-                    <span class="special-price" style="color:red">Giá: <?php echo $product['price'] ?> VNĐ</span>
+                <span class="fs-4" style="color:red">Giá: <?php echo number_format($product['price'], 0, ',', '.') ?> VNĐ</span>
                 </div>
                 <div class="tab-content" id="myTabContent">
                     <h5>Thông tin chi tiết</h5>
