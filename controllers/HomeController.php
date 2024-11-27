@@ -8,10 +8,9 @@ class HomeController
         $this->category = new Category();
     }
     public function index(){
-        $products = $this->product->getAll();
+        $products = $this->product->getTop_8();
         $categories = $this->category->getAll();
         require_once './views/home.php';
-        require_once 'views/single-product/single-product.php';
     }
     public function show($id)
     {

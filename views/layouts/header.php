@@ -39,17 +39,11 @@
                             <a class="nav-link" href="#">Giới thiệu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Khuyến mãi hot</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tin tức</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sản phẩm <i class="bi bi-caret-down-fill"></i></a>
+                            <a class="nav-link" href="#">Danh mục <i class="bi bi-caret-down-fill"></i></a>
                             <ul class="sub-menu">
                                 <?php foreach($categories as $category) : ?>
                                 <li><a href=""><?= $category['name']; ?></a></li>

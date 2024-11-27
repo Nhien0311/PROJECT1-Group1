@@ -14,6 +14,16 @@ class Product{
         return $stmt->fetchAll();
     }
 
+    public function getTop_8(){
+        $sql = "SELECT p.* FROM products p 
+        LEFT JOIN categories c ON p.category_id = c.category_id 
+        ORDER BY p.product_id DESC 
+        LIMIT 8;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getById($id)
     {
         $sql = "SELECT p.*, p.name FROM products p LEFT JOIN categories c ON p.category_id = c.category_id WHERE p.product_id = :id";
