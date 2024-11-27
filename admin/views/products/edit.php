@@ -116,21 +116,19 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="mb-3">
-                                                        <label for="short_description" class="form-label">Mô tả</label>
-                                                        <textarea class="form-control" id="short_description"
-                                                            name="short_description" rows="5"
-                                                            cols="5"><?php echo $product['short_description']; ?></textarea>
+                                                        <label for="descriptionModel" class="form-label">Mô tả</label>
+                                                        <textarea class="form-control" id="descriptionModel"
+                                                            name="descriptionModel" rows="5" cols="5"><?php echo $product['short_description']; ?></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="content" class="form-label">Nội dung sản
+                                                            <label for="contentModel" class="form-label">Nội dung sản
                                                                 phẩm</label>
-                                                            <textarea class="form-control" id="content" name="content"
-                                                                rows="5" cols="5"
-                                                                disabled><?php echo $product['content']; ?></textarea>
+                                                            <textarea class="form-control" id="contentModel" name="contentModel"
+                                                                rows="5" cols="5"><?php echo $product['content']; ?></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
