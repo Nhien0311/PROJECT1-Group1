@@ -30,7 +30,7 @@ class ProductController
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $thumbnail = '';
-            $fileImg = "./uploads/";
+            $fileImg = "uploads/";
             if(isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == 0)
             {
                 $thumbnail = $fileImg . basename($_FILES['thumbnail']['name']);

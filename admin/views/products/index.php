@@ -87,7 +87,6 @@
                                                                         class="rounded" width="50" height="50">
                                                                 </td>
                                                         
-                                                         
                                                                 <td>
                                                                     <?php
                                                                     if ($product['status'] == '1') { ?>

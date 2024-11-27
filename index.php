@@ -14,7 +14,8 @@ match ($act) {
     '/' => (new HomeController())->index(),
 
     'carts' => (new CartController())->index(),
-    
+    'single-product' => (new HomeController())->show($_GET['id'] ?? 0),
 };
+
 
 ?>

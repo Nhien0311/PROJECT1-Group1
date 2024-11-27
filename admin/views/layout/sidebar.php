@@ -100,6 +100,12 @@
                                 <a href="?act=orders" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách đơn hàng
                                 </a>
+
+                                   </li>
+
+
+                            </li>
+
                                    </li>
                         </ul>
                     </div>
@@ -112,6 +118,7 @@
                     <div class="collapse menu-dropdown" id="sidebarQuanLi">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
+
                                 <a href="?act=order_details" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách đơn hàng chi tiết
                                 </a>
