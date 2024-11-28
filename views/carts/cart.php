@@ -21,17 +21,19 @@
                                     <th scope="col">Giá</th>
                                     <th scope="col">Số lượng</th>
                                     <th scope="col">Tạm tính</th>
+                                    <th scope="col">Thao tác</th>
+                                     
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php  ?>
+                                <?php foreach($_SESSION['myCart'] as $pro) : ?>
                                     <tr>
                                         <th scope="col" style="text-align: center;"><input type="checkbox" name="" id=""></th>
                                         <td>
-                                            <img src="asset/images/robo1 1.png" height="45px" alt="">
+                                            <img src="<?= $pro['thumbnail'] ?>" alt="" height="45px">
                                         </td>
-                                        <td>Tên sản phẩm</td>
-                          
+                                        <td><?=  $pro['name'] ?></td>
+                                        <td><?=  $pro['price'] ?></td>
                                         <td>
                                             <div class="input-group input-cart mb-3">
                                                 <button class="btn btn-outline-secondary" type="button">-</button>
@@ -39,26 +41,15 @@
                                                 <button class="btn btn-outline-secondary" type="button">+</button>
                                             </div>
                                         </td>
-                                        <td>Giá</td>
+                                        <td><?=  $pro['price'] ?></td>
                                         <th scope="row"><button class="btn rounded-circle btn-danger"><i class="bi bi-trash3"></i></button></th>
                                     </tr>
-                            
+                                    <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
-
-                    <div class="card-footer">
-                        <form action="">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Nhập voucher" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Áp dụng</button>
-                            </div>
-                        </form>
-                    </div>
-
                 </div>
             </div>
-
             <div class="col-12 col-lg-5 col-xl-4">
                 <div class="table-responsive">
                     <table class="table">
@@ -70,7 +61,7 @@
                         <tbody>
                             <tr>
                                 <td scope="row">Đơn giá: </td>
-                                <td>450.000đ</td>
+                                <td><?=  $pro['total_amount'] ?>VNĐ</td>
                             </tr>
                             <tr>
                                 <td scope="row">Phí vận chuyển: </td>
@@ -78,10 +69,11 @@
                             </tr>
                             <tr>
                                 <td scope="row">Tổng thanh toán: </td>
-                                <td>480.000đ</td>
+                                <td><?=  $pro['total_amount'] ?>VNĐ</td>
                             </tr>
                         </tbody>
                     </table>
+                    <form action="?act=checkout"></form>
                     <button class="btn btn-primary">Thanh toán</button>
                 </div>
             </div>

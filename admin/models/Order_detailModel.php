@@ -27,5 +27,9 @@ class Order_detailModel {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id'=>$id]);
     }
+    public function add_to_cart($data) {
+      
+    }
+    
 }
 ?>

@@ -26,11 +26,10 @@
                 </div>
                 <br>
                 <form action="?act=carts" method="post">
-                            <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
-                            <input type="hidden" name="price" value="<?= $product['price'] ?>">
-                            <input type="hidden" name="thumbnail" value="<?php echo $product['thumbnail'] ? $product['thumbnail'] : 'default-image.png'; ?>">
-                            <input type="hidden" name="name" value="<?= $product['name']; ?>">
-                            <button type="submit" name="btn-addtocart" class="btn btn-primary"><i class="bi bi-cart4"> Thêm vào giỏ hàng</i></button>
+                            <input type="hidden" name="id" value="<?= $product['product_id'] ?>">
+                            <input type="input" name="quantity" value="1">
+                          
+                            <button type="submit" class="btn btn-primary" name="addToCart"><i class="bi bi-cart4"> Thêm vào giỏ hàng</i></button>
                         </form>
 
             </div>
@@ -45,8 +44,8 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
+                    <li class="nav-item" rolclasse="presentation">
+                        <button  id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -56,21 +55,7 @@
             </div>
         </div>
         <br>
-        <h5>Sản phẩm cùng loại</h5>
-        <div class="related-product">
-            <?php foreach ($product as $produc) : ?>
-                <div class="card mb-4">
-                <img src="images/sp1.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $produc['name']; ?></h5>
-                    <p class="card-text">Đẹp mà đắt vl định mệnh cuộc đời</p>
-                    <a href="#" class="btn btn-primary">Mua hộ cái</a>
-                </div>
-            </div>
-            <?php
-            endforeach;
-             ?>
-        </div>
+     
     </div>
 </section>
 

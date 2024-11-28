@@ -65,5 +65,12 @@ class Product{
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
     }
+    public function find($id) {
+        $sql = "SELECT * FROM products WHERE product_id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        $product = $stmt->fetch();
+        return $product;
+    }
 }
 ?>
