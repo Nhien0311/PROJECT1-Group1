@@ -11,8 +11,7 @@
                     class="card-img-top" width="250" height="auto" ></a>
                         <div class="card-body">
                             <h6 class="card-title"><?= $product['name']; ?></h6>
-                            <p class="card-text"><strong><?php echo number_format($product['price'], 0, ',', '.') ?> VNĐ</strong></p>
-                            <a href="?act=carts" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                            <p class="card-text" style="color:red"><strong><?php echo number_format($product['price'], 0, ',', '.') ?> VNĐ</strong></p>
                         </div>
                     </div>
                 </div>

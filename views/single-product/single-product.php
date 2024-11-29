@@ -4,7 +4,7 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#" style="text-decoration: none">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="?act=/" style="text-decoration: none">Trang chủ</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><?php echo $product['name'] ?></li>
             </ol>
         </nav>
@@ -33,7 +33,7 @@
 
         </div>
         <br>
-        <h5>Sản phẩm cùng loại</h5>
+        <h5>Sản phẩm khác</h5>
         <div class="related-product">
             
                 <div class="card mb-4">
@@ -41,7 +41,6 @@
                     <div class="card-body">
                         <h5 class="card-title"></h5>
                         <p class="card-text">Đẹp mà đắt vl định mệnh cuộc đời</p>
-                        <a href="#" class="btn btn-primary">Mua hộ cái</a>
                     </div>
                 </div>
             

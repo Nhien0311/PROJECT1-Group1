@@ -8,14 +8,15 @@ require_once 'controllers/CartController.php';
 
 require_once 'admin/models/ProductModel.php';
 require_once 'admin/models/CategoryModel.php';
+require_once 'models/product.php';
 
 $act = $_GET['act'] ?? '/';
 
 match ($act) {
     '/' => (new HomeController())->index(),
 
+    'product' => (new HomeController())->productByCategory(),
     'carts' => (new CartController())->index(),
-
     'single-product/show' => (new HomeController())->show($_GET['id'] ?? 0),
 };
 
