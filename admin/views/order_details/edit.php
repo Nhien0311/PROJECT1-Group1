@@ -89,8 +89,8 @@
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="method_id" class="form-label">Phương thức thanh toán</label>
-                                                            <input type="text" class="form-control" id="method_id" name="method_id"
-                                                                value="<?php echo $order_details['method_id']; ?>" required>
+                                                            <input type="text" class="form-control" id="method" name="method_id"
+                                                                value="<?php echo $order_details['method']; ?>" required>
                                                         </div>
                                                     </div>
                                                     </div>

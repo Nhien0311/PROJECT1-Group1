@@ -1,0 +1,32 @@
+.navbar-nav li{
+    list-style: none;
+    position: relative;
+}
+.sub-menu li a{
+    color: rgb(90, 82, 82);
+    display: block;
+    text-decoration: none;
+}
+.navbar-nav ul.sub-menu{
+    position: absolute;
+    padding: 0px;
+    list-style: none;
+    width: 200px;
+    z-index: 1;
+    background-color: white;
+    display: none;
+}
+.navbar-nav li:hover ul.sub-menu{
+    display: block;
+}
+ul.sub-menu a{
+    padding: 8px 15px;
+    border-bottom: 1px solid rgb(73, 69, 69);
+}
+ul.sub-menu li:hover a{
+    border-bottom: 1px solid rgb(56, 56, 226);
+    color: rgb(56, 56, 212);
+}
+ul.sub-menu li:last-child a{
+    border: none;
+}

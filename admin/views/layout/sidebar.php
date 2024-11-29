@@ -74,11 +74,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarQuanLi" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarQuanLi">
+                    <a class="nav-link menu-link" href="#sidebarDanhgia" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarDanhgia">
                         <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí đánh giá</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarQuanLi">
+                    <div class="collapse menu-dropdown" id="sidebarDanhgia">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="?act=ratings" class="nav-link" data-key="t-sweet-alerts">
@@ -90,11 +90,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarQuanLi" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarQuanLi">
+                    <a class="nav-link menu-link" href="#sidebarDonhang" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarDonhang">
                         <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí đơn hàng</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarQuanLi">
+                    <div class="collapse menu-dropdown" id="sidebarDonhang">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="?act=orders" class="nav-link" data-key="t-sweet-alerts">
@@ -111,14 +111,13 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarQuanLi" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarQuanLi">
+                    <a class="nav-link menu-link" href="#sidebarDonhangchitiet" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarDonhangchitiet">
                         <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí đơn hàng chi tiết</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarQuanLi">
+                    <div class="collapse menu-dropdown" id="sidebarDonhangchitiet">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-
                                 <a href="?act=order_details" class="nav-link" data-key="t-sweet-alerts">
                                     Danh sách đơn hàng chi tiết
                                 </a>
@@ -129,11 +128,11 @@
 
                 
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarQuanLi" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarQuanLi">
+                    <a class="nav-link menu-link" href="#sidebarThongke" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarThongke">
                         <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Thống kê</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarQuanLi">
+                    <div class="collapse menu-dropdown" id="sidebarThongke">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="?act=statistical" class="nav-link" data-key="t-sweet-alerts">

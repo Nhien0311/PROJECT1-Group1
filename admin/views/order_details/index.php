@@ -71,7 +71,7 @@
                                                                 <td><?= $order_detail['variant_id'] ?></td>
                                                                 <td><?= $order_detail['account_id'] ?></td>
                                                                 <td><?= $order_detail['created_at'] ?></td>
-                                                                <td><?= $order_detail['method_id'] ?></td>
+                                                                <td><?= $order_detail['method'] ?></td>
                                                                 <td><?= $order_detail['total_amount'] ?></td>
                                                                 <td>
                                                                 <div

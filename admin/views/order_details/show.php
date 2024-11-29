@@ -104,9 +104,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="method_id" class="form-label">Phương thức thanh toán</label>
+                                                            <label for="method" class="form-label">Phương thức thanh toán</label>
                                                             <input type="text" class="form-control" id="method_id"
-                                                                name="method_id" value="<?= $order_details['method_id'] ?>"
+                                                                name="method" value="<?= $order_details['method'] ?>"
                                                                 disabled>
                                                         </div>
                                                     </div>

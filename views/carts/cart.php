@@ -1,80 +1,70 @@
-<?php include "views/layouts/header.php"; ?>
-<link rel="stylesheet" href="./css/cart.css">
-<section class="cart py-3">
-    <div class="container">
-        <h2 class="tittle">
-            Giỏ hàng
-        </h2>
-        
-        <div class="row">
-            <div class="col-12 col-lg-7 col-xl-8">
-                <div class="card">
-                    <div class="card-header">
+<?php include "views/layouts/header-cart.php"; ?>
+<link rel="stylesheet" href="./css/cart.css?v=1.0">
 
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col" style="text-align: center;"><input type="checkbox" name="" id=""></th>
-                                    <th scope="col" colspan="2">Sản phẩm</th>
-                                    <th scope="col">Giá</th>
-                                    <th scope="col">Số lượng</th>
-                                    <th scope="col">Tạm tính</th>
-                                    <th scope="col">Thao tác</th>
-                                     
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach($_SESSION['myCart'] as $pro) : ?>
+<section class="cart py-5">
+    <div class="container">
+        <h2 class="tittle text-center mb-4">Giỏ hàng</h2>
+      
+        <?php
+        // var_dump($_SESSION['myCart']);die;
+        if (isset($_SESSION['myCart'])&& (count($_SESSION['myCart']) > 0)) {
+            $html_cart ='  
+            <a href="?act=carts&emptycart=1">Xóa rỗng giỏ hàng</a>
+                            <table class="table table-bordered table-striped">
+                                <thead>
                                     <tr>
-                                        <th scope="col" style="text-align: center;"><input type="checkbox" name="" id=""></th>
-                                        <td>
-                                            <img src="<?= $pro['thumbnail'] ?>" alt="" height="45px">
-                                        </td>
-                                        <td><?=  $pro['name'] ?></td>
-                                        <td><?=  $pro['price'] ?></td>
-                                        <td>
-                                            <div class="input-group input-cart mb-3">
-                                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                                <input type="number" value="1" min="1" max="10" class="form-control">
-                                                <button class="btn btn-outline-secondary" type="button">+</button>
-                                            </div>
-                                        </td>
-                                        <td><?=  $pro['price'] ?></td>
-                                        <th scope="row"><button class="btn rounded-circle btn-danger"><i class="bi bi-trash3"></i></button></th>
+                                        <th scope="col" class="text-center"><input type="checkbox" name="" id=""></th>
+                                        <th scope="col" colspan="2">Sản phẩm</th>
+                                        <th scope="col">Giá</th>
+                                        <th scope="col">Số lượng</th>
+                                        <th scope="col">Tạm tính</th>
+                                        <th scope="col">Thao tác</th>
                                     </tr>
-                                    <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>';
+            foreach ($_SESSION['myCart'] as $key => $item) {
+                extract($item);
+                $html_cart .= '<tr>
+                                <td class="text-center"><input type="checkbox" name="" id=""></td>
+                                <td><img src="./uploads/' . $thumbnail . '" alt="" class="img-fluid"></td>
+                                <td>' . $name . '</td>
+                                <td>' . (isset($price) && is_numeric($price) ? number_format($price, 0, ',', '.') : '0 ') . 'VNĐ</td>
+                                <td>
+                                    <div class="input-group input-cart mb-3">
+                                        <input type="number" value="' . $quantity . '" min="1" max="10" class="form-control">
+                                    </div>
+                                </td>
+                               <td>' . (isset($price) && is_numeric($price) ? number_format($price, 0, ',', '.') : '0 ') . 'VNĐ</td>
+                                <td class="text-center">
+                                <a href="?act=carts&delkey=' . $key . '"
+                                <button class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i> Xóa</button>
+                                </a>
+                                </td>
+                            </tr>';
+            }
+            $html_cart .= '<tr>
+                            <td colspan="5" class="text-end"><strong>Tổng cộng:</strong></td>
+                            <td><strong>1,000,000 VNĐ</strong></td>
+                        </tr>
+                    </tbody>
+                    </table>';
+        } else {
+            $html_cart = 'Giỏ hàng của bạn đang trống! 
+            <br>
+            <a href="?act=/" class="btn btn-secondary">Tiếp tục mua sắm</a>';
+        }
+        ?>
+
+        <div class="row justify-content-between">
+            <div class="col-12 col-lg-7 col-xl-8">
+                <div class="card shadow-sm p-4">
+                    <div class="table-responsive">
+                      
+                            <?= $html_cart ?>
+
+                    </div class="">
+                        <button href="?act=checkout" class="btn btn-primary">Thanh toán</button>
                     </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 col-xl-4">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col" colspan="2">Tổng tiền</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">Đơn giá: </td>
-                                <td><?=  $pro['total_amount'] ?>VNĐ</td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Phí vận chuyển: </td>
-                                <td>30.000đ</td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Tổng thanh toán: </td>
-                                <td><?=  $pro['total_amount'] ?>VNĐ</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <form action="?act=checkout"></form>
-                    <button class="btn btn-primary">Thanh toán</button>
                 </div>
             </div>
         </div>
