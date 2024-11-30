@@ -31,5 +31,4 @@ match ($act) {
     'single-product/show' => (new HomeController())->show($_GET['id'] ?? 0),
 };
 
-
 ?>

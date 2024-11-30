@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['admin'])  && ($_GET['act'] ?? '') !== 'login') {
+    header('Location: ?act=login');
+    exit();
+}
+
 require_once '../commons/env.php';
 require_once '../commons/function.php';
 require_once 'controllers/ProductController.php';
@@ -10,6 +16,7 @@ require_once "controllers/ordersController.php";
 require_once "controllers/ratingCotroller.php";
 require_once 'controllers/Order_detailController.php';
 require_once 'controllers/VariantController.php';
+require_once 'controllers/AuthorController.php';
 
 
 require_once 'models/ProductModel.php';
@@ -19,9 +26,14 @@ require_once "models/ordersModel.php";
 require_once "models/ratingModel.php";
 require_once 'models/Order_detailModel.php';
 require_once 'models/VariantModel.php';
+require_once 'models/AuthorModel.php';
 $act = $_GET['act'] ?? '/';
 match ($act) {
     '/' => (new DashboardController()) ->index(),
+
+    'login' => (new AuthorController())->login(),
+    'logout' => (new AuthorController())->logout(),
+    'dashboard' => (new DashboardController())->index(),
     
     // CRUD products
     'products'            => (new ProductController())->index(),
@@ -69,5 +81,18 @@ match ($act) {
     'variants/create'       => (new VariantController())->add(),
     'variants/edit'         => (new VariantController())->edit($_GET['id'] ?? 0),
     'variants/delete'       => (new VariantController())->delete($_GET['id'] ?? 0),
+};
+
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    echo "<script>
+        Swal.fire({
+            title: '{$message['title']}',
+            text: '{$message['text']}',
+            icon: '{$message['icon']}'
+        });
+    </script>";
+    unset($_SESSION['message']); // Xóa message sau khi hiển thị
 }
+
 ?>
