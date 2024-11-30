@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" type="text/css" href="./asset/slick-1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="./asset/slick-1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="./asset/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/slick-1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/footer.css">
 
@@ -56,12 +56,16 @@
                                 <li><a href="">Kotobukiya</a></li>
                             </ul>
                         </li>
-                        
+
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm...">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form class="d-flex" role="search" method="GET" action="<?php echo DOMAIN; ?>">
+                        <input class="form-control me-2" type="text" name="search" placeholder="Tìm kiếm...">
+                       
+                        <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
                     </form>
+
+
+
                 </div>
             </div>
         </nav>

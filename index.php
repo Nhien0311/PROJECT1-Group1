@@ -10,6 +10,8 @@ require_once 'admin/models/ProductModel.php';
 
 $act = $_GET['act'] ?? '/';
 
+define('DOMAIN', 'http://' . $_SERVER['HTTP_HOST'] . '/PROJECT1-Group1/');
+
 match ($act) {
     '/' => (new HomeController())->index(),
 

@@ -10,7 +10,6 @@
                 <li class="breadcrumb-item active" aria-current="page">Mô Hình Lắp Ráp 1/100 Norma UNX-04S Hunter Kainar A-Type 2.0 Asy-Tac Fronteer 6975231819001</li>
             </ol>
         </nav>
-
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div class="box-img" style="height: 450px; width: 500px;">
