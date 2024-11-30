@@ -4,11 +4,13 @@ class HomeController
     private $productModel;
     private $product;
     private $category;
+    private $cart;
     public function __construct()
     {
         $this->product = new Product();
         $this->category = new Category();
         $this->productModel = new Products();
+        $this->cart = new cart();
     }
     public function index()
     {
@@ -83,8 +85,7 @@ class HomeController
 
             header('Location:?act=confirm_orders');
         }
-        $cart = new cart();
-        $thongtingiohang = $cart->showcart_tomtat();
+        $thongtingiohang = $this->cart->showcart_tomtat();
         require_once './views/checkout/checkout.php';
     }
     public function confirm_orders()
