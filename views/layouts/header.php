@@ -86,14 +86,9 @@
                                         class="align-middle" data-key="t-logout">Đăng ký</span></a>
                             <?php endif ?>
                         </div>
-<<<<<<< HEAD
                         <!-- Giỏ hàng -->
                         <div class="top-icons d-flex">
                         <a class="p-2 btn-cart position-relative d-inline-flex head_svg" title="Giỏ hàng" href="?act=carts">
-=======
-
-                        <a class="p-2 btn-cart position-relative d-inline-flex head_svg" title="Giỏ hàng" href="/cart">
->>>>>>> 9b4da3ab907b5b6192e8624333d38446846b2516
                             <i class="bi bi-cart fs-3"></i>
                             <span style="color:blue";>
                             <?php
