@@ -42,8 +42,8 @@
                             <a class="nav-link" href="?act=product">Danh mục <i class="bi bi-caret-down-fill"></i></a>
                             <ul class="sub-menu">
                                 <?php foreach ($categories as $category) : ?>
-                                    <li><a href="?act=product&categoryId=<?= $category['category_id'] ?>" 
-                                    <?php echo isset($_GET['categoryId']) && $_GET['categoryId'] == $category['category_id'] ? 'active' : ''; ?>><?= $category['name']; ?></a></li>
+                                    <li><a href="?act=product&categoryId=<?= $category['category_id'] ?>"
+                                            <?php echo isset($_GET['categoryId']) && $_GET['categoryId'] == $category['category_id'] ? 'active' : ''; ?>><?= $category['name']; ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </li>
@@ -55,12 +55,45 @@
                     </form>
 
                     <div class="b_use d-none d-lg-flex align-items-stretch">
-                        <div id="js-login-toggle" class="p-2 btn-account d-none d-lg-flex align-items-center justify-content-center head_svg custom-cursor-on-hover">
-                            <i class="bi bi-person-circle fs-3" style="color: #007bff;"></i>
+                        <button type="button" class="btn material-shadow-none" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            data-bs-placement="bottom-start"> <span class="d-flex align-items-center">
+                                <img class="rounded-circle header-profile-user"
+                                    src="https://static.vecteezy.com/system/resources/thumbnails/012/210/707/small_2x/worker-employee-businessman-avatar-profile-icon-vector.jpg"
+                                    alt="Header Avatar" width="40" height="40">
+                                <span class="text-start ms-xl-2">
+                                    <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
+                                        Hello:
+                                    </span>
+                                </span>
+                            </span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <h6 class="dropdown-header">Welcome!</h6>
+                            <?php if (isset($_SESSION['user'])) : ?>
+                                <a class="dropdown-item" href="#"><i
+                                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle">Tài khoản</span></a>
+                                <a class="dropdown-item" href="?act=logout"><i
+                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle" data-key="t-logout">Đăng xuất</span></a>
+                            <?php else : ?>
+                                <a class="dropdown-item" href="?act=login"><i
+                                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle">Đăng nhập</span></a>
+                                <a class="dropdown-item" href="?act=register"><i
+                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle" data-key="t-logout">Đăng ký</span></a>
+                            <?php endif ?>
                         </div>
+<<<<<<< HEAD
                         <!-- Giỏ hàng -->
                         <div class="top-icons d-flex">
                         <a class="p-2 btn-cart position-relative d-inline-flex head_svg" title="Giỏ hàng" href="?act=carts">
+=======
+
+                        <a class="p-2 btn-cart position-relative d-inline-flex head_svg" title="Giỏ hàng" href="/cart">
+>>>>>>> 9b4da3ab907b5b6192e8624333d38446846b2516
                             <i class="bi bi-cart fs-3"></i>
                             <span style="color:blue";>
                             <?php
@@ -78,6 +111,6 @@
                 </div>
             </div>
         </nav>
-        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </header>
     <main>
