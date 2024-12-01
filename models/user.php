@@ -8,6 +8,22 @@ class User
         $this->conn = connectDB();
     }
 
+    public function getAll()
+    {
+        $sql = "SELECT * FROM accounts";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function findUser($user_name)
+    {
+        $sql = "SELECT * FROM accounts WHERE user_name = :user_name";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['user_name' => $user_name]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function create($data)
     {
         unset($data['role_id']);

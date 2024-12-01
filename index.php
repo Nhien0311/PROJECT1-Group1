@@ -7,15 +7,11 @@ require_once 'commons/env.php';
 require_once 'commons/function.php';
 
 require_once 'controllers/HomeController.php';
-<<<<<<< HEAD
 require_once 'controllers/AuthController.php';
-
-require_once 'models/cart.php';
-=======
+require_once 'controllers/DashboardController.php';
 
 require_once 'models/cart.php';
 require_once 'models/showcart.php';
->>>>>>> user
 
 require_once 'admin/models/ProductModel.php';
 require_once 'admin/models/CategoryModel.php';
@@ -25,7 +21,9 @@ require_once 'models/user.php';
 $act = $_GET['act'] ?? '/';
 
 match ($act) {
-    '/' => (new HomeController())->index(),
+    
+    '/' => (new DashboardController()) ->index(),
+    'home' => (new HomeController())->index(),
 
     'carts' => (new HomeController())->cart(),
 

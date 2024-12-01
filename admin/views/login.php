@@ -151,7 +151,6 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" placeholder="Mật khẩu" name="pass_author" require />
             </div>
-            <div class="pass"><a href="#">Forgot password?</a></div>
             <div class="row button">
                 <input type="submit" value="Login" name="login" />
             </div>
@@ -159,7 +158,6 @@
                 echo "<p style='color:red;'>SAI TÀI KHOẢN HOẶC MẬT KHẨU</p>";
                 unset($_SESSION['error']);
             } ?>
-            <div class="signup-link">Tài khoản mặc định: admin | 1</div>
         </form>
     </div>
     <?php if (isset($_SESSION['message'])): ?>

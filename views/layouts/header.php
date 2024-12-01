@@ -69,7 +69,7 @@
                             </span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <h6 class="dropdown-header">Welcome!</h6>
+                            <h6 class="dropdown-header">Welcome! <?= $_SESSION['user']['user_name'] ?? '' ?></h6>
                             <?php if (isset($_SESSION['user'])) : ?>
                                 <a class="dropdown-item" href="#"><i
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
