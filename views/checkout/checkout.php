@@ -4,7 +4,7 @@
     <div class="container">
         <h2 class="tittle mb-4">Thanh toán</h2>
         <form action="?act=checkout" method="post" class="row" id="checkoutForm">
-            <div class="col-12 col-lg-7 col-xl-6">
+            <div class="col-12 col-lg-7 col-xl-4">
                 <div class="card">
                     <div class="card-header">Thông tin người đặt hàng</div>
                     <!-- Khi user đăng nhập thì load thông tin lên đây -->
@@ -31,7 +31,7 @@
             </div>
 
        
-            <div class="col-12 col-lg-5 col-xl-6">
+            <div class="col-12 col-lg-5 col-xl-8">
                 <div class="card">
                     <div class="card-header">
                         Thông tin đơn hàng
@@ -85,3 +85,4 @@
 </section>
 <br>
 <?php include "views/layouts/footer.php"; ?>
+

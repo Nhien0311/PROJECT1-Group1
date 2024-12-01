@@ -7,7 +7,7 @@
                     <img src="./asset/images/LogoVn1.png" alt="" width="150px" height="150px">
                 </ul>
                 <h5>Địa chỉ: Dịch Vọng - Cầu Giấy - Hà Nội</h5>
-                <h6>Email:<a href="">mungnvph52815@gmail.com</a></h6>
+                <h6>Email:<a href=""> modelKitStoreVn.@gmail.com</a></h6>
                 <h6>Hotline:<a href="">0949441510</a></h6>
             </div>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">

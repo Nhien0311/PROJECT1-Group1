@@ -14,14 +14,14 @@ class cart {
                 $html_cart.=' <tr>
                                 <td scope="row">'.$name.'</td>
                                 <td >'.$quantity.'</td>
-                                <td>'.(isset($price) && is_numeric($price) ? number_format($price,0, ',', '.') : '0 ').'VNĐ</td>
-                                
+                                 <td>' .number_format($price, 0, ',', '.') . ' đ</td>
+                                </tr>
                            ';
             }
             $html_cart .= ' <tr>
                                 <td><strong>Tổng đơn hàng: </strong></td>
                                 <td></td>
-                                 <td style="color:red;"><strong>'.(isset($total_amount) && is_numeric($total_amount) ? number_format($total_amount ,0, ',', '.') : '0').'VNĐ</strong></td>
+                                <td class="col-2" style="color:red;"><strong>'.number_format($total_amount, 0, ',', '.') . ' đ</strong></td>
                                 <input type="hidden" name="tongdonhang" value="'.$total_amount.'">
                             </tr>
                     ';

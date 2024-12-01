@@ -7,9 +7,15 @@ require_once 'commons/env.php';
 require_once 'commons/function.php';
 
 require_once 'controllers/HomeController.php';
+<<<<<<< HEAD
 require_once 'controllers/AuthController.php';
 
 require_once 'models/cart.php';
+=======
+
+require_once 'models/cart.php';
+require_once 'models/showcart.php';
+>>>>>>> user
 
 require_once 'admin/models/ProductModel.php';
 require_once 'admin/models/CategoryModel.php';
