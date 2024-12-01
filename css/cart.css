@@ -1,3 +1,79 @@
-.input-cart{
-    max-width: 150px;
+/* Đảm bảo bảng giỏ hàng có thể cuộn trên màn hình nhỏ */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+}
+
+/* Điều chỉnh kích thước của các cột trong bảng để chúng vừa vặn với màn hình */
+table {
+    width: 100%;
+    table-layout: fixed; /* Đảm bảo tất cả các cột đều có chiều rộng đồng đều */
+}
+
+table th, table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px; /* Cải thiện khoảng cách giữa các cột */
+}
+
+/* Điều chỉnh ảnh sản phẩm để phù hợp với bảng */
+table img {
+    width: 75px; /* Đảm bảo ảnh không bị quá to */
+    height: auto;
+}
+
+/* Các nút bấm "Xóa" */
+.btn-danger.btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 20px; /* Tạo góc bo tròn cho nút */
+}
+
+/* Cải thiện giao diện tổng thể của giỏ hàng */
+.card {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Đảm bảo các nút "Thanh toán" và "Tiếp tục mua sắm" không bị lệch */
+.d-flex {
+    display: flex;
+    justify-content: space-between; /* Đảm bảo hai nút bấm không bị chồng lên nhau */
+}
+
+/* Cải thiện khoảng cách và font chữ */
+.tittle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Làm cho các phần tử trong giỏ hàng dễ đọc hơn */
+table td, table th {
+    font-size: 14px; /* Đảm bảo font chữ dễ đọc */
+    padding: 12px 15px; /* Đảm bảo khoảng cách trong bảng đủ rộng */
+}
+
+/* Điều chỉnh toàn diện cho tất cả các màn hình */
+@media (max-width: 767px) {
+    table th, table td {
+        font-size: 12px; /* Thu nhỏ font chữ trên màn hình nhỏ */
+        padding: 10px 8px; /* Giảm khoảng cách để phù hợp với màn hình nhỏ */
+    }
+
+    table img {
+        width: 50px; /* Thu nhỏ ảnh sản phẩm trên màn hình nhỏ */
+    }
+
+    .tittle {
+        font-size: 1.5rem; /* Giảm kích thước tiêu đề để phù hợp với màn hình nhỏ */
+    }
+
+    .d-flex {
+        flex-direction: column; /* Đảm bảo các nút bấm không bị chồng lên nhau */
+        align-items: flex-start;
+    }
 }

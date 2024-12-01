@@ -13,3 +13,10 @@ function connectDB() {
     }
 
 }
+
+function session_flash($key)
+{
+    $message = $_SESSION[$key] ?? '';
+    unset($_SESSION[$key]);
+    return $message;
+}

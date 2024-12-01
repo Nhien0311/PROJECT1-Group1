@@ -54,9 +54,10 @@ class ProductController
             //     $_SESSION['errors']['name'] = "Tên sản phẩm không được để trống và dưới 50 ký tự";
             // };
 
-            if(empty($data['category_id'])) {
-                $_SESSION['errors']['category_id'] = "Id danh mục không được để trống";
+            if(empty($data['statusModel'])) {
+                $_SESSION['errors']['statusModel'] = "Trạng thái không được để trống";
             };
+            if(empty($data['status']))
             // Nếu có lỗi, quay lại trang tạo sản phẩm -> hiển thị lỗi
             if(!empty($_SESSION['errors'])) {
                 require_once "views/products/add.php";
