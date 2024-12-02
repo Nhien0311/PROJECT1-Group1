@@ -8,7 +8,6 @@
                 <li class="breadcrumb-item active" aria-current="page"><?php echo $product['name'] ?></li>
             </ol>
         </nav>
-
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div class="box-img" style="height: 450px; width: 500px;">
