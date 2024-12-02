@@ -20,6 +20,8 @@ require_once 'models/user.php';
 
 $act = $_GET['act'] ?? '/';
 
+define('DOMAIN', 'http://' . $_SERVER['HTTP_HOST'] . '/PROJECT1-Group1/');
+
 match ($act) {
     
     '/' => (new DashboardController()) ->index(),

@@ -49,6 +49,16 @@
                         </li>
 
                     </ul>
+<<<<<<< HEAD
+                    <form class="d-flex" role="search" method="GET" action="<?php echo DOMAIN; ?>">
+                        <input class="form-control me-2" type="text" name="search" placeholder="Tìm kiếm...">
+                       
+                        <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
+                    </form>
+
+
+
+=======
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Tìm kiếm...">
                         <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
@@ -103,6 +113,7 @@
                         
                         </div>
                     </div>
+>>>>>>> 7ec5468e75a36198303b5fb28a6e90556bf9a725
                 </div>
             </div>
         </nav>

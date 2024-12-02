@@ -1,5 +1,6 @@
 <?php
-class Product{
+class Product
+{
     private $conn;
 
     public function __construct()
@@ -14,6 +15,19 @@ class Product{
         return $stmt->fetchAll();
     }
 
+<<<<<<< HEAD
+    public function getWhere($condition = '')
+    {
+        $sql = "SELECT p.*, p.name FROM products p LEFT JOIN categories c ON p.category_id = c.category_id";
+        
+        if ($condition != '') {
+            $sql .= ' WHERE ' . $condition;
+        }
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+=======
     public function getTop_8(){
         $sql = "SELECT p.* FROM products p 
         LEFT JOIN categories c ON p.category_id = c.category_id 
@@ -22,6 +36,7 @@ class Product{
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+>>>>>>> 7ec5468e75a36198303b5fb28a6e90556bf9a725
     }
 
     public function getById($id)
@@ -48,7 +63,7 @@ class Product{
         $stmt->execute(['id' => $id]);
         $product = $stmt->fetch();
 
-        if(empty($data['thumbnail'])){
+        if (empty($data['thumbnail'])) {
             $data['thumbnail'] = $product['thumbnail'];
         }
         unset($data['views']);
