@@ -3,11 +3,8 @@ class HomeController
 {
     private $productModel;
     private $product;
-<<<<<<< HEAD
-=======
     private $category;
     private $cart;
->>>>>>> 7ec5468e75a36198303b5fb28a6e90556bf9a725
     public function __construct()
     {
         $this->product = new Product();
@@ -17,44 +14,15 @@ class HomeController
     }
     public function index()
     {
-<<<<<<< HEAD
-        $query = $_GET;
-
-        $search = isset($query['search']) ? $query['search'] : '';
-        $price_from = isset($query['price_from']) ? $query['price_from'] : '';
-        $price_to = isset($query['price_to']) ? $query['price_to'] : '';
-    
-        $condition = '';
-        if ($search != '') {
-            $condition .= 'p.name LIKE "%' . $search .'%"';
-        }
-        if ($price_from != '' && $price_to != '') {
-            if ($condition != '') {
-                $condition .= ' AND ';
-            }
-            $condition .= 'p.price BETWEEN ' . $price_from . ' AND ' . $price_to;
-        }
-
-        if ($condition != '') {
-            $products = $this->product->getWhere($condition);
-        } else {
-            $products = $this->product->getAll();
-        }
-
-        require_once 'views/home.php';
-=======
         $products = $this->product->getTop_8();
         $categories = $this->category->getAll();
         require_once './views/home.php';
->>>>>>> 7ec5468e75a36198303b5fb28a6e90556bf9a725
     }
     public function show($id)
     {
         $product = $this->product->getById($id);
         require_once './views/single-product/single-product.php';
     }
-<<<<<<< HEAD
-=======
     public function cart()
     {
         // var_dump($_POST);die;
@@ -138,7 +106,6 @@ class HomeController
         require_once 'views/products.php';
 
     }
->>>>>>> 7ec5468e75a36198303b5fb28a6e90556bf9a725
 }
 ;
 ?>
