@@ -1,4 +1,4 @@
-<?php include "views/layouts/header-cart.php"; ?>
+<?php include "views/layouts/header.php"; ?>
 <link rel="stylesheet" href="./css/cart.css?v=1.0">
 
 <section class="cart py-5">
@@ -22,6 +22,7 @@
         </div>
     </div>
 </section>
+<?php include "views/layouts/footer.php" ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){

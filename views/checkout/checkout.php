@@ -10,12 +10,12 @@
                     <!-- Khi user đăng nhập thì load thông tin lên đây -->
                     <div class="card-body">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email*</label>
-                            <input type="email" value="mungnvph52815@gmail.com" class="form-control" name="email" id="email" placeholder="Nhập email...">
+                            <label for="name" class="form-label">Họ và *</label>
+                            <input type="text" value="Nguyễn Văn Mừng" class="form-control" name="name" id="name" placeholder="Nhập họ và tên">
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Họ và *</label>
-                            <input type="text" value="Nguyễn Văn Mừng" class="form-control" name="fullname" id="fullname" placeholder="Nhập họ và tên">
+                            <label for="email" class="form-label">Email*</label>
+                            <input type="email" value="mungnvph52815@gmail.com" class="form-control" name="email" id="email" placeholder="Nhập email...">
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Số điện thoại*</label>

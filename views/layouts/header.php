@@ -49,18 +49,17 @@
                         </li>
 
                     </ul>
+
+                    <form class="d-flex" role="search">
+
+                
+
+
                     <form class="d-flex" role="search" method="GET" action="<?php echo DOMAIN; ?>">
                         <input class="form-control me-2" type="text" name="search" placeholder="Tìm kiếm...">
                        
-                        <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
-                    </form>
-
-
-
-                    <!-- <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm...">
                         <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-                    </form> -->
+                    </form>
 
                     <div class="b_use d-none d-lg-flex align-items-stretch">
                         <button type="button" class="btn material-shadow-none" id="page-header-user-dropdown"

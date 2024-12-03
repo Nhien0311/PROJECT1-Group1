@@ -25,7 +25,7 @@ function showcart() {
             $total = $price * $quantity;
             $html_cart .= '<tr>
                             <td class="text-center"><input type="checkbox" name="" id=""></td>
-                            <td><img src="uploads/'.$thumbnail.'" alt="" class="img-fluid"></td>
+                            <td><img src="'.$thumbnail.'" alt="" class="img-fluid"></td>
 
                             <td>' . $name . '</td>
                            <td>' .number_format($price, 0, ',', '.') . ' đ</td>

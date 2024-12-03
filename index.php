@@ -57,6 +57,7 @@ match ($act) {
     'login'               => (new AuthController())->login(),
     'logout'              => (new AuthController())->logout(),
 
+
     // Admin
 
        // CRUD products

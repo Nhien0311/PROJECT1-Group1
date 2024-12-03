@@ -14,32 +14,34 @@ class HomeController
     }
     public function index()
     {
+     
         $query = $_GET;
-
-        $search = isset($query['search']) ? $query['search'] : '';
-        $price_from = isset($query['price_from']) ? $query['price_from'] : '';
-        $price_to = isset($query['price_to']) ? $query['price_to'] : '';
     
+        $search = isset($query['search']) ? $query['search'] : '';
         $condition = '';
+        $message = ''; // Biến để lưu thông báo
+    
         if ($search != '') {
-            $condition .= 'p.name LIKE "%' . $search .'%"';
-        }
-        if ($price_from != '' && $price_to != '') {
-            if ($condition != '') {
-                $condition .= ' AND ';
-            }
-            $condition .= 'p.price BETWEEN ' . $price_from . ' AND ' . $price_to;
-        }
-
-        if ($condition != '') {
+            // Loại bỏ khoảng trắng thừa ở đầu/cuối và xử lý chuỗi để phù hợp với LIKE
+            $search = trim($search);
+            $search = preg_replace('/\s+/', '%', $search); // Thay thế khoảng trắng liên tiếp bằng ký tự '%'
+            $condition .= 'p.name LIKE "%' . $search . '%"';
+            
             $products = $this->product->getWhere($condition);
+    
+            if (!empty($products)) {
+                $message = 'Tìm kiếm thành công! Có ' . count($products) . ' sản phẩm được tìm thấy.';
+            } else {
+                $message = 'Không tìm thấy sản phẩm nào khớp với từ khóa "' . htmlspecialchars($search) . '".';
+            }
         } else {
-            $products = $this->product->getAll();
+            $products = $this->product->getTop_8();
         }
-        $products = $this->product->getTop_8();
+   
         $categories = $this->category->getAll();
         require_once './views/home.php';
     }
+
     public function show($id)
     {
         $product = $this->product->getById($id);
