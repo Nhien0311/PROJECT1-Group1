@@ -49,6 +49,9 @@
                         </li>
 
                     </ul>
+
+                    <form class="d-flex" role="search">
+
                     <form class="d-flex" role="search" method="GET" action="<?php echo DOMAIN; ?>">
                         <input class="form-control me-2" type="text" name="search" placeholder="Tìm kiếm...">
                        
@@ -57,7 +60,8 @@
 
 
 
-                    <!-- <form class="d-flex" role="search">
+<!--                     <form class="d-flex" role="search">
+
                         <input class="form-control me-2" type="search" placeholder="Tìm kiếm...">
                         <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                     </form> -->

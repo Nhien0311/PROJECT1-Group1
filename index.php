@@ -37,8 +37,6 @@ require_once 'admin/models/AuthorModel.php';
 
 $act = $_GET['act'] ?? '/';
 
-define('DOMAIN', 'http://' . $_SERVER['HTTP_HOST'] . '/PROJECT1-Group1/');
-
 match ($act) {
     '/'                 => (new HomeController()) ->index(),
     'home'              => (new DashboardController())->index(),

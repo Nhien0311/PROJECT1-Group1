@@ -14,6 +14,7 @@ class HomeController
     }
     public function index()
     {
+
         $query = $_GET;
 
         $search = isset($query['search']) ? $query['search'] : '';
