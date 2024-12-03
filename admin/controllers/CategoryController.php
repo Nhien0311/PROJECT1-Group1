@@ -11,13 +11,13 @@ class CategoryController
     public function index()
     {
         $categories = $this->categoryModel->getAll();
-        require_once 'views/categories/index.php';
+        require_once 'admin/views/categories/index.php';
     }
 
     public function show($id)
     {
         $category = $this->categoryModel->getById($id);
-        require_once 'views/categories/show.php';
+        require_once 'admin/views/categories/show.php';
     }
 
     public function add()
@@ -29,7 +29,7 @@ class CategoryController
             $this->categoryModel->add($data);
             header('Location: ?act=categories');
         }else{
-            require_once 'views/categories/add.php';
+            require_once 'admin/views/categories/add.php';
         }
     }
 
@@ -43,7 +43,7 @@ class CategoryController
             header('Location: ?act=categories');
         }else{
             $category = $this->categoryModel->getById($id);
-            require_once 'views/categories/edit.php';
+            require_once 'admin/views/categories/edit.php';
         }
     }
 

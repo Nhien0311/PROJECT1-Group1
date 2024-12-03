@@ -11,13 +11,13 @@ class VariantController
     public function index()
     {
         $variants = $this->variantModel->getAll();
-        require_once 'views/variants/index.php';
+        require_once 'admin/views/variants/index.php';
     }
 
     public function show($id)
     {
         $variant = $this->variantModel->getById($id);
-        require_once 'views/variants/show.php';
+        require_once 'admin/views/variants/show.php';
     }
 
     public function add() 
@@ -44,7 +44,7 @@ class VariantController
             $this->variantModel->add($data);
             header('Location: ?act=variants');
         }else{
-            require_once 'views/variants/add.php';
+            require_once 'admin/views/variants/add.php';
         }
     }
 
@@ -73,7 +73,7 @@ class VariantController
             header('Location: ?act=variants');
         }else{
             $variant = $this->variantModel->getById($id);
-            require_once 'views/variants/edit.php';
+            require_once 'admin/views/variants/edit.php';
         }
     }
 

@@ -13,13 +13,13 @@ class ProductController
     public function index()
     {
         $products = $this->productModel->getAll();
-        require_once 'views/products/index.php';
+        require_once 'admin/views/products/index.php';
     }
 
     public function show($id)
     {
         $product = $this->productModel->getById($id);
-        require_once 'views/products/show.php';
+        require_once 'admin/views/products/show.php';
     }
 
     public function add()
@@ -60,7 +60,7 @@ class ProductController
             if(empty($data['status']))
             // Nếu có lỗi, quay lại trang tạo sản phẩm -> hiển thị lỗi
             if(!empty($_SESSION['errors'])) {
-                require_once "views/products/add.php";
+                require_once "admin/views/products/add.php";
                 return;
             }
 
@@ -70,7 +70,7 @@ class ProductController
             header('Location: ?act=products');
         }else{
             $categories = $this->categoryModel->getAll();
-            require_once 'views/products/add.php';
+            require_once 'admin/views/products/add.php';
         }
     } catch (Exception $e) {
         $_SESSION['success'] = false;
@@ -106,7 +106,7 @@ class ProductController
         }else{
             $product = $this->productModel->getById($id);
             $categories = $this->categoryModel->getAll();
-            require_once 'views/products/edit.php';
+            require_once 'admin/views/products/edit.php';
         }
     }
 

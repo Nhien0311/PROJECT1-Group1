@@ -10,7 +10,7 @@ class ratingController {
     // Hàm hiển thị danh sách đơn hàng
     function index() {
         $ratings = $this->ratingModel->getAll();
-        require_once 'views/ratings/index.php';
+        require_once 'admin/views/ratings/index.php';
     }
 
     // Hàm xóa đơn hàng
@@ -41,12 +41,12 @@ class ratingController {
          } else {
              // Fetch the order data from the model
              $ratings = $this->ratingModel->getById($id);
-             require_once 'views/ratings/edit.php';
+             require_once 'admin/views/ratings/edit.php';
          }
      }
      public function show($id) {
         $ratings = $this->ratingModel->getById($id);
-        require_once 'views/ratings/show.php';
+        require_once 'admin/views/ratings/show.php';
     }
  }
 ?>
