@@ -77,16 +77,6 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="password" class="form-label">Mật khẩu</label>
-                                                            <input type="password" class="form-control" id="password"
-                                                                name="password" value="<?= $accounts['password'] ?>"
-                                                                disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
                                                             <label for="phone" class="form-label">Số điện thoại</label>
                                                             <input type="number" class="form-control" id="phone"
                                                                 name="phone" value="<?= $accounts['phone'] ?>" disabled>

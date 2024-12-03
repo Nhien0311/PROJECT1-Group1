@@ -9,7 +9,7 @@ class AccountController
     public function index()
     {
         $accounts = $this->account->getAll();
-        require_once "views/accounts/index.php";
+        require_once "admin/views/accounts/index.php";
     }
     // Hiển thị chi tiết theo id
     public function show($id)
@@ -25,7 +25,7 @@ class AccountController
                 throw new Exception("Tài khoản có ID = $id không tồn tại");
             }
             $accounts = $this->account->getById($id);
-            require_once 'views/accounts/show.php';
+            require_once 'admin/views/accounts/show.php';
         } catch (Exception $e) {
             $_SESSION['success'] = false;
             $_SESSION['msg'] = $e->getMessage();
@@ -75,7 +75,7 @@ class AccountController
 
                 // Nếu có lỗi, quay lại trang tạo tài khoản và hiển thị lỗi
                 if (!empty($_SESSION['errors'])) {
-                    require_once "views/accounts/create.php";
+                    require_once "admin/views/accounts/create.php";
                     return;
                 }
                 ;
@@ -86,7 +86,7 @@ class AccountController
                 $_SESSION['msg'] = "Tạo tài khoản thành công!";
                 header('Location: ?act=accounts');
             } else {
-                require_once "views/accounts/create.php";
+                require_once "admin/views/accounts/create.php";
             }
         } catch (Exception $e) {
             $_SESSION['success'] = false;
@@ -139,7 +139,7 @@ class AccountController
 
                 // Nếu có lỗi, quay lại trang tạo tài khoản và hiển thị lỗi
                 if (!empty($_SESSION['errors'])) {
-                    require_once "views/accounts/edit.php";
+                    require_once "admin/views/accounts/edit.php";
                     return;
                 }
                 ;
@@ -150,7 +150,7 @@ class AccountController
                 header('Location:?act=accounts');
             } else {
                 $accounts = $this->account->getById($id);
-                require_once 'views/accounts/edit.php';
+                require_once 'admin/views/accounts/edit.php';
             }
         } catch (Exception $e) {
             $_SESSION['success'] = false;

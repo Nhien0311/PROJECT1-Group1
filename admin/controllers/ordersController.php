@@ -10,7 +10,7 @@ class ordersController {
     // Hàm hiển thị danh sách đơn hàng
     function index() {
         $orders = $this->ordersModel->getAll();
-        require_once 'views/orders/index.php';
+        require_once 'admin/views/orders/index.php';
     }
 
 
@@ -66,7 +66,7 @@ class ordersController {
 
             // Nếu có lỗi, quay lại trang edit và hiển thị lỗi
             if(!empty($_SESSION['errors'])) {
-                require_once "views/orders/edit.php";
+                require_once "admin/views/orders/edit.php";
                 return;
             }
              // Nếu không có lỗi gọi hàm cập nhật đơn hàng
@@ -77,7 +77,7 @@ class ordersController {
            
          } else {
              $orders = $this->ordersModel->getById($id);
-             require_once 'views/orders/edit.php';
+             require_once 'admin/views/orders/edit.php';
          }
         } catch (Exception $e) {
             $_SESSION['success'] = false;
@@ -99,7 +99,7 @@ class ordersController {
         // nếu id đơn hàng có tồn tại sẽ hiện ra đơn hàng chi tiết
         $orders = $this->ordersModel->getById($id);
         $_SESSION['success'] = true;
-        require_once 'views/orders/show.php';
+        require_once 'admin/views/orders/show.php';
     } catch (Exception $e) {
         $_SESSION['success'] = false;
         $_SESSION['msg'] = $e->getMessage();
