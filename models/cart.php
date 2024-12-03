@@ -7,10 +7,11 @@ class cart {
     public function showcart_tomtat() {
         if (!empty($_SESSION['myCart'])) {
             $html_cart = '';
-            $total_amount=0;
+            $total_amount = 0;
             foreach ($_SESSION['myCart'] as $item) {
                 extract($item);
-                $total_amount+=$quantity*$price;
+                $total=$quantity*$price;
+                $total_amount+=$total;
                 $html_cart.=' <tr>
                                 <td scope="row">'.$name.'</td>
                                 <td >'.$quantity.'</td>
