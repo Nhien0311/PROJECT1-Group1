@@ -31,5 +31,15 @@ class cart {
         }
         return $html_cart;
     }
+    public function total_amount() {
+        $total_amount = 0;
+        foreach($_SESSION['myCart'] as $item) {
+            extract($item);
+            $total = $quantity * $price;
+            $total_amount += $total;
+            var_dump($total_amount);
+        }
+    }
+    
 }
 ?>

@@ -165,7 +165,13 @@
             <div class="row button">
                 <input type="submit" value="Đăng nhập" />
             </div>
+            <div class="signup-link">
+            <a href="?act=register">Đăng ký</a>
+            </div>
+<<<<<<< HEAD
             
+=======
+>>>>>>> user
         </form>
     </div>
 

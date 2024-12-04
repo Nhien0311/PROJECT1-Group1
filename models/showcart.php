@@ -21,8 +21,8 @@ function showcart() {
             $price = $item['price'];
             $quantity = $item['quantity'];
             $thumbnail = htmlspecialchars($item['thumbnail'], ENT_QUOTES, 'UTF-8');         
-            $total_amount+=$price*$quantity;
             $total = $price * $quantity;
+            $total_amount+=$total;
             $html_cart .= '<tr>
                             <td class="text-center"><input type="checkbox" name="" id=""></td>
                             <td><img src="'.$thumbnail.'" alt="" class="img-fluid"></td>
@@ -56,4 +56,5 @@ function showcart() {
     }
     return $html_cart;
 }
+
 ?>
