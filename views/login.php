@@ -168,7 +168,10 @@
             <div class="signup-link">
             <a href="?act=register">Đăng ký</a>
             </div>
+<<<<<<< HEAD
             
+=======
+>>>>>>> user
         </form>
     </div>
 
