@@ -5,12 +5,14 @@ class HomeController
     private $product;
     private $category;
     private $cart;
+    private $order;
     public function __construct()
     {
         $this->product = new Product();
         $this->category = new Category();
         $this->productModel = new Products();
         $this->cart = new cart();
+        $this->order = new ordersModel();
     }
     public function index()
     {
@@ -101,13 +103,24 @@ class HomeController
     {
         if (isset($_POST['dongythanhtoan'])) {
             // lấy thông tin trên form thanh toán insert vào orders
-            // tạo đơn hàng thành công -> có id order mới
-
-            // lấy idorder + thông tin giỏ hàng (for) insert order_details
-
-            // xóa rỗng giỏ hàng session
-
-            header('Location:?act=confirm_orders');
+           
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Kiểm tra sự tồn tại của các key trong $_POST
+                $data = [
+                    'created_at' => date("H:i:s d/m/Y"),
+                    'phone' => $_POST['phone'],
+                    'name' => $_POST['name'],
+                    'address' => $_POST['address'],
+                    'email' => $_POST['email'],
+                    'account_id' => $_SESSION['user']['account_id'],
+                    'total_amount' => $_POST['total_amount'],
+                    'method' => $_POST['method']
+                ];
+                var_dump($data);die;
+                
+                $this->order->create($data);
+                
+            }
         }
         $thongtingiohang = $this->cart->showcart_tomtat();
         require_once './views/checkout/checkout.php';

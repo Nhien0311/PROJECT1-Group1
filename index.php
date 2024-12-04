@@ -33,7 +33,6 @@ require_once "admin/models/ordersModel.php";
 require_once "admin/models/ratingModel.php";
 require_once 'admin/models/Order_detailModel.php';
 require_once 'admin/models/VariantModel.php';
-require_once 'admin/models/AuthorModel.php';
 
 $act = $_GET['act'] ?? '/';
 

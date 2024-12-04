@@ -52,64 +52,60 @@
 
                     <form class="d-flex" role="search">
 
-                
 
 
-                    <form class="d-flex" role="search" method="GET" action="<?php echo DOMAIN; ?>">
-                        <input class="form-control me-2" type="text" name="search" placeholder="Tìm kiếm...">
-                       
-                        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-                    </form>
 
-                    <div class="b_use d-none d-lg-flex align-items-stretch">
-                        <button type="button" class="btn material-shadow-none" id="page-header-user-dropdown"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                            data-bs-placement="bottom-start"> <span class="d-flex align-items-center">
-                                <img class="rounded-circle header-profile-user"
-                                    src="https://static.vecteezy.com/system/resources/thumbnails/012/210/707/small_2x/worker-employee-businessman-avatar-profile-icon-vector.jpg"
-                                    alt="Header Avatar" width="40" height="40">
-                                <span class="text-start ms-xl-2">
-                                    <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
-                                        Hello:
+                        <form class="d-flex" role="search" method="GET" action="<?php echo DOMAIN; ?>">
+                            <input class="form-control me-2" type="text" name="search" placeholder="Tìm kiếm...">
+
+                            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+
+                        <div class="b_use d-none d-lg-flex align-items-stretch">
+                            <button type="button" class="btn material-shadow-none" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                data-bs-placement="bottom-start"> <span class="d-flex align-items-center">
+                                    <img class="rounded-circle header-profile-user"
+                                        src="https://static.vecteezy.com/system/resources/thumbnails/012/210/707/small_2x/worker-employee-businessman-avatar-profile-icon-vector.jpg"
+                                        alt="Header Avatar" width="40" height="40">
+                                    <span class="text-start ms-xl-2">
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
+                                            Hello:
+                                        </span>
                                     </span>
                                 </span>
-                            </span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <h6 class="dropdown-header">Welcome! <?= $_SESSION['user']['user_name'] ?? '' ?></h6>
-                            <?php if (isset($_SESSION['user'])) : ?>
-                                <a class="dropdown-item" href="#"><i
-                                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Tài khoản</span></a>
-                                <a class="dropdown-item" href="?act=logout"><i
-                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle" data-key="t-logout">Đăng xuất</span></a>
-                            <?php else : ?>
-                                <a class="dropdown-item" href="?act=login"><i
-                                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Đăng nhập</span></a>
-                                <a class="dropdown-item" href="?act=register"><i
-                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle" data-key="t-logout">Đăng ký</span></a>
-                            <?php endif ?>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <h6 class="dropdown-header">Welcome! <?= $_SESSION['user']['user_name'] ?? '' ?></h6>
+                                <?php if (isset($_SESSION['user'])) : ?>
+                                    <a class="dropdown-item" href="#">
+                                        <span class="align-middle">Tài khoản</span></a>
+                                    <a class="dropdown-item" href="?act=logout">
+                                        <span class="align-middle" data-key="t-logout">Đăng xuất</span></a>
+                                <?php else : ?>
+                                    <a class="dropdown-item" href="?act=login">
+                                        <span class="align-middle">Đăng nhập</span></a>
+                                    <a class="dropdown-item" href="?act=register">
+                                        <span class="align-middle" data-key="t-logout">Đăng ký</span></a>
+                                <?php endif ?>
+                            </div>
+                            <!-- Giỏ hàng -->
+                            <div class="top-icons d-flex">
+                                <a class="p-2 btn-cart position-relative d-inline-flex head_svg" title="Giỏ hàng" href="?act=carts">
+                                    <i class="bi bi-cart fs-3"></i>
+                                    <span style="color:blue" ;>
+                                        <?php
+                                        if (isset($_SESSION['myCart'])) {
+                                            echo "(" . count($_SESSION['myCart']) . ")";
+                                        } else {
+                                            echo "(0)";
+                                        }
+                                        ?>
+                                    </span>
+                                </a>
+
+                            </div>
                         </div>
-                        <!-- Giỏ hàng -->
-                        <div class="top-icons d-flex">
-                        <a class="p-2 btn-cart position-relative d-inline-flex head_svg" title="Giỏ hàng" href="?act=carts">
-                            <i class="bi bi-cart fs-3"></i>
-                            <span style="color:blue";>
-                            <?php
-                            if(isset($_SESSION['myCart'])) {
-                                echo "(".count($_SESSION['myCart']).")";
-                            }else {
-                                echo "(0)";
-                            }
-                            ?>
-                        </span>
-                        </a>
-                        
-                        </div>
-                    </div>
                 </div>
             </div>
         </nav>

@@ -44,20 +44,25 @@
                                                     alt="Header Avatar">
                                                 <span class="text-start ms-xl-2">
                                                     <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
-                                                        
+
                                                     </span>
                                                 </span>
                                             </span>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-end">
                                             <!-- item-->
-                                            <h6 class="dropdown-header">Welcome!</h6>
-                                            <a class="dropdown-item" href="pages-profile.html"><i
-                                                    class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
-                                                    class="align-middle">Profile</span></a>
-                                            <a class="dropdown-item" href="?act=logout"><i
-                                                    class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                                    class="align-middle" data-key="t-logout">Logout</span></a>
+                                            <h6 class="dropdown-header">Welcome! <?= $_SESSION['user']['user_name'] ?? '' ?></h6>
+                                            <?php if (isset($_SESSION['user'])) : ?>
+                                                <a class="dropdown-item" href="pages-profile.html">
+                                                    <span class="align-middle">Tài khoản</span></a>
+                                                <a class="dropdown-item" href="?act=logout">
+                                                     <span class="align-middle" data-key="t-logout">Đăng xuất</span></a>
+                                            <?php else : ?>
+                                                <a class="dropdown-item" href="?act=login">
+                                                    <span class="align-middle">Đăng nhập</span></a>
+                                                <a class="dropdown-item" href="?act=register">
+                                                     <span class="align-middle" data-key="t-logout">Đăng ký</span></a>
+                                            <?php endif ?>
                                         </div>
                                     </div>
                                 </div>
