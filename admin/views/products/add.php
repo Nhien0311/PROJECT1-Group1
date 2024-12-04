@@ -12,6 +12,7 @@
     <?php
     require_once "views/layout/libs_css.php";
     ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -123,14 +124,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
-                                                            <label for="viewsModel" class="form-label">Lượt xem</label>
-                                                            <input type="number" class="form-control" id="viewsModel" name="viewsModel" required>
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
@@ -197,9 +190,17 @@
         <i class="ri-arrow-up-line"></i>
     </button>
 
-    <?php
-    require_once "views/layout/libs_js.php";
-    ?>
+    <?php require_once "views/layout/libs_js.php"; ?>
+    <?php if (isset($_SESSION['message'])): ?>
+        <script>
+            Swal.fire({
+                title: '<?php echo $_SESSION['message']['title']; ?>',
+                text: '<?php echo $_SESSION['message']['text']; ?>',
+                icon: '<?php echo $_SESSION['message']['icon']; ?>',
+            });
+            <?php unset($_SESSION['message']); ?>
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>

@@ -24,6 +24,11 @@ class Order_detailController {
                 'total_amount' => $_POST['total_amount']
             ];
             $this->order_detail->edit($id, $data);
+            $_SESSION['message'] = [
+                'title' => 'Thành công!',
+                'text' => 'Cập nhật chi tiết đơn hàng thành công!',
+                'icon' => 'success',
+            ];
             header('Location:?act=order_details');
         }else {
             $order_details = $this->order_detail->getById($id);
@@ -31,8 +36,26 @@ class Order_detailController {
         }
     }
     public function delete($id) {
-        $this->order_detail->delete($id);
+        try {
+            $this->order_detail->delete($id);
+
+            // Thông báo thành công
+            $_SESSION['message'] = [
+                'title' => 'Thành công!',
+                'text' => 'Chi tiết đơn hàng đã được xóa!',
+                'icon' => 'success',
+            ];
+        } catch (Exception $e) {
+            // Thông báo lỗi
+            $_SESSION['message'] = [
+                'title' => 'Lỗi!',
+                'text' => 'Không thể xóa chi tiết đơn hàng: ' . $e->getMessage(),
+                'icon' => 'error',
+            ];
+        }
+
         header('Location:?act=order_details');
+        exit;
     }
 }
 ?>

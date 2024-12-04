@@ -144,28 +144,63 @@
     <div class="wrapper">
         <div class="title"><span>Đăng ký tài khoản</span></div>
         <form action="?act=register" method="post">
+
             <div class="row">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Họ và tên" name="user_name" required />
+                <input type="text" placeholder="Họ và tên" name="user_name" />
             </div>
+            <?php if (isset($_SESSION['error_name'])) { ?>
+                <div class="alert alert-danger" style="color:red">
+                    <?php echo $_SESSION['error_name']; ?>
+                </div>
+                <?php unset($_SESSION['error_name']); ?>
+            <?php } ?>
+
             <div class="row">
                 <i class="fa-solid fa-envelope"></i>
-                <input type="email" placeholder="Email" name="email" require />
+                <input type="text" placeholder="Email" name="email" />
             </div>
+            <?php if (isset($_SESSION['error_email'])) { ?>
+                <div class="alert alert-danger" style="color:red">
+                    <?php echo $_SESSION['error_email']; ?>
+                </div>
+                <?php unset($_SESSION['error_email']); ?>
+            <?php } ?>
+
             <div class="row">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Mật khẩu" name="password" require />
+                <input type="password" placeholder="Mật khẩu" name="password" />
             </div>
+            <?php if (isset($_SESSION['error_pass'])) { ?>
+                <div class="alert alert-danger" style="color:red">
+                    <?php echo $_SESSION['error_pass']; ?>
+                </div>
+                <?php unset($_SESSION['error_pass']); ?>
+            <?php } ?>
+
             <div class="row">
                 <i class="fa-solid fa-phone"></i>
-                <input type="text" placeholder="Số điện thoại" name="phone" require />
+                <input type="text" placeholder="Số điện thoại" name="phone" />
             </div>
+            <?php if (isset($_SESSION['error_phone'])) { ?>
+                <div class="alert alert-danger" style="color:red">
+                    <?php echo $_SESSION['error_phone']; ?>
+                </div>
+                <?php unset($_SESSION['error_phone']); ?>
+            <?php } ?>
+
             <div class="row">
                 <i class="fa-solid fa-location-dot"></i>
-                <input type="text" placeholder="Địa chỉ" name="address" require />
+                <input type="text" placeholder="Địa chỉ" name="address" />
             </div>
+            <?php if (isset($_SESSION['error_address'])) { ?>
+                <div class="alert alert-danger" style="color:red">
+                    <?php echo $_SESSION['error_address']; ?>
+                </div>
+                <?php unset($_SESSION['error_address']); ?>
+            <?php } ?>
             <div class="row button">
-                <input type="submit" value="Đăng ký"  />
+                <input type="submit" value="Đăng ký" />
             </div>
         </form>
     </div>

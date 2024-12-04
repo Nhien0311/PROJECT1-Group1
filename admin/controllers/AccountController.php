@@ -82,17 +82,22 @@ class AccountController
 
                 // Nếu không có lỗi, gọi hàm tạo tài khoản
                 $this->account->create($data);
-                $_SESSION['success'] = true;
-                $_SESSION['msg'] = "Tạo tài khoản thành công!";
+                $_SESSION['message'] = [
+                    'title' => 'Thành công!',
+                    'text' => 'Thêm tài khoản thành công!',
+                    'icon' => 'success',
+                ];
                 header('Location: ?act=accounts');
             } else {
                 require_once "admin/views/accounts/create.php";
             }
         } catch (Exception $e) {
-            $_SESSION['success'] = false;
-            $_SESSION['msg'] = $e->getMessage();
+            $_SESSION['message'] = [
+                'title' => 'Lỗi!',
+                'text' => 'Có lỗi xảy ra khi thêm tài khoản: ' . $e->getMessage(),
+                'icon' => 'error',
+            ];
             header('Location:?act=accounts');
-            exit;
         }
     }
     public function edit($id)
@@ -145,16 +150,22 @@ class AccountController
                 ;
                 // Nếu không có lỗi gọi hàm cập nhật tài khoản
                 $this->account->edit($id, $data);
-                $_SESSION['success'] = true;
-                $_SESSION['msg'] = 'Tài khoản đã được cập nhật thành công';
+                $_SESSION['message'] = [
+                    'title' => 'Thành công!',
+                    'text' => 'Tài khoản đã được cập nhật!',
+                    'icon' => 'success',
+                ];
                 header('Location:?act=accounts');
             } else {
                 $accounts = $this->account->getById($id);
                 require_once 'admin/views/accounts/edit.php';
             }
         } catch (Exception $e) {
-            $_SESSION['success'] = false;
-            $_SESSION['msg'] = $e->getMessage();
+            $_SESSION['message'] = [
+                'title' => 'Lỗi!',
+                'text' => 'Có lỗi xảy ra khi cập nhật tài khoản: ' . $e->getMessage(),
+                'icon' => 'error',
+            ];
             header('Location:?act=accounts');
             exit;
         }
@@ -176,14 +187,20 @@ class AccountController
             // Nếu all đk hợp lệ -> xóa tài khoản
             $this->account->delete($id);
             // Thiết lập thông báo thành công
-            $_SESSION['success'] = true;
-            $_SESSION['msg'] = 'Tài khoản đã được xóa thành công';
+            $_SESSION['message'] = [
+                'title' => 'Thành công!',
+                'text' => 'Tài khoản đã được xóa!',
+                'icon' => 'success',
+            ];
             // chuyển hướng sau khi xóa thành công
             header('Location:?act=accounts');
             exit;
         } catch (Exception $e) {
-            $_SESSION['success'] = false;
-            $_SESSION['msg'] = $e->getMessage();
+            $_SESSION['message'] = [
+                'title' => 'Lỗi!',
+                'text' => 'Không thể xóa tài khoản: ' . $e->getMessage(),
+                'icon' => 'error',
+            ];
             header('Location:?act=accounts');
             exit;
         }

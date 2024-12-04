@@ -23,7 +23,7 @@ require_once "admin/controllers/ordersController.php";
 require_once "admin/controllers/ratingCotroller.php";
 require_once 'admin/controllers/Order_detailController.php';
 require_once 'admin/controllers/VariantController.php';
-require_once 'admin/controllers/AuthorController.php';
+
 
 
 require_once 'admin/models/ProductModel.php';

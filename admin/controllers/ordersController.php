@@ -13,17 +13,29 @@ class ordersController {
         require_once 'admin/views/orders/index.php';
     }
 
-
-   
-
     // Hàm xóa đơn hàng
     function delete($id) {
         // Sử dụng đúng đối tượng để xóa
-        if ($this->ordersModel->delete($id)) {
-            header("Location:?act=orders");
-        } else {
-            echo "Lỗi: Không thể xóa đơn hàng.";
+        try {
+            $this->ordersModel->delete($id);
+
+            // Thông báo thành công
+            $_SESSION['message'] = [
+                'title' => 'Thành công!',
+                'text' => 'Đơn hàng đã được xóa!',
+                'icon' => 'success',
+            ];
+        } catch (Exception $e) {
+            // Thông báo lỗi
+            $_SESSION['message'] = [
+                'title' => 'Lỗi!',
+                'text' => 'Không thể xóa đơn hàng: ' . $e->getMessage(),
+                'icon' => 'error',
+            ];
         }
+
+        header('Location:?act=orders');
+        exit;
      }
      public function edit($id)
      {
@@ -70,9 +82,12 @@ class ordersController {
                 return;
             }
              // Nếu không có lỗi gọi hàm cập nhật đơn hàng
-            $orders = $this->ordersModel->edit($id, $data);
-             $_SESSION['success'] = true;
-             $_SESSION['msg'] = "Đơn hàng đã được cập nhật thành công";
+             $orders = $this->ordersModel->edit($id, $data);
+             $_SESSION['message'] = [
+                'title' => 'Thành công!',
+                'text' => 'Đơn hàng đã được cập nhật!',
+                'icon' => 'success',
+            ];
              header('Location:?act=orders');
            
          } else {
@@ -80,8 +95,11 @@ class ordersController {
              require_once 'admin/views/orders/edit.php';
          }
         } catch (Exception $e) {
-            $_SESSION['success'] = false;
-            $_SESSION['msg'] = $e->getMessage();
+            $_SESSION['message'] = [
+                'title' => 'Lỗi!',
+                'text' => 'Có lỗi xảy ra khi cập nhật đơn hàng: ' . $e->getMessage(),
+                'icon' => 'error',
+            ];
             header('Location:?act=orders');
         }
 

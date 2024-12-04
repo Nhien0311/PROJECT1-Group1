@@ -27,6 +27,11 @@ class CategoryController
                 'name' => $_POST['nameCategory']
             ];
             $this->categoryModel->add($data);
+            $_SESSION['message'] = [
+                'title' => 'Thành công!',
+                'text' => 'Thêm danh mục thành công!',
+                'icon' => 'success',
+            ];
             header('Location: ?act=categories');
         }else{
             require_once 'admin/views/categories/add.php';
@@ -40,6 +45,11 @@ class CategoryController
                 'name' => $_POST['nameCategory']
             ];
             $this->categoryModel->edit($id, $data);
+            $_SESSION['message'] = [
+                'title' => 'Thành công!',
+                'text' => 'Thêm danh mục thành công!',
+                'icon' => 'success',
+            ];
             header('Location: ?act=categories');
         }else{
             $category = $this->categoryModel->getById($id);
@@ -49,8 +59,26 @@ class CategoryController
 
     public function delete($id)
     {
-        $this->categoryModel->delete($id);
+        try {
+            $this->categoryModel->delete($id);
+
+            // Thông báo thành công
+            $_SESSION['message'] = [
+                'title' => 'Thành công!',
+                'text' => 'Danh mục đã được xóa!',
+                'icon' => 'success',
+            ];
+        } catch (Exception $e) {
+            // Thông báo lỗi
+            $_SESSION['message'] = [
+                'title' => 'Lỗi!',
+                'text' => 'Không thể xóa danh mục: ' . $e->getMessage(),
+                'icon' => 'error',
+            ];
+        }
+
         header('Location: ?act=categories');
+        exit;
     }
 }
 ?>

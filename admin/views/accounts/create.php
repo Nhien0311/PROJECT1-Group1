@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm tài khoản | Modelkit Store VN</title>
     <?php require_once "views/layout/libs_css.php"; ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -164,6 +165,16 @@
     </button>
 
     <?php require_once "views/layout/libs_js.php"; ?>
+    <?php if (isset($_SESSION['message'])): ?>
+        <script>
+            Swal.fire({
+                title: '<?php echo $_SESSION['message']['title']; ?>',
+                text: '<?php echo $_SESSION['message']['text']; ?>',
+                icon: '<?php echo $_SESSION['message']['icon']; ?>',
+            });
+            <?php unset($_SESSION['message']); ?>
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>
