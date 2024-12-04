@@ -9,21 +9,33 @@
                     <div class="card-header">Thông tin người đặt hàng</div>
                     <!-- Khi user đăng nhập thì load thông tin lên đây -->
                     <div class="card-body">
+                    <?php
+                    if(isset($_SESSION['user'])) {
+                            $name = $_SESSION['user']['user_name'];
+                            $address = $_SESSION['user']['address'];
+                            $email = $_SESSION['user']['email'];
+                            $phone = $_SESSION['user']['phone'];
+                    } else {
+                        echo "Bạn chưa đăng nhập tài khoản!";
+                        header('Location:?act=login');
+                        exit;
+                    }
+                    ?>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Họ và *</label>
-                            <input type="text" value="Nguyễn Văn Mừng" class="form-control" name="name" id="name" placeholder="Nhập họ và tên">
+                            <label for="name" class="form-label">Họ và tên*</label>
+                            <input type="text" value="<?= $name ?>" class="form-control" name="name" id="name" placeholder="Nhập họ và tên">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email*</label>
-                            <input type="email" value="mungnvph52815@gmail.com" class="form-control" name="email" id="email" placeholder="Nhập email...">
+                            <input type="email" value="<?= $email ?>" class="form-control" name="email" id="email" placeholder="Nhập email...">
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Số điện thoại*</label>
-                            <input type="text" value="0949441510" class="form-control" name="phone" id="phone" placeholder="Nhập số điện thoại">
+                            <input type="number" value="<?= $phone ?>" class="form-control" name="phone" id="phone" placeholder="Nhập số điện thoại">
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Địa chỉ*</label>
-                            <input type="text" value="Hà Nội" class="form-control" name="address" id="address" placeholder="Nhập số địa chỉ">
+                            <input type="text" value="<?= $address ?>" class="form-control" name="address" id="address" placeholder="Nhập số địa chỉ">
                             </select>
                         </div>
                     </div>
@@ -61,15 +73,15 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="row"><input type="radio" id="payment_check" name="methodpayment" value="Tiền mặt" checked> </td>
+                                <td scope="row"><input type="radio" name="method" value="1" checked> </td>
                                 <td>Thanh toán bằng tiền mặt</td>
                             </tr>
                             <tr>
-                                <td scope="row"><input type="radio" id="payment_bank" name="methodpayment" value="Momo"> </td>
+                                <td scope="row"><input type="radio" name="method" value="2"> </td>
                                 <td>Ví điện tử: Momo</td>
                             </tr>
                             <tr>
-                                <td scope="row"><input type="radio" id="payment_card" name="methodpayment" value="Chuyển khoản"> </td>
+                                <td scope="row"><input type="radio" name="method" value="3"> </td>
                                 <td>Chuyển khoản</td>
                             </tr>
                         </tbody>
