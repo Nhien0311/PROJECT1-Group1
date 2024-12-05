@@ -27,8 +27,19 @@ class Order_detailModel {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id'=>$id]);
     }
-    public function add_to_cart($data) {
-      
+    public function create_order_detail($thumbnail, $name, $quantity, $price, $total_amount, $order_id, $product_id) {
+        $sql = "INSERT INTO order_details (thumbnail, name, quantity, price, total_amount, order_id, product_id) 
+                VALUES (:thumbnail, :name, :quantity, :price, :total_amount, :order_id, :product_id)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            ':thumbnail' => $thumbnail,
+            ':name' => $name,
+            ':quantity' => $quantity,
+            ':price' => $price,
+            ':total_amount' => $total_amount,
+            ':order_id' => $order_id,
+            ':product_id' => $product_id
+        ]);
     }
     
 }

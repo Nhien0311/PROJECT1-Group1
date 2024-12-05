@@ -6,8 +6,8 @@ $sl = isset($_POST['quantity']) && is_numeric($_POST['quantity']) && $_POST['qua
 $key = isset($_POST['key']) && is_numeric($_POST['key']) ? (int)$_POST['key'] : 0;
 
 // Cập nhật số lượng sản phẩm
-if(isset($_SESSION['myCart'][$key])) {
-    $_SESSION['myCart'][$key]['quantity'] = $sl;
+if(isset($_SESSION['cart'][$key])) {
+    $_SESSION['cart'][$key]['quantity'] = $sl;
 }
 // Hiển thị giỏ hàng
 echo showcart();

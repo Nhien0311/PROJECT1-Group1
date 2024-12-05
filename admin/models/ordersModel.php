@@ -37,6 +37,7 @@ class ordersModel {
         $sql = "INSERT INTO orders(created_at, phone, name, address, email, account_id, total_amount, method) VALUES (:created_at, :phone, :name, :address, :email, :account_id, :total_amount, :method)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
+        return $this->conn->lastInsertId();
     }
  
 }

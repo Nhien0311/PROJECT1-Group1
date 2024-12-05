@@ -62,22 +62,22 @@
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="variant_id" class="form-label">ID biến thể</label>
-                                                            <input type="text" class="form-control" id="variant_id" name="variant_id"
-                                                                value="<?php echo $order_details['variant_id']; ?>" required>
+                                                            <label for="product_id" class="form-label">ID sản phẩm</label>
+                                                            <input type="text" class="form-control" id="product_id" name="product_id"
+                                                                value="<?php echo $order_details['product_id']; ?>" required>
                                                         </div>
                                                     </div>
                                                     </div>
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="account_id" class="form-label">ID tài khoản</label>
-                                                            <input type="text" class="form-control" id="account_id" name="account_id"
-                                                                value="<?php echo $order_details['account_id']; ?>" required>
+                                                            <label for="name" class="form-label">Tên sản phẩm</label>
+                                                            <input type="text" class="form-control" id="name" name="name"
+                                                                value="<?php echo $order_details['name']; ?>" required>
                                                         </div>
                                                     </div>
                                                     </div>
-                                                    <div class="row">
+                                                    <!-- <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
                                                             <label for="created_at" class="form-label">Ngày tạo đơn</label>
@@ -85,19 +85,19 @@
                                                                 value="<?php echo $order_details['created_at']; ?>" required>
                                                         </div>
                                                     </div>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="method_id" class="form-label">Phương thức thanh toán</label>
-                                                            <input type="text" class="form-control" id="method" name="method_id"
-                                                                value="<?php echo $order_details['method']; ?>" required>
+                                                            <label for="price" class="form-label">Giá sản phẩm</label>
+                                                            <input type="text" class="form-control" id="price" name="price"
+                                                                value="<?php echo $order_details['price']; ?>" required>
                                                         </div>
                                                     </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="total_amount" class="form-label">Tổng tiền</label>
+                                                            <label for="total_amount" class="form-label">Tổng tiền đơn hàng</label>
                                                             <input type="text" class="form-control" id="total_amount" name="total_amount"
                                                                 value="<?php echo $order_details['total_amount']; ?>" required>
                                                         </div>
