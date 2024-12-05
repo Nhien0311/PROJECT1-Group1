@@ -1,14 +1,10 @@
 <?php 
-class cart {
-    private $cart;
-    public function __construct(){
-        $this->cart = connectDB();
-    }
-    public function showcart_tomtat() {
-        if (!empty($_SESSION['myCart'])) {
+
+function showcart_tomtat() {
+        if (!empty($_SESSION['cart'])) {
             $html_cart = '';
             $total_amount = 0;
-            foreach ($_SESSION['myCart'] as $item) {
+            foreach ($_SESSION['cart'] as $item) {
                 extract($item);
                 $total=$quantity*$price;
                 $total_amount+=$total;
@@ -31,15 +27,5 @@ class cart {
         }
         return $html_cart;
     }
-    public function total_amount() {
-        $total_amount = 0;
-        foreach($_SESSION['myCart'] as $item) {
-            extract($item);
-            $total = $quantity * $price;
-            $total_amount += $total;
-            var_dump($total_amount);
-        }
-    }
-    
-}
+
 ?>

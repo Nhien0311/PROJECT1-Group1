@@ -4,15 +4,15 @@ class HomeController
     private $productModel;
     private $product;
     private $category;
-    private $cart;
     private $order;
+    private $order_detail;
     public function __construct()
     {
         $this->product = new Product();
         $this->category = new Category();
         $this->productModel = new Products();
-        $this->cart = new cart();
         $this->order = new ordersModel();
+        $this->order_detail = new Order_detailModel();
     }
     public function index()
     {
@@ -51,59 +51,55 @@ class HomeController
     }
     public function cart()
     {
-        // var_dump($_POST);die;
-        // Xóa rỗng giỏ hàng
-        if (isset($_GET['emptycart']) && is_numeric($_GET['emptycart']) == 1) {
-            unset($_SESSION['myCart']);
-            header('Location:?act=carts');
-        }
-        // Xóa sản phẩm giỏ hàng
-        if (isset($_GET['delkey']) && is_numeric($_GET['delkey'])) {
-            unset($_SESSION['myCart'][$_GET['delkey']]);
-            header('Location:?act=carts');
-        }
-        // add sản phẩm vào giỏ hàng
-        if (isset(($_POST['addToCart']))) {
-            // lấy dữ liệu trên form về
+    //Xóa rỗng giỏ hàng
+    if(isset($_GET['emptyCart']) && ($_GET['emptyCart'])==1) {
+        unset($_SESSION['cart']);
+        header('Location:?act=carts');
+    }
+    // Xóa key giỏ hàng
+    if(isset($_GET['delkey']) && is_numeric($_GET['delkey'])) {
+        unset($_SESSION['cart'][$_GET['delkey']]);
+        header('Location:?act=carts');
+    }
+    if(isset($_POST['addToCart'])) {
+        // lấy dữ liệu trên form về
             $id = $_POST['id'];
             $name = $_POST['name'];
             $thumbnail = $_POST['thumbnail'];
             $price = $_POST['price'];
-            if (isset($_POST['quantity']) && ($_POST['quantity'] > 0)) {
+            if(isset($_POST['quantity']) && ($_POST['quantity'] > 0)){
                 $quantity = $_POST['quantity'];
-            } else {
-                $quantity = 1;
+            }else {
+            $quantity = 1;
             }
-        // Kiểm tra sản phẩm có trong giỏ hàng không?
-        $check = false;
-        foreach ($_SESSION['myCart'] as $key => $value) {
-            if ($value['id'] == $id) {
-                $check = true;
-                $_SESSION['myCart'][$key]['quantity'] += $quantity;
-                break;
+            // kiểm tra sản phẩm có trong giỏ hàng k
+            $check = false;
+            foreach ($_SESSION['cart'] as $key => $value) {
+                if($value['id'] == $id) {
+                    $check = true;
+                    $_SESSION['cart'][$key]['quantity']+=$quantity;
+                }
             }
-        }
-        // nếu có tăng số lượng sp trong giỏ hàng
+            // nếu có tăng số lượng sản phẩm trong giỏ hàng
 
-        // còn không trùng thì thêm mớik
-        if (!$check) {
+            // còn không trùng thì thêm ms
+            if(!$check) {
             // tạo một mảng sản phẩm
-            $item = array('id' => $id, 'name' => $name, 'thumbnail' => $thumbnail, 'price' => $price, 'quantity' => $quantity);
+            $item = array('id'=>$id,'name'=>$name,'thumbnail'=>$thumbnail,'price'=>$price,'quantity'=>$quantity);
             // add vào giỏ hàng
-            array_push($_SESSION['myCart'], $item);
-
-            // phải chuyển trang
-            header('Location:?act=carts');
+            array_push($_SESSION['cart'],$item);
         }
+            // chuyển trang
+            header('Location:?act=carts');
     }
-        require_once './views/carts/cart.php';
-    }
+    require_once './views/carts/cart.php';
+}
 
     public function checkout()
     {
         if (isset($_POST['dongythanhtoan'])) {
             // lấy thông tin trên form thanh toán insert vào orders
-           
+        //    var_dump($_POST);die;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Kiểm tra sự tồn tại của các key trong $_POST
                 $data = [
@@ -113,18 +109,29 @@ class HomeController
                     'address' => $_POST['address'],
                     'email' => $_POST['email'],
                     'account_id' => $_SESSION['user']['account_id'],
-                    'total_amount' => $_POST['total_amount'],
+                    'total_amount' => $_POST['tongdonhang'],
                     'method' => $_POST['method']
-                ];
-                var_dump($data);die;
-                
-                $this->order->create($data);
-                
+                ];      
+                      
+                $order_id = $this->order->create($data);
+                // var_dump($order_id); 
+                if(isset($_SESSION['cart'])&&(count($_SESSION['cart']) > 0)) {
+                    foreach ($_SESSION['cart'] as $item) {
+                        $thumbnail = $item['thumbnail'];
+                        $name = $item['name'];
+                        $quantity = $item['quantity'];
+                        $price = $item['price'];
+                        $total_amount = $price * $quantity;
+                        $id = $item['id'];
+                        $this->order_detail->create_order_detail($thumbnail,$name,$quantity,$price,$total_amount,$order_id,$id);
+                    }
+                }
+                header("Location:?act=confirm_orders");
             }
         }
-        $thongtingiohang = $this->cart->showcart_tomtat();
         require_once './views/checkout/checkout.php';
     }
+
     public function confirm_orders()
     {
         require_once './views/checkout/confirm_orders.php';
