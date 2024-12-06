@@ -1,6 +1,6 @@
 <?php
 function showcart() {
-    if (isset($_SESSION['myCart'])&& (count($_SESSION['myCart']) > 0)) {
+    if (isset($_SESSION['cart'])&& (count($_SESSION['cart']) > 0)) {
         $html_cart ='  
         <a href="?act=carts&emptycart=1">Xóa rỗng giỏ hàng</a>
                         <table class="table table-bordered table-striped">
@@ -16,7 +16,7 @@ function showcart() {
                             </thead>
                             <tbody>';
         $total_amount = 0; 
-        foreach ($_SESSION['myCart'] as $key => $item) {
+        foreach ($_SESSION['cart'] as $key => $item) {
             $name = htmlspecialchars($item['name'], ENT_QUOTES, 'UTF-8');
             $price = $item['price'];
             $quantity = $item['quantity'];

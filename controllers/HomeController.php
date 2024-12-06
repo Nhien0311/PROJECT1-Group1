@@ -54,12 +54,12 @@ class HomeController
         // var_dump($_POST);die;
         // Xóa rỗng giỏ hàng
         if (isset($_GET['emptycart']) && is_numeric($_GET['emptycart']) == 1) {
-            unset($_SESSION['myCart']);
+            unset($_SESSION['cart']);
             header('Location:?act=carts');
         }
         // Xóa sản phẩm giỏ hàng
         if (isset($_GET['delkey']) && is_numeric($_GET['delkey'])) {
-            unset($_SESSION['myCart'][$_GET['delkey']]);
+            unset($_SESSION['cart'][$_GET['delkey']]);
             header('Location:?act=carts');
         }
         // add sản phẩm vào giỏ hàng
@@ -76,10 +76,10 @@ class HomeController
             }
         // Kiểm tra sản phẩm có trong giỏ hàng không?
         $check = false;
-        foreach ($_SESSION['myCart'] as $key => $value) {
+        foreach ($_SESSION['cart'] as $key => $value) {
             if ($value['id'] == $id) {
                 $check = true;
-                $_SESSION['myCart'][$key]['quantity'] += $quantity;
+                $_SESSION['cart'][$key]['quantity'] += $quantity;
                 break;
             }
         }
@@ -90,7 +90,7 @@ class HomeController
             // tạo một mảng sản phẩm
             $item = array('id' => $id, 'name' => $name, 'thumbnail' => $thumbnail, 'price' => $price, 'quantity' => $quantity);
             // add vào giỏ hàng
-            array_push($_SESSION['myCart'], $item);
+            array_push($_SESSION['cart'], $item);
 
             // phải chuyển trang
             header('Location:?act=carts');
@@ -113,7 +113,7 @@ class HomeController
                     'address' => $_POST['address'],
                     'email' => $_POST['email'],
                     'account_id' => $_SESSION['user']['account_id'],
-                    'total_amount' => $_POST['total_amount'],
+                    'total_amount' => $_POST['dongythanhtoan'],
                     'method' => $_POST['method']
                 ];
                 var_dump($data);die;

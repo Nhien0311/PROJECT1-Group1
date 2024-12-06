@@ -5,10 +5,10 @@ class cart {
         $this->cart = connectDB();
     }
     public function showcart_tomtat() {
-        if (!empty($_SESSION['myCart'])) {
+        if (!empty($_SESSION['cart'])) {
             $html_cart = '';
             $total_amount = 0;
-            foreach ($_SESSION['myCart'] as $item) {
+            foreach ($_SESSION['cart'] as $item) {
                 extract($item);
                 $total=$quantity*$price;
                 $total_amount+=$total;
@@ -33,7 +33,7 @@ class cart {
     }
     public function total_amount() {
         $total_amount = 0;
-        foreach($_SESSION['myCart'] as $item) {
+        foreach($_SESSION['cart'] as $item) {
             extract($item);
             $total = $quantity * $price;
             $total_amount += $total;

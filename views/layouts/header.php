@@ -78,7 +78,7 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <h6 class="dropdown-header">Welcome! <?= $_SESSION['user']['user_name'] ?? '' ?></h6>
                                 <?php if (isset($_SESSION['user'])) : ?>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="?act=edit-account">
                                         <span class="align-middle">Tài khoản</span></a>
                                     <a class="dropdown-item" href="?act=logout">
                                         <span class="align-middle" data-key="t-logout">Đăng xuất</span></a>
@@ -95,8 +95,8 @@
                                     <i class="bi bi-cart fs-3"></i>
                                     <span style="color:blue" ;>
                                         <?php
-                                        if (isset($_SESSION['myCart'])) {
-                                            echo "(" . count($_SESSION['myCart']) . ")";
+                                        if (isset($_SESSION['cart'])) {
+                                            echo "(" . count($_SESSION['cart']) . ")";
                                         } else {
                                             echo "(0)";
                                         }

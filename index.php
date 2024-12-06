@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['myCart'])) {
-    $_SESSION['myCart'] = []; // Khởi tạo giỏ hàng nếu chưa tồn tại
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = []; // Khởi tạo giỏ hàng nếu chưa tồn tại
 }
 require_once 'commons/env.php';
 require_once 'commons/function.php';
@@ -39,6 +39,9 @@ $act = $_GET['act'] ?? '/';
 define('DOMAIN', 'http://' . $_SERVER['HTTP_HOST'] . '/PROJECT1-Group1/');
 
 match ($act) {
+
+    // User
+
     '/'                 => (new HomeController()) ->index(),
     'home'              => (new DashboardController())->index(),
 
@@ -55,6 +58,9 @@ match ($act) {
     'register'            => (new AuthController())->register(),
     'login'               => (new AuthController())->login(),
     'logout'              => (new AuthController())->logout(),
+    'edit-account'        => (new AuthController())->editAccount(),
+    'edit-inforPersonal'  => (new AuthController())->editInforPersonal(),
+    'edit-pass'           => (new AuthController())->editPass(),
 
 
     // Admin
