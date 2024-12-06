@@ -89,14 +89,13 @@
                                         <span class="align-middle" data-key="t-logout">Đăng ký</span></a>
                                 <?php endif ?>
                             </div>
-                            <!-- Giỏ hàng -->
                             <div class="top-icons d-flex">
                                 <a class="p-2 btn-cart position-relative d-inline-flex head_svg" title="Giỏ hàng" href="?act=carts">
                                     <i class="bi bi-cart fs-3"></i>
                                     <span style="color:blue" ;>
                                         <?php
-                                        if (isset($_SESSION['myCart'])) {
-                                            echo "(" . count($_SESSION['myCart']) . ")";
+                                        if (isset($_SESSION['cart'])) {
+                                            echo "(" . count($_SESSION['cart']) . ")";
                                         } else {
                                             echo "(0)";
                                         }
@@ -105,6 +104,7 @@
                                 </a>
 
                             </div>
+
                         </div>
                 </div>
             </div>

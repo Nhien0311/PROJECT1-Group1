@@ -61,7 +61,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?= $thongtingiohang ?>
+                            <?= showcart_tomtat() ?>                        
                         </tbody>
                     </table>
                 

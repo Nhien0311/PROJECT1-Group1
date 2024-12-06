@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['myCart'])) {
-    $_SESSION['myCart'] = []; // Khởi tạo giỏ hàng nếu chưa tồn tại
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = []; // Khởi tạo giỏ hàng nếu chưa tồn tại
 }
 require_once 'commons/env.php';
 require_once 'commons/function.php';
