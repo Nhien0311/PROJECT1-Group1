@@ -27,5 +27,4 @@ function showcart_tomtat() {
         }
         return $html_cart;
     }
-
 ?>
