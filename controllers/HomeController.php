@@ -51,7 +51,6 @@ class HomeController
     }
     public function cart()
     {
-
     //Xóa rỗng giỏ hàng
     if(isset($_GET['emptyCart']) && ($_GET['emptyCart'])==1) {
         unset($_SESSION['cart']);
@@ -64,7 +63,6 @@ class HomeController
     }
     if(isset($_POST['addToCart'])) {
         // lấy dữ liệu trên form về
-
             $id = $_POST['id'];
             $name = $_POST['name'];
             $thumbnail = $_POST['thumbnail'];
@@ -74,90 +72,88 @@ class HomeController
             }else {
             $quantity = 1;
             }
-
             // kiểm tra sản phẩm có trong giỏ hàng k
+            // nếu có tăng số lượng sản phẩm trong giỏ hàng
             $check = false;
             foreach ($_SESSION['cart'] as $key => $value) {
                 if($value['id'] == $id) {
                     $check = true;
                     $_SESSION['cart'][$key]['quantity']+=$quantity;
                 }
-
             }
-            // nếu có tăng số lượng sản phẩm trong giỏ hàng
 
             // còn không trùng thì thêm ms
-            if(!$check) {
-            // tạo một mảng sản phẩm
-            $item = array('id'=>$id,'name'=>$name,'thumbnail'=>$thumbnail,'price'=>$price,'quantity'=>$quantity);
-            // add vào giỏ hàng
-
-            array_push($_SESSION['cart'],$item);
-            array_push($_SESSION['cart'],$item);
-        }
-            // chuyển trang
-            header('Location:?act=carts');
-    }
-    require_once './views/carts/cart.php';
-}
-
-    public function checkout()
-    {
-        if (isset($_POST['dongythanhtoan'])) {
-            // lấy thông tin trên form thanh toán insert vào orders
-        //    var_dump($_POST);die;
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Kiểm tra sự tồn tại của các key trong $_POST
-                $data = [
-                    'created_at' => date("H:i:s d/m/Y"),
-                    'phone' => $_POST['phone'],
-                    'name' => $_POST['name'],
-                    'address' => $_POST['address'],
-                    'email' => $_POST['email'],
-                    'account_id' => $_SESSION['user']['account_id'],
-
-                    'total_amount' => $_POST['tongdonhang'],
-                    'total_amount' => $_POST['tongdonhang'],
-                    'method' => $_POST['method']
-                ];      
-                      
-                $order_id = $this->order->create($data);
-                // var_dump($order_id); 
-                if(isset($_SESSION['cart'])&&(count($_SESSION['cart']) > 0)) {
-                    foreach ($_SESSION['cart'] as $item) {
-                        $thumbnail = $item['thumbnail'];
-                        $name = $item['name'];
-                        $quantity = $item['quantity'];
-                        $price = $item['price'];
-                        $total_amount = $price * $quantity;
-                        $id = $item['id'];
-                        $this->order_detail->create_order_detail($thumbnail,$name,$quantity,$price,$total_amount,$order_id,$id);
-                    }
-                }
-                header("Location:?act=confirm_orders");
+            if(!$check) {// tạo một mảng sản phẩm
+                $item = array('id'=>$id,'name'=>$name,'thumbnail'=>$thumbnail,'price'=>$price,'quantity'=>$quantity);
+                // add vào giỏ hàng
+                array_push($_SESSION['cart'],$item);
             }
+                // chuyển trang
+                header('Location:?act=carts');
         }
-        require_once './views/checkout/checkout.php';
+        require_once './views/carts/cart.php';
     }
+    
+        public function checkout()
+        {
+            if (isset($_POST['dongythanhtoan'])) {
+                // lấy thông tin trên form thanh toán insert vào orders
+            //    var_dump($_POST);die;
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    // Kiểm tra sự tồn tại của các key trong $_POST
+                    $data = [
+                        'created_at' => date("H:i:s d/m/Y"),
+                        'phone' => $_POST['phone'],
+                        'name' => $_POST['name'],
+                        'address' => $_POST['address'],
+                        'email' => $_POST['email'],
+                        'account_id' => $_SESSION['user']['account_id'],
+                        'total_amount' => $_POST['tongdonhang'],
+                        'method' => $_POST['method']
+                    ];       
+                    // var_dump($data);die;
+                    $order_id = $this->order->create($data);
+                    
+                    if(isset($_SESSION['cart'])&&(count($_SESSION['cart']) > 0)) {
+                        foreach ($_SESSION['cart'] as $item) {
+                            $thumbnail = $item['thumbnail'];
+                            $name = $item['name'];
+                            $quantity = $item['quantity'];
+                            $price = $item['price'];
+                            $total_amount = $price * $quantity;
+                            $id = $item['id'];
+                            $this->order_detail->create_order_detail($thumbnail,$name,$quantity,$price,$total_amount,$order_id,$id);
+                        }
+                        $_SESSION['cart'] = [];
+                    }
 
-    public function confirm_orders()
-    {
-        require_once './views/checkout/confirm_orders.php';
-    }
-
-    public function productByCategory()
-    {
-        $categories = $this->productModel->category();
-        $categoryId = $_GET['categoryId'] ?? null;
-
-        if ($categoryId) {
-            $products = $this->productModel->getProductsByCategory($categoryId);
-        } else {
-            $products = $this->productModel->getAll();
+                    header("Location:?act=confirm_orders");
+                }
+            }
+            require_once './views/checkout/checkout.php';
         }
-        require_once 'views/products.php';
-
+    
+        public function bill() {
+            require_once 'views/checkout/bill.php';
+        }
+        public function confirm_orders()
+        {
+            require_once './views/checkout/confirm_orders.php';
+        }
+    
+        public function productByCategory()
+        {
+            $categories = $this->productModel->category();
+            $categoryId = $_GET['categoryId'] ?? null;
+    
+            if ($categoryId) {
+                $products = $this->productModel->getProductsByCategory($categoryId);
+            } else {
+                $products = $this->productModel->getAll();
+            }
+            require_once 'views/products.php';
+    
+        }
     }
-}
-;
-?>
+    ;
+    ?>

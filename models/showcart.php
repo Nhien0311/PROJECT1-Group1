@@ -1,6 +1,5 @@
 <?php
 function showcart() {
-
     if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {
         $html_cart = '
         <a href="?act=carts&emptyCart=1">Xóa rỗng giỏ hàng</a>
@@ -36,6 +35,7 @@ function showcart() {
                                 </td>
                                 <td>' .number_format($total, 0, ',', '.'). ' đ</td>
                                 <td class="text-center">
+                                
                                 <a href="?act=carts&delkey=' . $key . '">
                                     <button class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i> Xóa</button>
                                     </a>

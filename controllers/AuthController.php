@@ -18,7 +18,7 @@ class AuthController
                 $_SESSION['error_name'] = 'Tên không được để trống !';
                 header('Location: ?act=register');
                 die;
-            } else if (strlen($_POST['user_name']) < 2 || strlen($_POST['user_name']) > 30) {
+            } else if (strlen($_POST['user_name']) < 8 || strlen($_POST['user_name']) > 30) {
                 $_SESSION['error_name'] = 'Tên phải có ít nhất 8 kí tự !';
                 header('Location: ?act=register');
                 die;
@@ -70,10 +70,6 @@ class AuthController
                 $_SESSION['error_address'] = 'Địa chỉ phải có ít nhất 3 kí tự !';
                 header('Location: ?act=register');
                 die;
-            } else if (!preg_match("/^[a-zA-Z ]+$/", $_POST['address'])) {
-                $_SESSION['error_address'] = 'Địa chỉ không được chứa kí tự đặc biệt !';
-                header('Location: ?act=register');
-                die;
             }
 
             if (empty($errors)) {
@@ -99,10 +95,6 @@ class AuthController
     public function login()
     {
         if (isset($_SESSION['user'])) {
-            header("Location:?act=home");
-            die;
-        }
-        if (isset($_SESSION['user'])) {
             header("Location:?act=/");
             die;
         }
@@ -112,8 +104,8 @@ class AuthController
             $password = $_POST['pass_author'];
 
             $user = (new User)->findUser($user_name);
-
-            if ($user) {
+            
+            if (!empty($user)) {
                 if ($password === $user['password']) {
                     $_SESSION['user'] = $user;
                     if ($user['role_id'] == 1) {
@@ -181,9 +173,7 @@ class AuthController
                 $errors['address'] = 'Địa chỉ không được để trống !';
             } else if (strlen($address) < 3 || strlen($address) > 40) {
                 $errors['address'] = 'Địa chỉ phải có ít nhất 3 kí tự !';
-            } else if (!preg_match("/^[a-zA-Z ]+$/", $address)) {
-                $errors['address'] = 'Địa chỉ không được chứa kí tự đặc biệt !';
-            }
+            } 
 
             $_SESSION['errors'] = $errors;
 
@@ -229,9 +219,6 @@ class AuthController
             } else if ($_POST['confirm-pass'] !== $_POST['new-pass']) {
                 $errors['confirm_pass'] = 'Mật khẩu nhập lại không đúng !';
             }
-            
-
-            
 
             
             $_SESSION['errors'] = $errors;

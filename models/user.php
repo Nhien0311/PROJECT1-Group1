@@ -18,9 +18,9 @@ class User
 
     public function findUser($user_name)
     {
-        $sql = "SELECT * FROM accounts WHERE user_name = :user_name";
+        $sql = "SELECT * FROM accounts WHERE user_name LIKE '%$user_name%'";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['user_name' => $user_name]);
+        $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
