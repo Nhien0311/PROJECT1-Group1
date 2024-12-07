@@ -43,8 +43,6 @@ class AuthController
                 header('Location: ?act=register');
                 die;
             }
-            $passwords_Enc = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $data['password'] = $passwords_Enc;
 
             if ($_POST['phone'] == '') {
                 $_SESSION['error_phone'] = 'Số điện thoại không được để trống !';
@@ -116,7 +114,7 @@ class AuthController
             $user = (new User)->findUser($user_name);
 
             if ($user) {
-                if (password_verify($password, $user['password'])) {
+                if ($password === $user['password']) {
                     $_SESSION['user'] = $user;
                     if ($user['role_id'] == 1) {
                         header("Location:?act=home");
@@ -126,10 +124,10 @@ class AuthController
                         die;
                     }
                 } else {
-                    $error = "Sai email hoặc mật khẩu !";
+                    $error = "Sai email hoặc mật khẩu!";
                 }
             } else {
-                $error = "Sai email hoặc mật khẩu !";
+                $error = "Sai email hoặc mật khẩu!";
             }
         }
         $message = session_flash('message');
@@ -202,47 +200,47 @@ class AuthController
 
     public function editPass()
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $account_id = $_SESSION['user']['account_id'] ?? '';
 
-            $old_pass = $_POST['old_pass'];
-            $new_pass = $_POST['new_pass'];
-            $confirm_pass = $_POST['confirm_pass'];
+            // $old_pass = $_POST['old_pass'];
+            // $new_pass = $_POST['new_pass'];
+            // $confirm_pass = $_POST['confirm_pass'];
 
             $user = $this->conn->inforAccount($account_id);
-
+            
             $errors = [];
-
-            $hashed_new_pass = password_hash($new_pass, PASSWORD_DEFAULT);
-            if (!password_verify($old_pass, $user['password'])) {
+            if ($_POST['old-pass'] == '') 
+            {
+                $errors['old_pass'] = 'Mật khẩu cũ không được để trống !';
+            } else if ($_POST['old-pass'] !== $user['password']) {
                 $errors['old_pass'] = 'Mật khẩu cũ không đúng !';
-            } else {
-                $status = $this->conn->updatePass($user['account_id'], $hashed_new_pass);
             }
 
-            if ($new_pass !== $confirm_pass) {
+            if ($_POST['new-pass'] == '')
+            {
+                $errors['new_pass'] = 'Mật khẩu mới không được để trống !';
+            } else if (strlen($_POST['new-pass']) < 8 || strlen($_POST['new-pass']) > 32) {
+                $errors['new_pass'] = 'Mật khẩu phải có ít nhất 8 kí tự !';
+            }
+
+            if ($_POST['confirm-pass'] == '') {
+                $errors['confirm_pass'] = 'Mật khẩu nhập lại không được để trống !';
+            } else if ($_POST['confirm-pass'] !== $_POST['new-pass']) {
                 $errors['confirm_pass'] = 'Mật khẩu nhập lại không đúng !';
             }
+            
 
-            if (empty($old_pass)) {
-                $errors['old_pass'] = 'Mật khẩu cũ không được để trống !';
-            }
+            
 
-            if (empty($new_pass)) {
-                $errors['new_pass'] = 'Mật khẩu mới không được để trống !';
-            }
-
-            if (empty($confirm_pass)) {
-                $errors['confirm_pass'] = 'Mật khẩu nhập lại không được để trống !';
-            }
+            
             $_SESSION['errors'] = $errors;
             if (empty($errors)) {
-                $status = $this->conn->updatePass($user['account_id'], $new_pass);
-                header("Location:?act=edit-account");
-                exit();
+                $status = $this->conn->updatePass($user['account_id'], $_POST['new-pass']);
+                if ($status) {
+                    header("Location:?act=edit-account");
+                }
             } else {
-
                 header("Location:?act=edit-account");
                 exit();
             }

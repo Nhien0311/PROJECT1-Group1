@@ -1,5 +1,6 @@
 <?php
 function showcart() {
+
     if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {
         $html_cart = '
         <a href="?act=carts&emptyCart=1">Xóa rỗng giỏ hàng</a>

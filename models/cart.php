@@ -1,6 +1,7 @@
 <?php 
 
 function showcart_tomtat() {
+
         if (!empty($_SESSION['cart'])) {
             $html_cart = '';
             $total_amount = 0;

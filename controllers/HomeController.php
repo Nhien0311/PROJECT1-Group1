@@ -51,6 +51,7 @@ class HomeController
     }
     public function cart()
     {
+
     //Xóa rỗng giỏ hàng
     if(isset($_GET['emptyCart']) && ($_GET['emptyCart'])==1) {
         unset($_SESSION['cart']);
@@ -63,6 +64,7 @@ class HomeController
     }
     if(isset($_POST['addToCart'])) {
         // lấy dữ liệu trên form về
+
             $id = $_POST['id'];
             $name = $_POST['name'];
             $thumbnail = $_POST['thumbnail'];
@@ -72,6 +74,7 @@ class HomeController
             }else {
             $quantity = 1;
             }
+
             // kiểm tra sản phẩm có trong giỏ hàng k
             $check = false;
             foreach ($_SESSION['cart'] as $key => $value) {
@@ -79,6 +82,7 @@ class HomeController
                     $check = true;
                     $_SESSION['cart'][$key]['quantity']+=$quantity;
                 }
+
             }
             // nếu có tăng số lượng sản phẩm trong giỏ hàng
 
@@ -87,6 +91,8 @@ class HomeController
             // tạo một mảng sản phẩm
             $item = array('id'=>$id,'name'=>$name,'thumbnail'=>$thumbnail,'price'=>$price,'quantity'=>$quantity);
             // add vào giỏ hàng
+
+            array_push($_SESSION['cart'],$item);
             array_push($_SESSION['cart'],$item);
         }
             // chuyển trang
@@ -109,6 +115,8 @@ class HomeController
                     'address' => $_POST['address'],
                     'email' => $_POST['email'],
                     'account_id' => $_SESSION['user']['account_id'],
+
+                    'total_amount' => $_POST['tongdonhang'],
                     'total_amount' => $_POST['tongdonhang'],
                     'method' => $_POST['method']
                 ];      
