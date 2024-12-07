@@ -111,10 +111,10 @@ class HomeController
                     'account_id' => $_SESSION['user']['account_id'],
                     'total_amount' => $_POST['tongdonhang'],
                     'method' => $_POST['method']
-                ];      
-                      
+                ];       
+                // var_dump($data);die;
                 $order_id = $this->order->create($data);
-                // var_dump($order_id); 
+                
                 if(isset($_SESSION['cart'])&&(count($_SESSION['cart']) > 0)) {
                     foreach ($_SESSION['cart'] as $item) {
                         $thumbnail = $item['thumbnail'];
