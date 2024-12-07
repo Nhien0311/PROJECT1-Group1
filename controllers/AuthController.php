@@ -1,6 +1,12 @@
 <?php
 class AuthController
 {
+    private $conn;
+
+    public function __construct()
+    {
+        $this->conn = new User();
+    }
     public function register()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -23,7 +29,7 @@ class AuthController
                 header('Location: ?act=register');
                 die;
             }else if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-                $_SESSION['error_email'] = 'Email không hợp lệ !';
+                $_SESSION['error_email'] = 'Email không đúng định dạng !';
                 header('Location: ?act=register');
                 die;
             }
@@ -130,6 +136,116 @@ class AuthController
         include 'views/login.php';
         return $message;
         return $error;
+    }
+
+    public function editAccount()
+    {
+        $account_id = $_SESSION['user']['account_id'] ?? '';
+        $infor = $this->conn->inforAccount($account_id);
+        require_once './views/edit-account.php';
+        
+    }
+
+    public function editInforPersonal()
+    {
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $account_id = $_POST['account_id'];
+            $user_name = $_POST['user_name'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $phone = $_POST['phone'] ?? '';
+            $address = $_POST['address'] ?? '';
+
+            $_SESSION['name'] = $user_name ?? '';
+            $_SESSION['email'] = $email ?? '';
+
+            $errors = [];
+            if(empty($user_name)) {
+                $errors['name'] = 'Họ tên không được để trống !';
+            } else if (strlen($user_name) < 2 || strlen($user_name) > 30)
+            {
+                $errors['name'] = 'Họ tên phải có ít nhất 8 ký tự !';
+            }
+
+            if(empty($email)) {
+                $errors['email'] = 'Email không được để trống !';
+            } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $errors['email'] = 'Địa chỉ email không hợp lệ!';
+            }
+
+            if(empty($phone)) {
+                $errors['phone'] = 'Số điện thoại không được để trống !';
+            } else if (strlen($phone) !== 10) {
+                $errors['phone'] = 'Số điện thoại phải có 10 số !';
+            } else if (!is_numeric($phone)) {
+                $errors['phone'] = 'Số điện thoại không đúng định dạng !';
+            }
+
+            if(empty($address)) {
+                $errors['address'] = 'Địa chỉ không được để trống !';
+            } else if (strlen($address) < 3 || strlen($address) > 40){
+                $errors['address'] = 'Địa chỉ phải có ít nhất 3 kí tự !';
+            } else if (!preg_match("/^[a-zA-Z ]+$/", $address)){
+                $errors['address'] = 'Địa chỉ không được chứa kí tự đặc biệt !';
+            }
+
+            $_SESSION['errors'] = $errors;
+
+            if(empty($errors)) {
+                $status = $this->conn->updateAccount($account_id, $user_name, $email, $phone, $address);
+                header("Location: ?act=edit-account");
+                exit();
+            }else{
+                header("Location: ?act=edit-account");
+                exit();
+            }
+        }
+    }
+
+    public function editPass() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $account_id = $_SESSION['user']['account_id'] ?? '';
+
+            $old_pass = $_POST['old_pass'] ?? '';
+            $new_pass = $_POST['new_pass'] ?? '';
+            $confirm_pass = $_POST['confirm_pass'] ?? '';
+
+            $user = $this->conn->inforAccount($account_id);
+
+            $errors = [];
+            
+            if (!empty($old_pass)) {
+                if ($old_pass !== $user['password']) {
+                    $errors['old_pass'] = 'Mật khẩu cũ không đúng !';
+                }
+            }
+            if (!empty($new_pass) && !empty($confirm_pass)) {
+                if ($new_pass !== $confirm_pass) {
+                    $errors['confirm_pass'] = 'Mật khẩu nhập lại không đúng !';
+                }
+            }
+
+            if (empty($old_pass)) {
+                $errors['old_pass'] = 'Mật khẩu cũ không được để trống !';
+            }
+
+            if (empty($new_pass)) {
+                $errors['new_pass'] = 'Mật khẩu mới không được để trống !';
+            }
+
+            if (empty($confirm_pass)) {
+                $errors['confirm_pass'] = 'Mật khẩu nhập lại không được để trống !';
+            }
+            $_SESSION['errors'] = $errors;
+
+            if(!$errors) {
+                $status = $this->conn->updatePass($user['account_id'], $new_pass);
+                header("Location:?act=edit-account");
+            }else{
+                header("Location:?act=edit-account");
+                exit();
+            }
+        }
     }
 
     public function logout()

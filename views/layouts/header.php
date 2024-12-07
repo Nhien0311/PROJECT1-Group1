@@ -78,7 +78,7 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <h6 class="dropdown-header">Welcome! <?= $_SESSION['user']['user_name'] ?? '' ?></h6>
                                 <?php if (isset($_SESSION['user'])) : ?>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="?act=edit-account">
                                         <span class="align-middle">Tài khoản</span></a>
                                     <a class="dropdown-item" href="?act=logout">
                                         <span class="align-middle" data-key="t-logout">Đăng xuất</span></a>

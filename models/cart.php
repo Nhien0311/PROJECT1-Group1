@@ -1,6 +1,15 @@
 <?php 
+<<<<<<< HEAD
 
 function showcart_tomtat() {
+=======
+class cart {
+    private $cart;
+    public function __construct(){
+        $this->cart = connectDB();
+    }
+    public function showcart_tomtat() {
+>>>>>>> ediAccount
         if (!empty($_SESSION['cart'])) {
             $html_cart = '';
             $total_amount = 0;
@@ -27,5 +36,19 @@ function showcart_tomtat() {
         }
         return $html_cart;
     }
+<<<<<<< HEAD
 
+=======
+    public function total_amount() {
+        $total_amount = 0;
+        foreach($_SESSION['cart'] as $item) {
+            extract($item);
+            $total = $quantity * $price;
+            $total_amount += $total;
+            var_dump($total_amount);
+        }
+    }
+    
+}
+>>>>>>> ediAccount
 ?>
