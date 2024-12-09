@@ -103,7 +103,6 @@ match ($act) {
    
        'order_details'          => (new Order_detailController())->index(),
        'order_details/show'     => (new Order_detailController())->show($_GET['id'] ?? 0),
-       'order_details/edit'     => (new Order_detailController())->edit($_GET['id'] ?? 0),
        'order_details/delete'   => (new Order_detailController())->delete($_GET['id' ?? '']),
    
        // CRUD variants

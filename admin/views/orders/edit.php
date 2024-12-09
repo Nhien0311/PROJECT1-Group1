@@ -136,17 +136,6 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="variant_id" class="form-label">ID biến
-                                                                thể</label>
-                                                            <input type="text" class="form-control" id="variant_id"
-                                                                name="variant_id"
-                                                                value="<?php echo $orders['variant_id']; ?>" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="mb-3">
                                                             <label for="price" class="form-label">Id tài
                                                                 khoản</label>
                                                             <input type="text" class="form-control" id="account_id"

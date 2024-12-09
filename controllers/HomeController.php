@@ -134,9 +134,31 @@ class HomeController
     }
 
     public function bill() {
+        // Lấy danh sách đơn hàng từ model
+        $listbill = $this->order->load_all_bill($_SESSION['user']['account_id']);
         
+        // Mảng để lưu thông tin mỗi đơn hàng bao gồm số lượng sản phẩm
+        $order_details = [];
+        
+        // Duyệt qua mỗi đơn hàng và lấy thông tin cần thiết
+        foreach ($listbill as $bill) {
+            // Lấy số lượng sản phẩm của đơn hàng này
+            $order_quantity = $this->order_detail->count_order_detail($bill['order_id']);
+            
+            // Thêm thông tin vào mảng $order_details
+            $order_details[] = [
+                'order_id' => $bill['order_id'],
+                'created_at' => $bill['created_at'],
+                'total_amount' => $bill['total_amount'],
+                'status' => $bill['status'],
+                'quantity' => $order_quantity
+            ];
+        }
+        
+        // Truyền dữ liệu vào view
         require_once 'views/checkout/bill.php';
     }
+    
     public function confirm_orders()
     {
         require_once './views/checkout/confirm_orders.php';

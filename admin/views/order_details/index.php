@@ -56,10 +56,10 @@
                                                         <tr>
                                                             <th scope="col">Id</th>
                                                             <th scope="col">Số lượng</th>
-                                                            <th scope="col">ID biến thể</th>
-                                                            <th scope="col">ID tài khoản</th>
-                                                            <th scope="col">Thời gian</th>
-                                                            <th scope="col">Phương thức thanh toán</th>
+                                                            <th scope="col">ID sản phẩm</th>
+                                                            <th scope="col">Ảnh sản phẩm</th>
+                                                            <th scope="col">Tên sản phẩm</th>
+                                                            <th scope="col">Id đơn hàng</th>
                                                             <th scope="col">Tổng tiền</th>
                                                             <th scope="col">Thao tác</th>
                                                         </tr>
@@ -69,10 +69,11 @@
                                                             <tr>
                                                                 <td><?= $order_detail['order_detail_id'] ?></td>
                                                                 <td><?= $order_detail['quantity'] ?></td>
-                                                                <td><?= $order_detail['variant_id'] ?></td>
-                                                                <td><?= $order_detail['account_id'] ?></td>
-                                                                <td><?= $order_detail['created_at'] ?></td>
-                                                                <td><?= $order_detail['method'] ?></td>
+                                                                <td><?= $order_detail['product_id'] ?></td>
+                                                                <td><img src="<?= $order_detail['thumbnail'] ? $order_detail['thumbnail'] : 'default-image.png'; ?>"
+                                                                class="rounded" width="50" height="50"></td>
+                                                                <td><?= $order_detail['name'] ?></td>
+                                                                <td><?= $order_detail['order_id'] ?></td>
                                                                 <td><?= $order_detail['total_amount'] ?></td>
                                                                 <td>
                                                                 <div

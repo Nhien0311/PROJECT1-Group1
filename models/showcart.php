@@ -6,13 +6,12 @@ function showcart() {
         <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th scope="col" class="text-center"><input type="checkbox" name="" id=""></th>
-                                <th scope="col" colspan="2">Sản phẩm</th>
+                            <th scope="col" colspan="2">Sản phẩm</th>
                                 <th scope="col">Giá</th>
                                 <th scope="col">Số lượng</th>
                                 <th scope="col">Tạm tính</th>
                                 <th scope="col">Thao tác</th>
-                            </tr>
+                            </tr
                         </thead>
                         <tbody>';
         $total_amount = 0;
@@ -21,7 +20,6 @@ function showcart() {
             $total = $price * $quantity;
             $total_amount += $total;
             $html_cart .= '<tr>
-                                <td class="text-center"><input type="checkbox" name="" id=""></td>
                                 <td><img src="' . $thumbnail . '"></td>
 
                                 <td>' . $name . '</td>
@@ -44,7 +42,7 @@ function showcart() {
         }
         $html_cart .= ' <tr>
                                 <td colspan="2"><strong>Tổng cộng:</strong></td>
-                                <td colspan="5"><strong>'.number_format($total_amount, 0, ',', '.').' đ</strong></td>
+                                <td colspan="4"><strong>'.number_format($total_amount, 0, ',', '.').' đ</strong></td>
                             </tr>
                         </tbody>
 

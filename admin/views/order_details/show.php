@@ -74,9 +74,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="variant_id" class="form-label">ID Biến Thể</label>
-                                                            <input type="text" class="form-control" id="variant_id"
-                                                                name="variant_id" value="<?= $order_details['variant_id'] ?>"
+                                                            <label for="product_id" class="form-label">ID sản phẩm</label>
+                                                            <input type="text" class="form-control" id="product_id"
+                                                                name="product_id" value="<?= $order_details['product_id'] ?>"
                                                                 disabled>
                                                         </div>
                                                     </div>
@@ -84,9 +84,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="account_id" class="form-label">ID Tài Khoản</label>
-                                                            <input type="text" class="form-control" id="account_id"
-                                                                name="account_id" value="<?= $order_details['account_id'] ?>"
+                                                            <label for="name" class="form-label">Tên sản phẩm</label>
+                                                            <input type="text" class="form-control" id="name"
+                                                                name="name" value="<?= $order_details['name'] ?>"
                                                                 disabled>
                                                         </div>
                                                     </div>
@@ -94,19 +94,18 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="created_at" class="form-label">Thời gian tạo đơn</label>
-                                                            <input type="text" class="form-control" id="created_at"
-                                                                name="created_at" value="<?= $order_details['created_at'] ?>"
-                                                                disabled>
+                                                            <label for="thumbnail" class="form-label">Ảnh sản phẩm</label>
+                                                            <img src="<?= $order_details['thumbnail'] ? $order_details['thumbnail'] : 'default-image.png'; ?>"
+                                                                class="rounded" width="250" height="250">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="method" class="form-label">Phương thức thanh toán</label>
-                                                            <input type="text" class="form-control" id="method_id"
-                                                                name="method" value="<?= $order_details['method'] ?>"
+                                                            <label for="price" class="form-label">Giá sản phẩm</label>
+                                                            <input type="text" class="form-control" id="price"
+                                                                name="price" value="<?= $order_details['price'] ?>"
                                                                 disabled>
                                                         </div>
                                                     </div>
