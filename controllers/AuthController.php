@@ -70,6 +70,7 @@ class AuthController
                 $_SESSION['error_address'] = 'Địa chỉ phải có ít nhất 3 kí tự !';
                 header('Location: ?act=register');
                 die;
+
             }else if (!preg_match("/^[a-zA-Z ]+$/", $_POST['address'])) {
                 $_SESSION['error_address'] = 'Địa chỉ không được chứa kí tự đặc biệt !';
                 header('Location: ?act=register');
@@ -98,10 +99,6 @@ class AuthController
 
     public function login()
     {
-        if (isset($_SESSION['user'])) {
-            header("Location:?act=home");
-            die;
-        }
         if (isset($_SESSION['user'])) {
             header("Location:?act=/");
             die;
@@ -182,6 +179,7 @@ class AuthController
             } else if (strlen($address) < 3 || strlen($address) > 40) {
                 $errors['address'] = 'Địa chỉ phải có ít nhất 3 kí tự !';
             }
+            } 
 
             $_SESSION['errors'] = $errors;
 
@@ -194,7 +192,7 @@ class AuthController
                 exit();
             }
         }
-    }
+    
 
     public function editPass()
     {

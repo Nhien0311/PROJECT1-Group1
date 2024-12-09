@@ -134,6 +134,7 @@ class HomeController
     }
 
     public function bill() {
+        
         require_once 'views/checkout/bill.php';
     }
     public function confirm_orders()

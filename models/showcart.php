@@ -35,6 +35,7 @@ function showcart() {
                                 </td>
                                 <td>' .number_format($total, 0, ',', '.'). ' đ</td>
                                 <td class="text-center">
+                                
                                 <a href="?act=carts&delkey=' . $key . '">
                                     <button class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i> Xóa</button>
                                     </a>
