@@ -2,9 +2,14 @@
 
 class DashboardController {
     public function __construct() {
-        // Kiểm tra xem có session 'user' không
-        if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
-            // Chuyển hướng về trang đăng nhập
+        // Kiểm tra session 'user'
+        if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+            // Kiểm tra vai trò người dùng
+            if ($_SESSION['user']['role_id'] !== 1) {
+                header('Location: ?act=/');
+                exit;
+            }
+        } else {
             header('Location: ?act=login');
             exit;
         }

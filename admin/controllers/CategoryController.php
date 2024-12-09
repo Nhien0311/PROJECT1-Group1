@@ -47,7 +47,7 @@ class CategoryController
             $this->categoryModel->edit($id, $data);
             $_SESSION['message'] = [
                 'title' => 'Thành công!',
-                'text' => 'Thêm danh mục thành công!',
+                'text' => 'Sửa mục thành công!',
                 'icon' => 'success',
             ];
             header('Location: ?act=categories');

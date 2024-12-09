@@ -73,6 +73,7 @@ class HomeController
             $quantity = 1;
             }
             // kiểm tra sản phẩm có trong giỏ hàng k
+            // nếu có tăng số lượng sản phẩm trong giỏ hàng
             $check = false;
             foreach ($_SESSION['cart'] as $key => $value) {
                 if($value['id'] == $id) {
@@ -80,7 +81,6 @@ class HomeController
                     $_SESSION['cart'][$key]['quantity']+=$quantity;
                 }
             }
-            // nếu có tăng số lượng sản phẩm trong giỏ hàng
 
             // còn không trùng thì thêm ms
             if(!$check) {
@@ -125,6 +125,7 @@ class HomeController
                         $id = $item['id'];
                         $this->order_detail->create_order_detail($thumbnail,$name,$quantity,$price,$total_amount,$order_id,$id);
                     }
+                    $_SESSION['cart'] = [];
                 }
                 header("Location:?act=confirm_orders");
             }
@@ -132,6 +133,9 @@ class HomeController
         require_once './views/checkout/checkout.php';
     }
 
+    public function bill() {
+        require_once 'views/checkout/bill.php';
+    }
     public function confirm_orders()
     {
         require_once './views/checkout/confirm_orders.php';

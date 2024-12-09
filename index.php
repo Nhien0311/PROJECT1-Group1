@@ -39,6 +39,9 @@ $act = $_GET['act'] ?? '/';
 define('DOMAIN', 'http://' . $_SERVER['HTTP_HOST'] . '/PROJECT1-Group1/');
 
 match ($act) {
+
+    // User
+
     '/'                 => (new HomeController()) ->index(),
     'home'              => (new DashboardController())->index(),
 
@@ -48,6 +51,7 @@ match ($act) {
 
     'checkout'          => (new HomeController())->checkout(),
     'confirm_orders'    => (new HomeController())->confirm_orders(),
+    'bill'              => (new HomeController())->bill(),
 
     'product'           => (new HomeController())->productByCategory(),
 
@@ -55,6 +59,9 @@ match ($act) {
     'register'            => (new AuthController())->register(),
     'login'               => (new AuthController())->login(),
     'logout'              => (new AuthController())->logout(),
+    'edit-account'        => (new AuthController())->editAccount(),
+    'edit-inforPersonal'  => (new AuthController())->editInforPersonal(),
+    'edit-password'           => (new AuthController())->editPass(),
 
 
     // Admin

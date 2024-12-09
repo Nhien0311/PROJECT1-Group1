@@ -28,7 +28,7 @@ class ProductController
             // Khởi tạo mảng lỗi
             $_SESSION['errors'] = [];
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $thumbnail = '';
                 $fileImg = "uploads/";
                 if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] == 0) {
