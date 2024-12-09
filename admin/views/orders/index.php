@@ -41,20 +41,20 @@
                     <?php
                     if (isset($_SESSION['success'])) {
                         $class = $_SESSION['success'] ? 'alert-success' : 'alert-danger';
-                        echo "<div class='alert $class'> {$_SESSION['msg']}</div>";
+                        // echo "<div class='alert $class'> {$_SESSION['msg']}</div>";
                         unset($_SESSION['success']);
                         unset($_SESSION['msg']);
                     }
                     ?>
-                    <?php if (!empty($_SESSION['errors'])):?>
+                    <?php if (!empty($_SESSION['errors'])): ?>
                         <div class="alert alert-danger">
                             <ul>
-                                <?php foreach($_SESSION['errors'] as $value) : ?>
+                                <?php foreach ($_SESSION['errors'] as $value): ?>
                                     <li><?= $value ?></li>
-                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
-                        <?php endif; ?>
+                    <?php endif; ?>
                     <div class="row">
                         <div class="col">
 
@@ -91,17 +91,28 @@
                                                                 <td><?= $order['phone']; ?></td>
                                                                 <td><?= $order['name']; ?></td>
                                                                 <td><?= $order['address']; ?></td>
-                                                                <td><?= $order['status'] ?></td> 
+                                                                <td><?php
+                                                                if($order['status'] == 0) {
+                                                                    echo "Đơn hàng mới";
+                                                                }elseif($order['status'] == 1) {
+                                                                    echo "Đã xác nhận";
+                                                                }elseif($order['status'] == 2) {
+                                                                    echo "Đang giao hàng";
+                                                                }elseif($order['status'] == 3) {
+                                                                    echo "Đã nhận đơn";
+                                                                }
+                                                                    ?>
+                                                                </td>
                                                                 <td><?= $order['account_id']; ?></td>
-                                                                <td><?= $order['total_amount']; ?>VNĐ</td> 
+                                                                <td><?= $order['total_amount']; ?>VNĐ</td>
                                                                 <td>
                                                                     <div
                                                                         class="d-flex justify-content-center hstack gap-3 flex-wrap">
-                                                                        
-                                                                    <a href="?act=orders/show&id=<?php echo $order['order_id']; ?>"
-                                                                        class="link-success">
-                                                                        <i class="ri-eye-line"></i>
-                                                                    </a>
+
+                                                                        <a href="?act=orders/show&id=<?php echo $order['order_id']; ?>"
+                                                                            class="link-success">
+                                                                            <i class="ri-eye-line"></i>
+                                                                        </a>
                                                                         <a href="?act=orders/edit&id=<?php echo $order['order_id']; ?>"
                                                                             class="link-success">
                                                                             <i class="ri-edit-2-line"></i>

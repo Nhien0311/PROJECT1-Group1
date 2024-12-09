@@ -39,6 +39,12 @@ class ordersModel {
         $stmt->execute($data);
         return $this->conn->lastInsertId();
     }
+    function load_all_bill($account_id) {
+        $sql = "SELECT * FROM `orders` WHERE account_id=".$account_id;
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt;
+    }
  
 }
 ?>
