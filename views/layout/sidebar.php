@@ -73,21 +73,6 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDanhgia" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarDanhgia">
-                        <i class="ri-stack-line"></i> <span data-key="t-advance-ui">Quản lí đánh giá</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarDanhgia">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="?act=ratings" class="nav-link" data-key="t-sweet-alerts">
-                                    Danh sách
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarDonhang" data-bs-toggle="collapse" role="button"
