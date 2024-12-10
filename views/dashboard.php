@@ -150,55 +150,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <div class="card shadow mb-4">
-                                                <div class="card-header bg-secondary text-white">
-                                                    <h6 class="m-0 fw-bold">Biểu đồ doanh thu</h6>
-                                                    <!-- Thêm ô chọn ngày -->
-                                                    <input type="date" id="datePicker">
-                                                </div>
-                                                <div class="card-body">
-                                                    <canvas id="revenue-chart" height="289"></canvas>
-                                                    <div class="text-center mt-3">
-                                                        <h5>Tổng doanh thu: <span class="text-success">
-                                                                <?= number_format($doanhThu, 0, ',', '.') ?> ₫
-                                                            </span></h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="card shadow mb-4">
-                                                <div class="card-header bg-secondary text-white">
-                                                    <h6 class="m-0 fw-bold">Trạng thái đơn hàng</h6>
-                                                </div>
-                                                <div class="card-body">
-                                                    <table class="table table-success table-striped">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Trạng thái</th>
-                                                                <th>Số lượng</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody class="table-group-divider">
-                                                            <?php foreach ($trangThaiDonHangs as $trangThaiDonHang) {
-                                                                $id = $trangThaiDonHang['id'];
-                                                                $tenTrangThai = $trangThaiDonHang['ten_trang_thai'];
-                                                                $soLuong = isset($trangThaiDonHangCount[$id]) ? $trangThaiDonHangCount[$id] : 0; ?>
-                                                                <tr>
-                                                                    <td><?= htmlspecialchars($tenTrangThai) ?></td>
-                                                                    <td><?= htmlspecialchars($soLuong) ?> ĐƠN HÀNG</td>
-                                                                </tr>
-                                                            <?php } ?>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                             </div>
